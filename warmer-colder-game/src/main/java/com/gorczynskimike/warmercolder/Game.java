@@ -15,7 +15,7 @@ public class Game {
     public void startNewGame() {
         this.isRunning = true;
         this.counter = 0;
-        sendMessage("*** STARTING NEW GAME ***");
+        sendMessage("*** GAME START ***");
         sendMessage("Hello user, the goal of this game is to guess a number in range of 0 - 100 (inclusive).");
         this.goal = new Random().nextInt(101);
     }

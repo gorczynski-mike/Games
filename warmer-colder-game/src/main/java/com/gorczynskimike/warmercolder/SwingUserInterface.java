@@ -15,8 +15,14 @@ public class SwingUserInterface extends JFrame{
     {
         submitPanel.setSubmitButtonListener(text -> game.checkUserNumber(text));
         controlPanel.setStartGameButtonListener(text -> {
-            textPanel.clearText();
+            controlPanel.disableButtons();
+            submitPanel.disableButtons();
+            textPanel.clearTextAnimate();
+        });
+        textPanel.setAnimationFinishedListener(text -> {
             game.startNewGame();
+            controlPanel.enableButtons();
+            submitPanel.enableButtons();
         });
         controlPanel.setEndGameButtonListener(text -> game.userEndsTheGame());
         game.setGameActionListener(text -> {

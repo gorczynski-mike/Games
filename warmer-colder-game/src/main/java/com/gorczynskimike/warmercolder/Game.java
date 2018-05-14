@@ -15,6 +15,7 @@ public class Game {
     public void startNewGame() {
         this.isRunning = true;
         this.counter = 0;
+        sendMessage("*** STARTING NEW GAME ***");
         sendMessage("Hello user, the goal of this game is to guess a number in range of 0 - 100 (inclusive).");
         this.goal = new Random().nextInt(101);
     }
@@ -41,6 +42,7 @@ public class Game {
         }
         this.counter++;
         difference = Math.abs(goal - userAnswerInt);
+        sendMessage("Your guess: " + userAnswerInt);
         if (difference == 0) {
             sendMessage("Bullseye!");
             userWonTheGame();
@@ -68,7 +70,7 @@ public class Game {
 
     public void userEndsTheGame() {
         if(!isRunning) {
-            sendMessage("You cannot end the game, the game has not started yet.");
+            sendMessage("You cannot end the game, the game is not running. You can start a new game.");
         } else {
             sendMessage("You decided to end the game. You have not guessed the number.");
             sendMessage("The number was: " + goal + ". You tried " + counter + " times to guess it.");
@@ -78,6 +80,7 @@ public class Game {
 
     private void endGame() {
         sendMessage("The game has ended.");
+        sendMessage("*** GAME END ***");
         this.isRunning = false;
         this.counter = 0;
         this.goal = -1;

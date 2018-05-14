@@ -3,6 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/ConsoleUserInteractionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/SwingUserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/SwingUserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/UserInteractionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleUserInteractionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/UserInteractionService.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -37,24 +47,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#524#525#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SwingUserInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
+            <state relative-caret-position="378">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,6 +84,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MessageService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MessageService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ConsoleMessageService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleMessageService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,8 +118,8 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1638">
-              <caret line="78" column="28" lean-forward="true" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+            <state relative-caret-position="294">
+              <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
               <folding>
                 <element signature="e#1627#1628#0" expanded="true" />
                 <element signature="e#1680#1681#0" expanded="true" />
@@ -122,32 +128,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsoleUserInteractionService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleUserInteractionService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInteractionService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/UserInteractionService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TextPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="420">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#366#367#0" expanded="true" />
+                <element signature="e#404#405#0" expanded="true" />
+                <element signature="e#495#496#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -890,12 +881,12 @@
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/UserInterface.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/UserInteractionService.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleUserInteractionService.java" />
-        <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ActionListener.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/GameRunner.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SubmitButtonListener.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Application.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ControlPanel.java" />
+        <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Game.java" />
       </list>
@@ -1096,15 +1087,16 @@
       <workItem from="1525973628724" duration="1745000" />
       <workItem from="1526113288491" duration="830000" />
       <workItem from="1526138402172" duration="2396000" />
-      <workItem from="1526312908421" duration="5801000" />
+      <workItem from="1526312908421" duration="7565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34058000" />
+    <option name="totallyTimeSpent" value="35822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1115,13 +1107,14 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32984293" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32984293" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32984293" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32984293" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25027084" />
       <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1135,7 +1128,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1150,20 +1142,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rock-paper-scissors/src/main/java/com/gorczynskimike/games/rockpaperscissors/ValidPlays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rock-paper-scissors/src/main/java/com/gorczynskimike/games/rockpaperscissors/UserPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="55" selection-start-line="2" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rock-paper-scissors/src/main/java/com/gorczynskimike/games/rockpaperscissors/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1428,57 +1406,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MessageService.java">
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleUserInteractionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleMessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding>
-            <element signature="e#162#163#0" expanded="true" />
-            <element signature="e#205#206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/UserInteractionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/GameRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding>
-            <element signature="e#112#113#0" expanded="true" />
-            <element signature="e#157#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="141">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1493,10 +1424,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleUserInteractionService.java">
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/UserInteractionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="62" />
+        <state relative-caret-position="84">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/GameRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding>
+            <element signature="e#112#113#0" expanded="true" />
+            <element signature="e#157#158#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1510,10 +1452,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ConsoleMessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+          <folding>
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java_installation/jdk1.8.0_131/src.zip!/java/awt/Font.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="1933" column="16" selection-start-line="1933" selection-start-column="16" selection-end-line="1933" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java_installation/jdk1.8.0_131/src.zip!/javax/swing/JTextArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="638" column="25" lean-forward="true" selection-start-line="638" selection-start-column="25" selection-end-line="638" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/TextPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
+        <state relative-caret-position="378">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1522,8 +1517,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1638">
-          <caret line="78" column="28" lean-forward="true" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
+        <state relative-caret-position="294">
+          <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
           <folding>
             <element signature="e#1627#1628#0" expanded="true" />
             <element signature="e#1680#1681#0" expanded="true" />

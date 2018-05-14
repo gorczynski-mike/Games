@@ -15,13 +15,13 @@ public class SwingUserInterface extends JFrame{
     {
         submitPanel.setSubmitButtonListener(text -> game.checkUserNumber(text));
         controlPanel.setStartGameButtonListener(text -> {
-            controlPanel.disableButtons();
+            controlPanel.animationStarted();
             submitPanel.disableButtons();
             textPanel.clearTextAnimate();
         });
         textPanel.setAnimationFinishedListener(text -> {
             game.startNewGame();
-            controlPanel.enableButtons();
+            controlPanel.animationEnded();
             submitPanel.enableButtons();
         });
         controlPanel.setEndGameButtonListener(text -> game.userEndsTheGame());
@@ -29,6 +29,12 @@ public class SwingUserInterface extends JFrame{
             textPanel.appendText(text + System.lineSeparator());
             consoleMessageService.sendMessage(text);
         } );
+        controlPanel.setFinishAnimationButtonListener(text -> {
+            textPanel.interruptAnimation();
+            game.startNewGame();
+            controlPanel.animationEnded();
+            submitPanel.enableButtons();
+        });
     }
 
     public SwingUserInterface() {

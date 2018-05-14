@@ -16,6 +16,7 @@ public class ControlPanel extends JPanel {
         endGameButton.addActionListener(event -> endGameButtonListener.performAction("end the game"));
 
         setLayout(new FlowLayout(FlowLayout.LEFT));
+        setBorder(AppBorderFactory.getStandardBorder("Control Panel"));
         add(startGameButton);
         add(endGameButton);
     }

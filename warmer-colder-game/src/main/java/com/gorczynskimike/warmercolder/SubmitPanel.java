@@ -17,6 +17,7 @@ public class SubmitPanel extends JPanel {
         });
 
         setLayout(new FlowLayout());
+        setBorder(AppBorderFactory.getStandardBorder("Submit panel"));
         add(inputField);
         add(submitButton);
     }

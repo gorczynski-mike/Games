@@ -6,13 +6,14 @@ import java.awt.*;
 public class SwingUserInterface extends JFrame{
 
     private final Game game = new Game();
-    private final MessageService consoleMessageService = new ConsoleMessageService();
+    private final MessageService consoleMessageService = text -> System.out.println(text);
 
-    private final TextPanel textPanel = new TextPanel();
     private final ControlPanel controlPanel = new ControlPanel();
+    private final TextPanel textPanel = new TextPanel();
+    private final SubmitPanel submitPanel = new SubmitPanel();
 
     {
-        controlPanel.setSubmitButtonListener(text -> game.checkUserNumber(text));
+        submitPanel.setSubmitButtonListener(text -> game.checkUserNumber(text));
         controlPanel.setStartGameButtonListener(text -> {
             textPanel.clearText();
             game.startNewGame();
@@ -30,8 +31,9 @@ public class SwingUserInterface extends JFrame{
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        add(controlPanel, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
-        add(controlPanel, BorderLayout.SOUTH);
+        add(submitPanel, BorderLayout.SOUTH);
 
         setVisible(true);
         textPanel.appendText("Hello user. You can start the game after clicking \"Start game\" button." + System.lineSeparator());

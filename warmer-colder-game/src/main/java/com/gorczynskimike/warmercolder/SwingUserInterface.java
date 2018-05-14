@@ -35,6 +35,7 @@ public class SwingUserInterface extends JFrame{
             controlPanel.animationEnded();
             submitPanel.enableButtons();
         });
+        controlPanel.setAnimateFasterButtonListener(text -> textPanel.animateFaster());
     }
 
     public SwingUserInterface() {

@@ -9,6 +9,7 @@ public class TextPanel extends JPanel {
     private SwingWorker swingWorker;
     private Thread swingWorkerThread;
     private boolean finishAnimationNowFlag = false;
+    private int animationSpeed = 20;
 
     private ActionListener animationFinishedListener;
 
@@ -28,15 +29,12 @@ public class TextPanel extends JPanel {
         textArea.setCaretPosition(textArea.getText().length());
     }
 
-    public void clearText() {
-        this.textArea.setText("");
-    }
-
     public void clearTextAnimate() {
         swingWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 finishAnimationNowFlag = false;
+                animationSpeed = 20;
                 String text = textArea.getText();
                 while(text.length() > 0) {
                     if(finishAnimationNowFlag) {
@@ -46,7 +44,7 @@ public class TextPanel extends JPanel {
                     textArea.setText(text);
                     textArea.repaint();
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(animationSpeed);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -63,6 +61,12 @@ public class TextPanel extends JPanel {
     public void interruptAnimation() {
         finishAnimationNowFlag = true;
         textArea.setText("");
+    }
+
+    public void animateFaster() {
+        if(animationSpeed > 0) {
+            animationSpeed = animationSpeed - 2;
+        }
     }
 
 }

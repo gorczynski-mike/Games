@@ -20,7 +20,9 @@ public class TextPanel extends JPanel {
     public TextPanel() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
+        textArea.setEnabled(false);
         textArea.setFont(textArea.getFont().deriveFont(20.0f));
+        textArea.setDisabledTextColor(Color.BLACK);
         add(new JScrollPane(textArea), BorderLayout.CENTER);
     }
 

@@ -41,6 +41,7 @@ public class SwingUserInterface extends JFrame{
     public SwingUserInterface() {
         super("Warmer colder game");
         setSize(1024,800);
+        setMinimumSize(new Dimension(1024, 800));
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

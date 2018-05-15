@@ -11,18 +11,25 @@ public class ControlPanel extends JPanel {
     private final JButton endGameButton = new JButton("End game");
     private final JButton finishAnimationButton = new JButton("Finish animation");
     private final JButton animateFasterButton = new JButton("Animate faster");
+    private final JLabel fontLabel = new JLabel("Change font size: ");
+    private final JButton biggerFontButton = new JButton("+");
+    private final JButton smallerFontButton = new JButton("-");
     private final List<JButton> buttons = new ArrayList<>();
 
     private ActionListener startGameButtonListener;
     private ActionListener endGameButtonListener;
     private ActionListener finishAnimationButtonListener;
     private ActionListener animateFasterButtonListener;
+    private ActionListener biggerFontButtonListener;
+    private ActionListener smallerFontButtonListener;
 
     public ControlPanel() {
         startGameButton.addActionListener(event -> startGameButtonListener.performAction("start new game"));
         endGameButton.addActionListener(event -> endGameButtonListener.performAction("end the game"));
         finishAnimationButton.addActionListener(event -> finishAnimationButtonListener.performAction("finish animation"));
         animateFasterButton.addActionListener(event -> animateFasterButtonListener.performAction("animate faster"));
+        biggerFontButton.addActionListener(event -> biggerFontButtonListener.performAction("bigger font"));
+        smallerFontButton.addActionListener(event -> smallerFontButtonListener.performAction("smaller font"));
         buttons.add(startGameButton);
         buttons.add(endGameButton);
         finishAnimationButton.setVisible(false);
@@ -34,6 +41,11 @@ public class ControlPanel extends JPanel {
         add(endGameButton);
         add(finishAnimationButton);
         add(animateFasterButton);
+        add(fontLabel);
+        smallerFontButton.setFont(smallerFontButton.getFont().deriveFont(16.0f));
+        biggerFontButton.setFont(biggerFontButton.getFont().deriveFont(16.0f));
+        add(smallerFontButton);
+        add(biggerFontButton);
     }
 
     public void setStartGameButtonListener(ActionListener startGameButtonListener) {
@@ -50,6 +62,14 @@ public class ControlPanel extends JPanel {
 
     public void setAnimateFasterButtonListener(ActionListener animateFasterButtonListener) {
         this.animateFasterButtonListener = animateFasterButtonListener;
+    }
+
+    public void setBiggerFontButtonListener(ActionListener biggerFontButtonListener) {
+        this.biggerFontButtonListener = biggerFontButtonListener;
+    }
+
+    public void setSmallerFontButtonListener(ActionListener smallerFontButtonListener) {
+        this.smallerFontButtonListener = smallerFontButtonListener;
     }
 
     public void animationStarted() {

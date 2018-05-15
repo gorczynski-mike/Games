@@ -71,4 +71,20 @@ public class TextPanel extends JPanel {
         }
     }
 
+    public void makeFontBigger() {
+        int currentFont = textArea.getFont().getSize();
+        if(currentFont < 60) {
+            int newFont = currentFont + 2;
+            textArea.setFont(textArea.getFont().deriveFont((float) newFont));
+        }
+    }
+
+    public void makeFontSmaller() {
+        int currentFont = textArea.getFont().getSize();
+        if(currentFont > 20) {
+            int newFont = currentFont - 2;
+            textArea.setFont(textArea.getFont().deriveFont((float) newFont));
+        }
+    }
+
 }

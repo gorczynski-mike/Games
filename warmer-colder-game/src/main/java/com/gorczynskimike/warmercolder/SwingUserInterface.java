@@ -52,14 +52,14 @@ public class SwingUserInterface extends JFrame{
 
         settingsPanel.setPolishButtonListener(text -> {
             currentLocale = new Locale("pl","PL");
-//            menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
-            menuTexts = getResourceBundle("menuTexts_pl_PL.properties");
+            menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
+//            menuTexts = getResourceBundle("menuTexts_pl_PL.properties");
             controlPanel.updateLanguage(menuTexts);
         });
         settingsPanel.setEnglishButtonListener(text -> {
             currentLocale = new Locale("en","US");
-//            menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
-            menuTexts = getResourceBundle("menuTexts_en_US.properties");
+            menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
+//            menuTexts = getResourceBundle("menuTexts_en_US.properties");
             controlPanel.updateLanguage(menuTexts);
         });
     }

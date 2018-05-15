@@ -2,7 +2,6 @@ package com.gorczynskimike.warmercolder;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -49,9 +48,6 @@ public class ControlPanel extends JPanel {
         add(smallerFontButton);
         add(biggerFontButton);
 
-        int size = this.getFont().getSize();
-        int style = this.getFont().getStyle();
-        ChangeFontHelper.changeFont(this, new Font("utf-8", style, size));
     }
 
     public void setStartGameButtonListener(ActionListener startGameButtonListener) {

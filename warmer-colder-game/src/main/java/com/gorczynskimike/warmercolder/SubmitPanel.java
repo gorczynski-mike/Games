@@ -15,6 +15,13 @@ public class SubmitPanel extends JPanel {
         submitButton.addActionListener(event -> {
             submitButtonListener.performAction(inputField.getText());
             inputField.setText("");
+            inputField.grabFocus();
+        });
+
+        inputField.addActionListener(event -> {
+            submitButtonListener.performAction(inputField.getText());
+            inputField.setText("");
+            inputField.grabFocus();
         });
 
         setLayout(new FlowLayout());

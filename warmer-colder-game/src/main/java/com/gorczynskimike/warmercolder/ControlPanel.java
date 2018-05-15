@@ -2,8 +2,10 @@ package com.gorczynskimike.warmercolder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class ControlPanel extends JPanel {
 
@@ -46,6 +48,10 @@ public class ControlPanel extends JPanel {
         biggerFontButton.setFont(biggerFontButton.getFont().deriveFont(16.0f));
         add(smallerFontButton);
         add(biggerFontButton);
+
+        int size = this.getFont().getSize();
+        int style = this.getFont().getStyle();
+        ChangeFontHelper.changeFont(this, new Font("utf-8", style, size));
     }
 
     public void setStartGameButtonListener(ActionListener startGameButtonListener) {
@@ -86,5 +92,13 @@ public class ControlPanel extends JPanel {
         }
         finishAnimationButton.setVisible(false);
         animateFasterButton.setVisible(false);
+    }
+
+    public void updateLanguage(ResourceBundle menuTexts) {
+        this.startGameButton.setText(menuTexts.getString("start"));
+        this.endGameButton.setText(menuTexts.getString("end"));
+        this.finishAnimationButton.setText(menuTexts.getString("animationStop"));
+        this.animateFasterButton.setText(menuTexts.getString("animationFaster"));
+        this.fontLabel.setText(menuTexts.getString("fontChange"));
     }
 }

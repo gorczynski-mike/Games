@@ -1,5 +1,7 @@
 package com.gorczynskimike.warmercolder;
 
+import javafx.stage.Stage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.InputStream;
@@ -71,6 +73,11 @@ public class SwingUserInterface extends JFrame{
 
     public SwingUserInterface() {
         super("Warmer colder game");
+        try {
+            new Thread(new MusicClass()).start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         setSize(1024,800);
         setMinimumSize(new Dimension(1024, 800));
         setLayout(new BorderLayout());

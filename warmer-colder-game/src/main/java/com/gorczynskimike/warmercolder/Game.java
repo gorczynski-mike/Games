@@ -20,6 +20,11 @@ public class Game {
     private ResourceBundle resourceBundle = englishMessages;
 
     private ActionListener gameActionListener;
+    private ActionListener gameLossListener;
+
+    public void setGameLossListener(ActionListener gameLossListener) {
+        this.gameLossListener = gameLossListener;
+    }
 
     public void startNewGame() {
         messagesEngHistory.delete(0, messagesEngHistory.length());
@@ -112,6 +117,7 @@ public class Game {
         } else {
             generateMessage("loss1");
             generateMessage("loss2", goal, counter);
+            gameLossListener.performAction("game lost");
 //            sendMessage("You decided to end the game. You have not guessed the number.");
 //            sendMessage(String.format("The number was: %d. You tried %d times to guess it.", goal, counter));
             endGame();

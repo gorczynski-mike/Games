@@ -15,6 +15,7 @@ public class SwingUserInterface extends JFrame{
 
     private final Game game = new Game();
     private final MessageService consoleMessageService = text -> System.out.println(text);
+    private MusicClass musicClass;
 
     private final ControlPanel controlPanel = new ControlPanel();
     private final TextPanel textPanel = new TextPanel();
@@ -41,6 +42,7 @@ public class SwingUserInterface extends JFrame{
             textPanel.appendText(text + System.lineSeparator());
             consoleMessageService.sendMessage(text);
         } );
+        game.setGameLossListener(text -> { });
         controlPanel.setFinishAnimationButtonListener(text -> {
             textPanel.interruptAnimation();
             game.startNewGame();
@@ -74,7 +76,8 @@ public class SwingUserInterface extends JFrame{
     public SwingUserInterface() {
         super("Warmer colder game");
         try {
-            new Thread(new MusicClass()).start();
+            musicClass = new MusicClass();
+            new Thread(musicClass).start();
         } catch (Exception e) {
             e.printStackTrace();
         }

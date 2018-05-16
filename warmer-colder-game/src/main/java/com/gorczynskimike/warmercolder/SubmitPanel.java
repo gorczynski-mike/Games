@@ -2,6 +2,7 @@ package com.gorczynskimike.warmercolder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ResourceBundle;
 
 public class SubmitPanel extends JPanel {
 
@@ -43,4 +44,9 @@ public class SubmitPanel extends JPanel {
         submitButton.setEnabled(true);
     }
 
+    public void updateLanguage(ResourceBundle menuTexts) {
+        inputLabel.setText(menuTexts.getString("yourNumber"));
+        submitButton.setText(menuTexts.getString("submitButton"));
+        this.setBorder(AppBorderFactory.getStandardBorder(menuTexts.getString("submitPanel")));
+    }
 }

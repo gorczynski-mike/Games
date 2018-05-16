@@ -5,7 +5,6 @@ import java.awt.*;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
@@ -51,16 +50,20 @@ public class SwingUserInterface extends JFrame{
         controlPanel.setBiggerFontButtonListener(text -> textPanel.makeFontBigger());
 
         settingsPanel.setPolishButtonListener(text -> {
+            this.setTitle("Gra ciepło zimno");
             currentLocale = new Locale("pl","PL");
             menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
-//            menuTexts = getResourceBundle("menuTexts_pl_PL.properties");
             controlPanel.updateLanguage(menuTexts);
+            submitPanel.updateLanguage(menuTexts);
+            game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
         });
         settingsPanel.setEnglishButtonListener(text -> {
+            this.setTitle("Warmer colder game");
             currentLocale = new Locale("en","US");
             menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
-//            menuTexts = getResourceBundle("menuTexts_en_US.properties");
             controlPanel.updateLanguage(menuTexts);
+            submitPanel.updateLanguage(menuTexts);
+            game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
         });
     }
 

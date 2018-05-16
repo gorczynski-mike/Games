@@ -87,4 +87,8 @@ public class TextPanel extends JPanel {
         }
     }
 
+    public void setMessagesHistory(String history) {
+        this.textArea.setText(history);
+    }
+
 }

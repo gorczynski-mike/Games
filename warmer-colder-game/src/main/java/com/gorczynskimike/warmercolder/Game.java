@@ -33,14 +33,14 @@ public class Game {
 
     private void generateMessage(String key){
         sendMessage(resourceBundle.getString(key));
-        messagesEngHistory.append(englishMessages.getString(key));
-        messagesPlHistory.append(polishMessages.getString(key));
+        messagesEngHistory.append(englishMessages.getString(key) + System.lineSeparator());
+        messagesPlHistory.append(polishMessages.getString(key) + System.lineSeparator());
     }
 
     private void generateMessage(String key, Integer... ints){
         sendMessage(String.format(resourceBundle.getString(key), ints));
-        messagesEngHistory.append(String.format(englishMessages.getString(key), ints));
-        messagesPlHistory.append(String.format(polishMessages.getString(key), ints));
+        messagesEngHistory.append(String.format(englishMessages.getString(key), ints) + System.lineSeparator());
+        messagesPlHistory.append(String.format(polishMessages.getString(key), ints) + System.lineSeparator());
     }
 
     private void sendMessage(String message) {
@@ -134,5 +134,13 @@ public class Game {
 
     public void setLanguage(ResourceBundle resourceBundle) {
         this.resourceBundle = resourceBundle;
+    }
+
+    public String getHistory(String language) {
+        switch(language.toUpperCase()){
+            case "PL": return messagesPlHistory.toString();
+            case "ENG": return messagesEngHistory.toString();
+            default: return "Language not found";
+        }
     }
 }

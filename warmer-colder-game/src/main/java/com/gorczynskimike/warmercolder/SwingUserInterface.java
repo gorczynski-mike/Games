@@ -56,6 +56,7 @@ public class SwingUserInterface extends JFrame{
             controlPanel.updateLanguage(menuTexts);
             submitPanel.updateLanguage(menuTexts);
             game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
+            textPanel.setMessagesHistory(game.getHistory("PL"));
         });
         settingsPanel.setEnglishButtonListener(text -> {
             this.setTitle("Warmer colder game");
@@ -64,6 +65,7 @@ public class SwingUserInterface extends JFrame{
             controlPanel.updateLanguage(menuTexts);
             submitPanel.updateLanguage(menuTexts);
             game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
+            textPanel.setMessagesHistory(game.getHistory("ENG"));
         });
     }
 
@@ -80,7 +82,7 @@ public class SwingUserInterface extends JFrame{
         add(settingsPanel, BorderLayout.WEST);
 
         setVisible(true);
-        textPanel.appendText("Hello user. You can start the game after clicking \"Start game\" button." + System.lineSeparator());
+//        textPanel.appendText("Hello user. You can start the game after clicking \"Start game\" button." + System.lineSeparator());
     }
 
     private ResourceBundle getResourceBundle(String resourceName) {

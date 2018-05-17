@@ -84,6 +84,7 @@ public class SwingUserInterface extends JFrame{
     }
 
     public SwingUserInterface() {
+        DatabaseH2Service databaseH2Service = new DatabaseH2Service();
         setSize(1024,800);
         setMinimumSize(new Dimension(1024, 800));
         setLayout(new BorderLayout());

@@ -19,7 +19,6 @@ public class SwingUserInterface extends JFrame{
     private final ControlPanel controlPanel = new ControlPanel();
     private final TextPanel textPanel = new TextPanel();
     private final SubmitPanel submitPanel = new SubmitPanel();
-    private final SettingsPanel settingsPanel = new SettingsPanel();
     private final MenuBar menuBar = new MenuBar();
 
     private Locale currentLocale = new Locale("en", "US");
@@ -60,13 +59,6 @@ public class SwingUserInterface extends JFrame{
                 setEnglishLanguage();
             }
         });
-
-        settingsPanel.setPolishButtonListener(text -> {
-            setPolishLanguage();
-        });
-        settingsPanel.setEnglishButtonListener(text -> {
-            setEnglishLanguage();
-        });
     }
 
     private void setEnglishLanguage() {
@@ -101,11 +93,9 @@ public class SwingUserInterface extends JFrame{
         add(controlPanel, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
         add(submitPanel, BorderLayout.SOUTH);
-        add(settingsPanel, BorderLayout.WEST);
         setJMenuBar(menuBar);
 
         setVisible(true);
-//        textPanel.appendText("Hello user. You can start the game after clicking \"Start game\" button." + System.lineSeparator());
     }
 
     private ResourceBundle getResourceBundle(String resourceName) {

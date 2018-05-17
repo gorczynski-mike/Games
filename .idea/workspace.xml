@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/bip.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/MusicClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/SettingsPanel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/SwingUserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/com/gorczynskimike/warmercolder/SwingUserInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/out/production/classes/loss.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SettingsPanel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts.properties" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_pl_PL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_pl_PL.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_pl_PL.propertiesUTF8" beforeDir="false" afterPath="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_pl_PL.propertiesUTF8" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -54,23 +42,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="SwingUserInterface.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SwingUserInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="98" column="36" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="36" />
+            <state relative-caret-position="456">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -84,15 +63,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuBar.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuBar.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
+            <state relative-caret-position="189">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#937#938#0" expanded="true" />
-                <element signature="e#956#957#0" expanded="true" />
+                <element signature="e#1022#1023#0" expanded="true" />
+                <element signature="e#1092#1093#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -907,11 +886,11 @@
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MusicClass.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts.properties" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_en_US.properties" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts_pl_PL.propertiesUTF8" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java" />
+        <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java" />
       </list>
     </option>
   </component>
@@ -1140,12 +1119,12 @@
       <workItem from="1526383658796" duration="3793000" />
       <workItem from="1526409827518" duration="17993000" />
       <workItem from="1526468906704" duration="530000" />
-      <workItem from="1526552956952" duration="1159000" />
+      <workItem from="1526552956952" duration="1784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65528000" />
+    <option name="totallyTimeSpent" value="66153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -1167,6 +1146,7 @@
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24972914" />
       <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1180,7 +1160,6 @@
       <window_info anchor="bottom" id="Build" order="10" weight="0.32984293" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1368,13 +1347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SettingsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1487,18 +1459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-            <element signature="e#956#957#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/resources/menuTexts.properties">
       <provider editor-type-id="ResourceBundle" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1526,12 +1486,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SettingsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SwingUserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="98" column="36" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="36" />
+        <state relative-caret-position="456">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -11,6 +11,7 @@ public class MenuBar extends JMenuBar {
 
     private final JMenu player = new JMenu("Player");
     private final JMenuItem changePlayer = new JMenuItem("Change player");
+    private final JMenuItem topPlayers = new JMenuItem("Top 10 players");
 
     private final JMenu language = new JMenu("Language");
     private final JMenuItem polishLanguage = new JMenuItem("Polski");
@@ -18,6 +19,11 @@ public class MenuBar extends JMenuBar {
 
     private ActionListener languageActionListener;
     private ActionListener playerChangeActionListener;
+    private ActionListener topPlayersActionListener;
+
+    public void setTopPlayersActionListener(ActionListener topPlayersActionListener) {
+        this.topPlayersActionListener = topPlayersActionListener;
+    }
 
     public void setLanguageActionListener(ActionListener languageActionListener) {
         this.languageActionListener = languageActionListener;
@@ -31,7 +37,9 @@ public class MenuBar extends JMenuBar {
         Font menuBarFont = this.getFont().deriveFont(menuBarFontSize);
 
         player.add(changePlayer);
+        player.add(topPlayers);
         changePlayer.addActionListener(e -> playerChangeActionListener.performAction("change player"));
+        topPlayers.addActionListener(e -> topPlayersActionListener.performAction("top players"));
 
         language.add(polishLanguage);
         language.add(englishLanguage);

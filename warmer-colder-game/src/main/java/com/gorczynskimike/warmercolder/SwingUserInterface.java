@@ -5,6 +5,7 @@ import java.awt.*;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.sql.ResultSet;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
@@ -19,6 +20,9 @@ public class SwingUserInterface extends JFrame{
     private final SubmitPanel submitPanel = new SubmitPanel();
     private final MenuBar menuBar = new MenuBar();
     private PlayerChangePopUp playerChangePopUp = null;
+    private TopScorersPopUp topScorersPopUp = null;
+
+    DatabaseService databaseH2Service = new DatabaseH2Service();
 
     private Locale currentLocale = new Locale("en", "US");
     private ResourceBundle menuTexts;
@@ -69,6 +73,11 @@ public class SwingUserInterface extends JFrame{
                 playerChangePopUp.requestFocus();
             }
         });
+        menuBar.setTopPlayersActionListener(text -> {
+            topScorersPopUp = new TopScorersPopUp();
+            String topPlayers = databaseH2Service.getTop10Scores();
+            topScorersPopUp.processResultSet(topPlayers);
+        });
     }
 
     private void setEnglishLanguage() {
@@ -94,7 +103,6 @@ public class SwingUserInterface extends JFrame{
     }
 
     public SwingUserInterface() {
-        DatabaseH2Service databaseH2Service = new DatabaseH2Service();
         setSize(1024,800);
         setMinimumSize(new Dimension(1024, 800));
         setLayout(new BorderLayout());

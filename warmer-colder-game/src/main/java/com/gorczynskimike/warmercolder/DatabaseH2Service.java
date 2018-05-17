@@ -39,21 +39,23 @@ public class DatabaseH2Service implements DatabaseService {
     }
 
     @Override
-    public ResultSet getTop10Scores() {
+    public String getTop10Scores() {
+        StringBuilder sb = new StringBuilder();
         try( Connection conn = getDBConnection() ) {
             Statement stmnt = conn.createStatement();
-            stmnt.execute("SELECT s.PlayerName, s.PlayerScore FROM scores s ORDER BY PlayerScore DESC LIMIT 10;");
+            stmnt.execute("SELECT s.PlayerName, s.PlayerScore FROM scores s ORDER BY PlayerScore LIMIT 10;");
             ResultSet resultSet = stmnt.getResultSet();
             System.out.println(resultSet == null);
             while(resultSet.next()) {
                 String playerName = resultSet.getString(1);
                 int playerScore = resultSet.getInt(2);
+                sb.append(playerName + "&&" + playerScore + System.lineSeparator());
                 System.out.println(playerName + " : " + playerScore);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return sb.toString();
     }
 
     private Connection getDBConnection() {

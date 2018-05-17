@@ -20,6 +20,7 @@ public class SwingUserInterface extends JFrame{
     private final TextPanel textPanel = new TextPanel();
     private final SubmitPanel submitPanel = new SubmitPanel();
     private final SettingsPanel settingsPanel = new SettingsPanel();
+    private final MenuBar menuBar = new MenuBar();
 
     private Locale currentLocale = new Locale("en", "US");
     private ResourceBundle menuTexts;
@@ -52,24 +53,42 @@ public class SwingUserInterface extends JFrame{
         controlPanel.setSmallerFontButtonListener(text -> textPanel.makeFontSmaller());
         controlPanel.setBiggerFontButtonListener(text -> textPanel.makeFontBigger());
 
+        menuBar.setLanguageActionListener(text -> {
+            if(text.equalsIgnoreCase("polish")) {
+                setPolishLanguage();
+            } else if(text.equalsIgnoreCase("english")) {
+                setEnglishLanguage();
+            }
+        });
+
         settingsPanel.setPolishButtonListener(text -> {
-            this.setTitle("Gra ciepło zimno");
-            currentLocale = new Locale("pl","PL");
-            menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
-            controlPanel.updateLanguage(menuTexts);
-            submitPanel.updateLanguage(menuTexts);
-            game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
-            textPanel.setMessagesHistory(game.getHistory("PL"));
+            setPolishLanguage();
         });
         settingsPanel.setEnglishButtonListener(text -> {
-            this.setTitle("Warmer colder game");
-            currentLocale = new Locale("en","US");
-            menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
-            controlPanel.updateLanguage(menuTexts);
-            submitPanel.updateLanguage(menuTexts);
-            game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
-            textPanel.setMessagesHistory(game.getHistory("ENG"));
+            setEnglishLanguage();
         });
+    }
+
+    private void setEnglishLanguage() {
+        currentLocale = new Locale("en","US");
+        menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
+        this.setTitle(menuTexts.getString("appName"));
+        controlPanel.updateLanguage(menuTexts);
+        submitPanel.updateLanguage(menuTexts);
+        menuBar.updateLanguage(menuTexts);
+        game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
+        textPanel.setMessagesHistory(game.getHistory("ENG"));
+    }
+
+    private void setPolishLanguage() {
+        currentLocale = new Locale("pl","PL");
+        menuTexts = ResourceBundle.getBundle("menuTexts", currentLocale);
+        this.setTitle(menuTexts.getString("appName"));
+        controlPanel.updateLanguage(menuTexts);
+        submitPanel.updateLanguage(menuTexts);
+        menuBar.updateLanguage(menuTexts);
+        game.setLanguage(ResourceBundle.getBundle("gameMessages", currentLocale));
+        textPanel.setMessagesHistory(game.getHistory("PL"));
     }
 
     public SwingUserInterface() {
@@ -77,11 +96,13 @@ public class SwingUserInterface extends JFrame{
         setMinimumSize(new Dimension(1024, 800));
         setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Warmer colder game");
 
         add(controlPanel, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
         add(submitPanel, BorderLayout.SOUTH);
         add(settingsPanel, BorderLayout.WEST);
+        setJMenuBar(menuBar);
 
         setVisible(true);
 //        textPanel.appendText("Hello user. You can start the game after clicking \"Start game\" button." + System.lineSeparator());

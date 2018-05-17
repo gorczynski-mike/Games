@@ -1,0 +1,9 @@
+﻿start = Zacznij grę
+end = Zakończ grę
+animationStop = Skończ animację
+animationFaster = Przyspiesz animację
+fontChange = Zmień wilkość czcionki
+controlBorderTitle=Panel sterowania
+yourNumber=Twoja liczba
+submitPanel=Panel gry
+submitButton=Wyślij

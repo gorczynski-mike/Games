@@ -1,7 +1,5 @@
 package com.gorczynskimike.warmercolder;
 
-import javafx.stage.Stage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.InputStream;
@@ -20,6 +18,7 @@ public class SwingUserInterface extends JFrame{
     private final TextPanel textPanel = new TextPanel();
     private final SubmitPanel submitPanel = new SubmitPanel();
     private final MenuBar menuBar = new MenuBar();
+    private PlayerChangePopUp playerChangePopUp = null;
 
     private Locale currentLocale = new Locale("en", "US");
     private ResourceBundle menuTexts;
@@ -41,7 +40,7 @@ public class SwingUserInterface extends JFrame{
             textPanel.appendText(text + System.lineSeparator());
             consoleMessageService.sendMessage(text);
         } );
-        game.setGameLossListener(text -> { });
+        game.setPlayerChangeListener(text -> this.submitPanel.setPlayerName(text));
         controlPanel.setFinishAnimationButtonListener(text -> {
             textPanel.interruptAnimation();
             game.startNewGame();
@@ -57,6 +56,17 @@ public class SwingUserInterface extends JFrame{
                 setPolishLanguage();
             } else if(text.equalsIgnoreCase("english")) {
                 setEnglishLanguage();
+            }
+        });
+        menuBar.setPlayerChangeActionListener(text -> {
+            if(playerChangePopUp == null) {
+                playerChangePopUp = new PlayerChangePopUp();
+                playerChangePopUp.setOkButtonActionListener(playerName -> {
+                    game.setPlayer(playerName);
+                    playerChangePopUp = null;
+                });
+            } else {
+                playerChangePopUp.requestFocus();
             }
         });
     }
@@ -95,6 +105,8 @@ public class SwingUserInterface extends JFrame{
         add(textPanel, BorderLayout.CENTER);
         add(submitPanel, BorderLayout.SOUTH);
         setJMenuBar(menuBar);
+
+        game.setPlayer("Guest");
 
         setVisible(true);
     }

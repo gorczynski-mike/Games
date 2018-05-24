@@ -20,8 +20,13 @@ public class Game {
     private ResourceBundle polishMessages = ResourceBundle.getBundle("gameMessages", new Locale("pl", "PL"));
     private ResourceBundle resourceBundle = englishMessages;
 
-    private ActionListener gameActionListener;
+    private ActionListener sendMessageListener;
     private ActionListener playerChangeListener;
+    private ActionListener gameWonListener;
+
+    public void setGameWonListener(ActionListener gameWonListener) {
+        this.gameWonListener = gameWonListener;
+    }
 
     public void setPlayer(String playerName) {
         this.playerName = playerName;
@@ -55,7 +60,7 @@ public class Game {
     }
 
     private void sendMessage(String message) {
-        gameActionListener.performAction(message);
+        sendMessageListener.performAction(message);
     }
 
     public void checkUserNumber(String userAnswer) {
@@ -99,6 +104,7 @@ public class Game {
         generateMessage("win1", goal);
         generateMessage("win2", counter);
         generateMessage("win3");
+        gameWonListener.performAction(this.playerName + "&&" + this.counter);
         endGame();
     }
 
@@ -122,8 +128,8 @@ public class Game {
         this.goal = -1;
     }
 
-    public void setGameActionListener(ActionListener gameActionListener) {
-        this.gameActionListener = gameActionListener;
+    public void setSendMessageListener(ActionListener sendMessageListener) {
+        this.sendMessageListener = sendMessageListener;
     }
 
     public void setLanguage(ResourceBundle resourceBundle) {

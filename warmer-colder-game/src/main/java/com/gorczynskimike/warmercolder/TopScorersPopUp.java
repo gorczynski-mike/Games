@@ -17,6 +17,7 @@ public class TopScorersPopUp extends JFrame {
 
     public void processResultSet(String topScorers) {
         StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%25s : %-25s%n", "Player name", "Moves to win"));
         String[] playerScorePairs = topScorers.split(System.lineSeparator());
         for(String playerScorePair : playerScorePairs) {
             String[] items = playerScorePair.split("&&");

@@ -19,10 +19,10 @@ public class DatabaseH2Service implements DatabaseService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for(int i=0; i<10; i++) {
-            addScore("test"+i, 20*i);
-        }
-        getTop10Scores();
+//        for(int i=0; i<10; i++) {
+//            addScore("test"+i, 20*i);
+//        }
+//        getTop10Scores();
     }
 
     @Override

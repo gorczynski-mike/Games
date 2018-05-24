@@ -5,7 +5,6 @@ import java.awt.*;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.sql.ResultSet;
 import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
@@ -22,7 +21,7 @@ public class SwingUserInterface extends JFrame{
     private PlayerChangePopUp playerChangePopUp = null;
     private TopScorersPopUp topScorersPopUp = null;
 
-    DatabaseService databaseH2Service = new DatabaseH2Service();
+    DatabaseService databaseService = new DatabaseH2Service();
 
     private Locale currentLocale = new Locale("en", "US");
     private ResourceBundle menuTexts;
@@ -40,11 +39,17 @@ public class SwingUserInterface extends JFrame{
             submitPanel.enableButtons();
         });
         controlPanel.setEndGameButtonListener(text -> game.userEndsTheGame());
-        game.setGameActionListener(text -> {
+        game.setSendMessageListener(text -> {
             textPanel.appendText(text + System.lineSeparator());
             consoleMessageService.sendMessage(text);
         } );
         game.setPlayerChangeListener(text -> this.submitPanel.setPlayerName(text));
+        game.setGameWonListener(text -> {
+            String[] result = text.split("&&");
+            String playerName = result[0];
+            int playerScore = Integer.parseInt(result[1]);
+            databaseService.addScore(playerName, playerScore);
+        });
         controlPanel.setFinishAnimationButtonListener(text -> {
             textPanel.interruptAnimation();
             game.startNewGame();
@@ -75,7 +80,7 @@ public class SwingUserInterface extends JFrame{
         });
         menuBar.setTopPlayersActionListener(text -> {
             topScorersPopUp = new TopScorersPopUp();
-            String topPlayers = databaseH2Service.getTop10Scores();
+            String topPlayers = databaseService.getTop10Scores();
             topScorersPopUp.processResultSet(topPlayers);
         });
     }

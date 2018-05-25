@@ -5,6 +5,10 @@ import javax.swing.border.Border;
 
 public class AppBorderFactory {
 
+    private AppBorderFactory() {
+        //do nothing
+    }
+
     public static Border getStandardBorder(String title) {
         Border inside = BorderFactory.createTitledBorder(title);
         Border outside = BorderFactory.createEmptyBorder(15,15,15,15);

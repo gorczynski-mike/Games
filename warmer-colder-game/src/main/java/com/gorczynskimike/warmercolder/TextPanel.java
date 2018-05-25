@@ -6,8 +6,6 @@ import java.awt.*;
 public class TextPanel extends JPanel {
 
     private final JTextArea textArea = new JTextArea();
-    private SwingWorker swingWorker;
-    private Thread swingWorkerThread;
     private boolean finishAnimationNowFlag = false;
     private int animationSpeed = 20;
 
@@ -32,7 +30,7 @@ public class TextPanel extends JPanel {
     }
 
     public void clearTextAnimate() {
-        swingWorker = new SwingWorker() {
+        SwingWorker swingWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 finishAnimationNowFlag = false;
@@ -40,7 +38,7 @@ public class TextPanel extends JPanel {
                 String text = textArea.getText();
                 while(text.length() > 0) {
                     if(finishAnimationNowFlag) {
-                        return null;
+                        return false;
                     }
                     text = text.substring(0, text.length()-1);
                     textArea.setText(text);
@@ -52,11 +50,11 @@ public class TextPanel extends JPanel {
                     }
                 }
                 TextPanel.this.animationFinishedListener.performAction("animation finished");
-                return null;
+                return true;
             }
 
         };
-        swingWorkerThread = new Thread(swingWorker);
+        Thread swingWorkerThread = new Thread(swingWorker);
         swingWorkerThread.start();
     }
 

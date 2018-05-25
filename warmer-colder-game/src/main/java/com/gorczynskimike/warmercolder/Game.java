@@ -10,7 +10,6 @@ public class Game {
     private int goal;
     private int counter;
     private boolean isRunning;
-    private int difference = -1;
     private String playerName = "";
 
     private StringBuilder messagesEngHistory = new StringBuilder();
@@ -80,7 +79,7 @@ public class Game {
             return;
         }
         this.counter++;
-        difference = Math.abs(goal - userAnswerInt);
+        int difference = Math.abs(goal - userAnswerInt);
         generateMessage("yourGuess", userAnswerInt);
         if (difference == 0) {
             generateMessage("bullseye");
@@ -121,8 +120,6 @@ public class Game {
     private void endGame() {
         generateMessage("gameEnd1");
         generateMessage("gameEnd2");
-//        sendMessage("The game has ended.");
-//        sendMessage("*** GAME END ***");
         this.isRunning = false;
         this.counter = 0;
         this.goal = -1;

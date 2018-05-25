@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/sudoku-game" />
             <option value="$PROJECT_DIR$/warmer-colder-game" />
           </set>
         </option>

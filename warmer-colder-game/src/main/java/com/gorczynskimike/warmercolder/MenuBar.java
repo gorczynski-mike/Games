@@ -6,7 +6,9 @@ import java.util.ResourceBundle;
 
 public class MenuBar extends JMenuBar {
 
-    private final String checkmark = " \u2713";
+    private static final String CHECKMARK = " \u2713";
+    private static final String POLSKI = "Polski";
+    private static final String ENGLISH = "English";
     private float menuBarFontSize = 13.0f;
 
     private final JMenu player = new JMenu("Player");
@@ -14,8 +16,8 @@ public class MenuBar extends JMenuBar {
     private final JMenuItem topPlayers = new JMenuItem("Top 10 players");
 
     private final JMenu language = new JMenu("Language");
-    private final JMenuItem polishLanguage = new JMenuItem("Polski");
-    private final JMenuItem englishLanguage = new JMenuItem("English" + checkmark);
+    private final JMenuItem polishLanguage = new JMenuItem(POLSKI);
+    private final JMenuItem englishLanguage = new JMenuItem(ENGLISH + CHECKMARK);
 
     private ActionListener languageActionListener;
     private ActionListener playerChangeActionListener;
@@ -45,13 +47,13 @@ public class MenuBar extends JMenuBar {
         language.add(englishLanguage);
         polishLanguage.addActionListener(e -> {
             this.languageActionListener.performAction("polish");
-            polishLanguage.setText("Polski" + checkmark);
-            englishLanguage.setText("English");
+            polishLanguage.setText(POLSKI + CHECKMARK);
+            englishLanguage.setText(ENGLISH);
         });
         englishLanguage.addActionListener(e -> {
             this.languageActionListener.performAction("english");
-            polishLanguage.setText("Polski");
-            englishLanguage.setText("English" + checkmark);
+            polishLanguage.setText(POLSKI);
+            englishLanguage.setText(ENGLISH + CHECKMARK);
         });
         language.setFont(menuBarFont);
         polishLanguage.setFont(menuBarFont);

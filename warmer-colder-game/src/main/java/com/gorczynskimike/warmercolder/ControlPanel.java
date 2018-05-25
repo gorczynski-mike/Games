@@ -1,7 +1,6 @@
 package com.gorczynskimike.warmercolder;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ public class ControlPanel extends JPanel {
     private final JLabel fontLabel = new JLabel("Change font size: ");
     private final JButton biggerFontButton = new JButton("+");
     private final JButton smallerFontButton = new JButton("-");
-    private Border border = AppBorderFactory.getStandardBorder("Control Panel");
     private final List<JButton> buttons = new ArrayList<>();
 
     private ActionListener startGameButtonListener;

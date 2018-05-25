@@ -1,3 +1,4 @@
 rootProject.name = 'games'
 include 'warmer-colder-game'
+include 'sudoku-game'
 

@@ -70,4 +70,51 @@ public class SudokuBoardTestSuite {
                         "-------------------", boardString);
     }
 
+    @Test
+    public void testCantAssignTheSameNumberTwiceInARow() {
+        //Given
+        SudokuBoard sudokuBoard = new SudokuBoard();
+
+        //When
+        boolean resultFirstElement = sudokuBoard.setElementValue(0,0,1);
+        boolean resultSameRow = sudokuBoard.setElementValue(8,0,1);
+        boolean resultDifferentRow = sudokuBoard.setElementValue(8,1,1);
+
+        //Then
+        Assert.assertEquals(true, resultFirstElement);
+        Assert.assertEquals(false, resultSameRow);
+        Assert.assertEquals(true, resultDifferentRow);
+    }
+
+    @Test
+    public void testCantAssignTheSameNumberTwiceInAColumn() {
+        //Given
+        SudokuBoard sudokuBoard = new SudokuBoard();
+
+        //When
+        boolean resultFirstElement = sudokuBoard.setElementValue(0,0,1);
+        boolean resultSameColumn = sudokuBoard.setElementValue(0,8,1);
+        boolean resultDifferentColumn = sudokuBoard.setElementValue(1,8,1);
+
+        //Then
+        Assert.assertEquals(true, resultFirstElement);
+        Assert.assertEquals(false, resultSameColumn);
+        Assert.assertEquals(true, resultDifferentColumn);
+    }
+
+    @Test
+    public void testCantAssignTheSameNumberTwiceInASection() {
+        //Given
+        SudokuBoard sudokuBoard = new SudokuBoard();
+
+        //When
+        boolean resultFirstElement = sudokuBoard.setElementValue(0,0,1);
+        boolean resultSameSection = sudokuBoard.setElementValue(2,2,1);
+        boolean resultDifferentSection = sudokuBoard.setElementValue(3,3,1);
+
+        //Then
+        Assert.assertEquals(true, resultFirstElement);
+        Assert.assertEquals(false, resultSameSection);
+        Assert.assertEquals(true, resultDifferentSection);
+    }
 }

@@ -30,6 +30,14 @@ public class SudokuElement {
         possibleValues.add(value);
     }
 
+    public void removePossibleValue(Integer value) {
+        possibleValues.remove(value);
+    }
+
+    public List<Integer> getPossibleValues() {
+        return new ArrayList<>(possibleValues);
+    }
+
     @Override
     public String toString() {
         return "SudokuElement{" +

@@ -1,5 +1,7 @@
 package com.gorczynskimike.sudoku;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class SudokuBoard {
@@ -32,7 +34,7 @@ public class SudokuBoard {
         return sb.toString();
     }
 
-    public void setElementValue(int xIndex, int yIndex, int value){
+    public boolean setElementValue(int xIndex, int yIndex, int value){
         if(xIndex < 0 || xIndex >= BOARD_X_SIZE) {
             throw new IllegalArgumentException("X index out of bounds: " + xIndex);
         }
@@ -42,7 +44,17 @@ public class SudokuBoard {
         if(value < 1 || value > 9) {
             throw new IllegalArgumentException("Value out of bounds: " + value);
         }
+        SudokuElement theElement = sudokuElements[xIndex][yIndex];
+        if(!theElement.getPossibleValues().contains(value)) {
+            System.out.println("Can't set given value for given element. Possibly the number is already assigned in " +
+                    "the row, column or 3x3 section of this element");
+            return false;
+        }
         sudokuElements[xIndex][yIndex].setValue(value);
+        getRow(yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
+        getColumn(xIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
+        getSection(xIndex, yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
+        return true;
     }
 
     private String getRowString(int yIndex) {
@@ -64,6 +76,32 @@ public class SudokuBoard {
         return sb.toString();
     }
 
+    private List<SudokuElement> getRow(int rowIndex) {
+        List<SudokuElement> resultList = new ArrayList<>();
+        for(int i=0 ; i<BOARD_X_SIZE; i++) {
+            resultList.add(sudokuElements[i][rowIndex]);
+        }
+        return resultList;
+    }
 
+    private List<SudokuElement> getColumn(int columnIndex) {
+        List<SudokuElement> resultList = new ArrayList<>();
+        for(int i=0 ; i<BOARD_Y_SIZE; i++) {
+            resultList.add(sudokuElements[columnIndex][i]);
+        }
+        return resultList;
+    }
+
+    private List<SudokuElement> getSection(int xIndex, int yIndex) {
+        List<SudokuElement> resultList = new ArrayList<>();
+        int xStartIndex = xIndex - xIndex%3;
+        int yStartIndex = yIndex - yIndex%3;
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                resultList.add(sudokuElements[xStartIndex + i][yStartIndex + j]);
+            }
+        }
+        return resultList;
+    }
 
 }

@@ -26,7 +26,8 @@ public class SudokuElement {
 
     public void setValue(int value) {
         this.value = value;
-        possibleValues.retainAll(Arrays.asList(value));
+        possibleValues.clear();
+        possibleValues.add(value);
     }
 
     @Override

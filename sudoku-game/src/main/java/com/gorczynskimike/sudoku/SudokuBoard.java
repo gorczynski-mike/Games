@@ -17,11 +17,19 @@ public class SudokuBoard {
     }
 
     public void printBoard() {
-        System.out.println(getRowSeparator());
+        System.out.println(getBoardStringRepresentation());
+    }
+
+    public String getBoardStringRepresentation() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getRowSeparator());
         for(int i=0 ; i<BOARD_Y_SIZE; i++){
-            System.out.println(getRowString(i));
-            System.out.println(getRowSeparator());
+            sb.append(System.lineSeparator());
+            sb.append(getRowString(i));
+            sb.append(System.lineSeparator());
+            sb.append(getRowSeparator());
         }
+        return sb.toString();
     }
 
     public void setElementValue(int xIndex, int yIndex, int value){

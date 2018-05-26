@@ -1,0 +1,24 @@
+
+ksquid:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(«ÝäÕÿÿÿÿÿ
+qsquid:S2068
+"U'PASSWORD' detected in this expression, review this potentially hardcoded credential.(Æ£ØÖþÿÿÿÿ
+^squid:S2259-"BA "NullPointerException" could be thrown; "conn" is nullable here.(š¡êžûÿÿÿÿ
+O
+squid:S106I"9Replace this use of System.out or System.err by a logger.(µé«ó
+^squid:S2259"BA "NullPointerException" could be thrown; "conn" is nullable here.(š¡êžûÿÿÿÿ
+T
+squid:S106#"9Replace this use of System.out or System.err by a logger.(®ýáëûÿÿÿÿ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÐÔªþÿÿÿÿ
+?squid:S11488"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+T
+squid:S106B"9Replace this use of System.out or System.err by a logger.(¯¢™Ìúÿÿÿÿ
+?squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+csquid:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(š¡êžûÿÿÿÿ
+^squid:S2095/"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ç¼¢»
+?squid:S1148%"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+^squid:S2259"BA "NullPointerException" could be thrown; "conn" is nullable here.(«ÝäÕÿÿÿÿÿ
+csquid:S2095-"GUse try-with-resources or close this "Statement" in a "finally" clause.(š¡êžûÿÿÿÿ
+T
+squid:S1060"9Replace this use of System.out or System.err by a logger.(ßœ¤ñÿÿÿÿÿ
+O
+squid:S1065"9Replace this use of System.out or System.err by a logger.(Ö·¦¦

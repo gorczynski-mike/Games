@@ -1,0 +1,40 @@
+package com.gorczynskimike.sudoku;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class SudokuElement {
+
+    int value = -1;
+    int xIndex;
+    int yIndex;
+    List<Integer> possibleValues = new ArrayList<>();
+
+    {
+        possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
+    }
+
+    public SudokuElement(int xIndex, int yIndex) {
+        this.xIndex = xIndex;
+        this.yIndex = yIndex;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+        possibleValues.retainAll(Arrays.asList(value));
+    }
+
+    @Override
+    public String toString() {
+        return "SudokuElement{" +
+                "value=" + value +
+                ", xIndex=" + xIndex +
+                ", yIndex=" + yIndex +
+                '}';
+    }
+}

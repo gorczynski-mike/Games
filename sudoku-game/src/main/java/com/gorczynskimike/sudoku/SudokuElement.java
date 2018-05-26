@@ -11,13 +11,10 @@ public class SudokuElement {
     int yIndex;
     List<Integer> possibleValues = new ArrayList<>();
 
-    {
-        possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
-    }
-
     public SudokuElement(int xIndex, int yIndex) {
         this.xIndex = xIndex;
         this.yIndex = yIndex;
+        possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
     }
 
     public int getValue() {

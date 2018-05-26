@@ -10,7 +10,7 @@ public class SudokuBoard {
     private static final int BOARD_Y_SIZE = 9;
     private final SudokuElement[][] sudokuElements = new SudokuElement[BOARD_X_SIZE][BOARD_Y_SIZE];
 
-    {
+    public SudokuBoard() {
         for(int i=0; i<BOARD_X_SIZE; i++) {
             for(int j=0; j<BOARD_Y_SIZE; j++){
                 sudokuElements[i][j] = new SudokuElement(i,j);

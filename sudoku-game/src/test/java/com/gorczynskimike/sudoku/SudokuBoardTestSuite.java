@@ -70,39 +70,39 @@ public class SudokuBoardTestSuite {
                         "-------------------", boardString);
     }
 
-    @Test
-    public void testGetFilledBoardSequentially() {
-        //Given
-        SudokuBoard sudokuBoard = SudokuBoard.getFilledBoard();
-
-        //When
-        sudokuBoard.setElementValue(0,0,1);
-        sudokuBoard.setElementValue(4,4,5);
-        sudokuBoard.setElementValue(8,8,9);
-        String boardString = sudokuBoard.getBoardStringRepresentation();
-
-        //Then
-        Assert.assertEquals(
-                "-------------------" + System.lineSeparator() +
-                        "|1|2|3|4|5|6|7|8|9|" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | |5| | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | | |" + System.lineSeparator() +
-                        "-------------------" + System.lineSeparator() +
-                        "| | | | | | | | |9|" + System.lineSeparator() +
-                        "-------------------", boardString);
-    }
+//    @Test
+//    public void testGetFilledBoardSequentially() {
+//        //Given
+//        SimpleSudokuBoard sudokuBoard = SimpleSudokuBoard.getFilledBoard();
+//
+//        //When
+//        sudokuBoard.setElementValue(0,0,1);
+//        sudokuBoard.setElementValue(4,4,5);
+//        sudokuBoard.setElementValue(8,8,9);
+//        String boardString = sudokuBoard.getBoardStringRepresentation();
+//
+//        //Then
+//        Assert.assertEquals(
+//                "-------------------" + System.lineSeparator() +
+//                        "|1|2|3|4|5|6|7|8|9|" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | |5| | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | | |" + System.lineSeparator() +
+//                        "-------------------" + System.lineSeparator() +
+//                        "| | | | | | | | |9|" + System.lineSeparator() +
+//                        "-------------------", boardString);
+//    }
 
     @Test
     public void testCantAssignTheSameNumberTwiceInARow() {
@@ -150,5 +150,11 @@ public class SudokuBoardTestSuite {
         Assert.assertEquals(true, resultFirstElement);
         Assert.assertEquals(false, resultSameSection);
         Assert.assertEquals(true, resultDifferentSection);
+    }
+
+    @Test
+    public void testBordSolve() {
+        SudokuBoard sudokuBoard = new SudokuBoard();
+        sudokuBoard.solveBoard();
     }
 }

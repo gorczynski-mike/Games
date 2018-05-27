@@ -16,6 +16,18 @@ public class SudokuElement {
         this.possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
     }
 
+    public SudokuElement getDeepCopy() {
+        return new SudokuElement(this.value, this.valueSet, this.xIndex, this.yIndex, this.possibleValues);
+    }
+
+    private SudokuElement(int value, boolean valueSet, int xIndex, int yIndex, Set<Integer> possibleValues) {
+        this.value = value;
+        this.valueSet = valueSet;
+        this.xIndex = xIndex;
+        this.yIndex = yIndex;
+        this.possibleValues = new HashSet<>(possibleValues);
+    }
+
     public int getValue() {
         return value;
     }

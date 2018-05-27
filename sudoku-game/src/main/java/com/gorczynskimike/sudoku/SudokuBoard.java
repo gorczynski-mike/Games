@@ -16,24 +16,66 @@ public class SudokuBoard {
             }
         }
     }
-//
-//    public static SudokuBoard getFilledBoard() {
-//        SudokuBoard sudokuBoard = new SudokuBoard();
-//        for(int i=1; i<=9; i++) {
-//            rowLoop:
-//            for(int j=0; j<BOARD_Y_SIZE; j++) {
-//                for(SudokuElement element : sudokuBoard.getRow(j)) {
-//                    if(element.isValueSet() || !(element.getPossibleValues().contains(i))) {
-//                        continue;
-//                    } else {
-//                        sudokuBoard.setElementValue(element.getxIndex(), element.getyIndex(), i);
-//                        continue rowLoop;
-//                    }
-//                }
-//            }
-//        }
-//        return sudokuBoard;
-//    }
+
+    public SudokuBoard getDeepCopy() {
+        SudokuBoard sudokuBoardDeepCopy = new SudokuBoard();
+        for(int i=0; i<BOARD_X_SIZE; i++) {
+            for(int j=0; j<BOARD_Y_SIZE; j++) {
+                sudokuBoardDeepCopy.sudokuElements[i][j] = this.sudokuElements[i][j].getDeepCopy();
+            }
+        }
+        return sudokuBoardDeepCopy;
+    }
+
+    private void restoreFromDeepCopy(SudokuBoard deepCopy) {
+        for(int i=0; i<BOARD_X_SIZE; i++) {
+            for(int j=0; j<BOARD_Y_SIZE; j++) {
+                this.sudokuElements[i][j] = deepCopy.sudokuElements[i][j].getDeepCopy();
+            }
+        }
+    }
+
+    public void solveBoard() {
+        List<SudokuElement> unsetElements;
+        int counter = 0;
+        mainLoop:
+        while(!(unsetElements = getAllUnsetElements()).isEmpty()) {
+            counter++;
+            if(counter % 10000 == 0) {
+                printBoard();
+                System.out.println(counter + " : " + unsetElements.size());
+            }
+            for(SudokuElement element : unsetElements) {
+                if(element.getPossibleValues().size() == 1) {
+                    setElementValue(element.getxIndex(), element.getyIndex(), element.getPossibleValues().get(0));
+                    unsetElements.remove(element);
+                    continue mainLoop;
+                }
+            }
+            if(!checkIfSolvable()) {
+                SudokuGuessState lastGuessedState = SudokuStack.popSudokuState();
+                restoreFromDeepCopy(lastGuessedState.getSudokuBoardDeepCopy());
+                sudokuElements[lastGuessedState.getxIndexOfGuessesElement()][lastGuessedState.getyIndexOfGuessesElement()]
+                        .getPossibleValues().remove((Integer)lastGuessedState.getValueBeingGuessed());
+//                unsetElements = getAllUnsetElements();
+                continue mainLoop;
+            } else {
+                SudokuElement elementBeingGuessed = unsetElements.get(0);
+                int valueBeingGuessed = elementBeingGuessed.getPossibleValues().get(0);
+                SudokuStack.pushSudokuState(new SudokuGuessState(
+                        this.getDeepCopy(),
+                        elementBeingGuessed.getxIndex(),
+                        elementBeingGuessed.getyIndex(),
+                        valueBeingGuessed)
+                );
+                this.setElementValue(elementBeingGuessed.getxIndex(), elementBeingGuessed.getyIndex(), valueBeingGuessed);
+                unsetElements.remove(elementBeingGuessed);
+                continue mainLoop;
+            }
+        }
+        System.out.println("Solved!");
+        printBoard();
+    }
 
     public void printBoard() {
         System.out.println(getBoardStringRepresentation());
@@ -68,9 +110,10 @@ public class SudokuBoard {
             return false;
         }
         sudokuElements[xIndex][yIndex].setValue(value);
-        getRow(yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
-        getColumn(xIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
-        getSection(xIndex, yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
+        getAllLinkedElementsToElement(xIndex,yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue((Integer)value));
+//        getRow(yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
+//        getColumn(xIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
+//        getSection(xIndex, yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
         return true;
     }
 

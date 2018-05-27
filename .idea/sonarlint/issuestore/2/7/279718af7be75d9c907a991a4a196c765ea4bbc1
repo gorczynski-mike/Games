@@ -1,12 +1,11 @@
 
-Jsquid:S1612",Replace this lambda with a method reference.(ÊÀö×8…êúÁ¹,
-jsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(¹Áøÿÿÿÿ
-Osquid:S1612-",Replace this lambda with a method reference.(˜¥¡ıÿÿÿÿ8ø¥öÁ¹,
-usquid:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
-Csquid:S1612=",Replace this lambda with a method reference.(™›ÀÛ
-Gsquid:S1948"+Make "menuTexts" transient or serializable.(›·åİøÿÿÿÿ
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÊÀö×8…êúÁ¹,
-=squid:S1948
-"&Make "game" transient or serializable.(¡×â…
-Msquid:S1948"1Make "databaseService" transient or serializable.(ßŞ¡òøÿÿÿÿ
+Asquid:S1612",Replace this lambda with a method reference.(™›ÀÛ
+hsquid:MaximumInheritanceDepth"<This class has 6 parents which is greater than 5 authorized.(¹Áøÿÿÿÿ
+ssquid:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+Hsquid:S1612",Replace this lambda with a method reference.(ÊÀö×8…êúÁ¹,
+;squid:S1948"&Make "game" transient or serializable.(¡×â…
+Esquid:S1948"+Make "menuTexts" transient or serializable.(›·åİøÿÿÿÿ
+Msquid:S1612",Replace this lambda with a method reference.(˜¥¡ıÿÿÿÿ8ø¥öÁ¹,
+Ksquid:S1948"1Make "databaseService" transient or serializable.(ßŞ¡òøÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÊÀö×8…êúÁ¹,

@@ -1,8 +1,7 @@
 package com.gorczynskimike.sudoku;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringJoiner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class SudokuBoard {
 
@@ -57,6 +56,26 @@ public class SudokuBoard {
         return true;
     }
 
+    public boolean unsetElement(int xIndex, int yIndex) {
+        if(xIndex < 0 || xIndex >= BOARD_X_SIZE) {
+            throw new IllegalArgumentException("X index out of bounds: " + xIndex);
+        }
+        if(yIndex < 0 || yIndex >= BOARD_Y_SIZE) {
+            throw new IllegalArgumentException("Y index out of bounds: " + yIndex);
+        }
+        SudokuElement theElement = sudokuElements[xIndex][yIndex];
+        if(theElement.getValue() == -1) {
+            System.out.println("Can't unset element, the element had not been set.");
+            return false;
+        }
+        int oldValue = theElement.getValue();
+        getAllLinkedElementsToElement(xIndex, yIndex).stream()
+                .forEach(element -> element.addPossibleValue(oldValue));
+        theElement.unset(getAllPossibleValuesForElement(xIndex, yIndex));
+        printBoard();
+        return true;
+    }
+
     private String getRowString(int yIndex) {
         StringJoiner sj = new StringJoiner("|", "|", "|");
         for(int i=0; i<BOARD_X_SIZE; i++) {
@@ -102,6 +121,31 @@ public class SudokuBoard {
             }
         }
         return resultList;
+    }
+
+    private Collection<Integer> getAllPossibleValuesForElement(int xIndex, int yIndex) {
+        Set<SudokuElement> otherElements = getAllLinkedElementsToElement(xIndex, yIndex);
+        Set<Integer> impossibleValues = otherElements.stream()
+                .map(element -> element.getValue())
+                .collect(Collectors.toSet());
+        Set<Integer> resultSet = new HashSet<>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+        resultSet.removeAll(impossibleValues);
+        return resultSet;
+    }
+
+    /**
+     *
+     * @param xIndex
+     * @param yIndex
+     * @return a Set of all elements in the same row, column or 3x3 section
+     */
+    private Set<SudokuElement> getAllLinkedElementsToElement(int xIndex, int yIndex) {
+        Set<SudokuElement> otherElements = new HashSet<>();
+        otherElements.addAll(getRow(yIndex));
+        otherElements.addAll(getColumn(xIndex));
+        otherElements.addAll(getSection(xIndex, yIndex));
+        otherElements.remove(sudokuElements[xIndex][yIndex]);
+        return otherElements;
     }
 
 }

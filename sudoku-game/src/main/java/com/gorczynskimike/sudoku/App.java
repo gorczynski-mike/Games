@@ -19,6 +19,17 @@ public class App {
             }
             if(userInput.equalsIgnoreCase("sudoku")) {
                 finishLoopFlag = true;
+            } else if (userInput.contains("unset")) {
+                String[] inputParts = userInput.split(",");
+                try {
+                    sudokuBoard.unsetElement(
+                            Integer.parseInt(inputParts[0]),
+                            Integer.parseInt(inputParts[1])
+                    );
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Sorry, one of the values is out of bounds: ");
+                    System.out.println(e.getMessage());
+                }
             } else {
                 String[] inputParts = userInput.split(",");
                 try {

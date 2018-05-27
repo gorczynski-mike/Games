@@ -1,20 +1,18 @@
 package com.gorczynskimike.sudoku;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SudokuElement {
 
-    int value = -1;
-    int xIndex;
-    int yIndex;
-    List<Integer> possibleValues = new ArrayList<>();
+    private int value = -1;
+    private int xIndex;
+    private int yIndex;
+    private Set<Integer> possibleValues = new HashSet<>();
 
     public SudokuElement(int xIndex, int yIndex) {
         this.xIndex = xIndex;
         this.yIndex = yIndex;
-        possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
+        this.possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
     }
 
     public int getValue() {
@@ -23,12 +21,21 @@ public class SudokuElement {
 
     public void setValue(int value) {
         this.value = value;
-        possibleValues.clear();
-        possibleValues.add(value);
+        this.possibleValues.clear();
+    }
+
+    public void unset(Collection<Integer> possibleValues) {
+        this.value = -1;
+        this.possibleValues.clear();
+        this.possibleValues.addAll(possibleValues);
     }
 
     public void removePossibleValue(Integer value) {
         possibleValues.remove(value);
+    }
+
+    public void addPossibleValue(Integer value) {
+        this.possibleValues.add(value);
     }
 
     public List<Integer> getPossibleValues() {
@@ -42,5 +49,20 @@ public class SudokuElement {
                 ", xIndex=" + xIndex +
                 ", yIndex=" + yIndex +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SudokuElement that = (SudokuElement) o;
+        return xIndex == that.xIndex &&
+                yIndex == that.yIndex;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(xIndex, yIndex);
     }
 }

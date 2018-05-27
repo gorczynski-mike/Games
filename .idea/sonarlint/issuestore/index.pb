@@ -27,3 +27,15 @@ Uwarmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/DatabaseServic
 Wwarmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/PlayerChangePopUp.java,f\c\fc19cf961751b7a7fa7cf0cd37a4eb845ed9a704
 ‡
 Wwarmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/DatabaseH2Service.java,8\8\88e3df9cc0f9e88c7e29118296e31612e4a6f273
+}
+Msudoku-game/src/main/java/com/gorczynskimike/sudoku/ConsoleUserInterface.java,f\c\fc8e2244ff33557ee6ce4ec66b72c7788b585ccf
+v
+Fsudoku-game/src/main/java/com/gorczynskimike/sudoku/UserInterface.java,1\0\105372046cbf202e9b4ad0c0f9beffd7b9636fd8
+}
+Msudoku-game/src/test/java/com/gorczynskimike/sudoku/SudokuBoardTestSuite.java,2\9\29f4b94255f11624417e7fe7d63078efadc35306
+l
+<sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java,6\f\6fb4f4deb17c4dfc796e4154fc7a86e4f2217adb
+v
+Fsudoku-game/src/main/java/com/gorczynskimike/sudoku/SudokuElement.java,8\e\8e335f85a90ded0b58182c6e5ae570ce8eec8f58
+t
+Dsudoku-game/src/main/java/com/gorczynskimike/sudoku/SudokuBoard.java,7\1\71ab461205d6a41b07fe685a2787d47259df4e99

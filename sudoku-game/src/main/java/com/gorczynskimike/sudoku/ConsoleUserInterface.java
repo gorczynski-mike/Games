@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class ConsoleUserInterface implements UserInterface {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku";
+    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
 
     @Override
     public String getUserInput() {
-        System.out.println("Please type either new value for the board in format 'x,y,value' or type 'SUDOKU' to solve the game");
+        System.out.println("Please type either new value for the board in format 'x,y,value' or type 'SUDOKU' to solve the game. " +
+                "if you type 'x,y,unset' you will unset given element.");
         String userInput = scanner.nextLine();
         userInput = userInput.toLowerCase();
         if(!userInput.matches(VALID_INPUT)) {

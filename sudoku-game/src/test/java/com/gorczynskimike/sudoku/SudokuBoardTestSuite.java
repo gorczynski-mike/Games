@@ -1,5 +1,6 @@
 package com.gorczynskimike.sudoku;
 
+import com.gorczynskimike.sudoku.complex.SudokuBoard;
 import org.junit.Assert;
 import org.junit.Test;
 

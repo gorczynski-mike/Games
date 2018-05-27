@@ -1,4 +1,4 @@
-package com.gorczynskimike.sudoku;
+package com.gorczynskimike.sudoku.complex;
 
 import java.util.*;
 

@@ -1,15 +1,16 @@
 package com.gorczynskimike.sudoku;
 
+import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
+
 public class App {
 
     public static void main(String[] args) {
-        SudokuBoard sudokuBoard = new SudokuBoard();
-        sudokuBoard.setElementValue(2,2,7);
-        sudokuBoard.setElementValue(1,5,2);
-        sudokuBoard.setElementValue(6,7,3);
-        sudokuBoard.printBoard();
-
         UserInterface userInterface = new ConsoleUserInterface();
+
+        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
+        simpleSudokuBoard.printBoard();
+
+
         boolean finishLoopFlag = false;
         while(!finishLoopFlag) {
             String userInput = userInterface.getUserInput();
@@ -19,26 +20,30 @@ public class App {
             }
             if(userInput.equalsIgnoreCase("sudoku")) {
                 finishLoopFlag = true;
-            } else if (userInput.contains("unset")) {
+                simpleSudokuBoard.solveSudoku();
+            } else
+//                if (userInput.contains("unset")) {
+//                String[] inputParts = userInput.split(",");
+//                try {
+//                    simpleSudokuBoard.unsetElement(
+//                            Integer.parseInt(inputParts[0]),
+//                            Integer.parseInt(inputParts[1])
+//                    );
+//                } catch (IllegalArgumentException e) {
+//                    System.out.println("Sorry, one of the values is out of bounds: ");
+//                    System.out.println(e.getMessage());
+//                }
+//            }
+//            else
+                {
                 String[] inputParts = userInput.split(",");
                 try {
-                    sudokuBoard.unsetElement(
-                            Integer.parseInt(inputParts[0]),
-                            Integer.parseInt(inputParts[1])
-                    );
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Sorry, one of the values is out of bounds: ");
-                    System.out.println(e.getMessage());
-                }
-            } else {
-                String[] inputParts = userInput.split(",");
-                try {
-                    sudokuBoard.setElementValue(
+                    simpleSudokuBoard.setElement(
                             Integer.parseInt(inputParts[0]),
                             Integer.parseInt(inputParts[1]),
                             Integer.parseInt(inputParts[2])
                     );
-                    sudokuBoard.printBoard();
+                    simpleSudokuBoard.printBoard();
                 } catch (IllegalArgumentException e) {
                     System.out.println("Sorry, one of the values is out of bounds: ");
                     System.out.println(e.getMessage());

@@ -10,7 +10,7 @@ public class SimpleSudokuBoard {
 //        long startTime = System.currentTimeMillis();
 //        simpleSudokuBoard.solveSudoku();
 //        long endTime = System.currentTimeMillis();
-//        System.out.println("It took " + (endTime - startTime) + " miliseconds to solve empty sudoku.");
+//        System.out.println("It took " + (endTime - startTime) + " milliseconds to solve empty sudoku.");
 
         SimpleSudokuBoard simpleSudokuBoard2 = new SimpleSudokuBoard();
         simpleSudokuBoard2.setElement(0,0,5);
@@ -19,7 +19,7 @@ public class SimpleSudokuBoard {
         long startTime2 = System.currentTimeMillis();
         simpleSudokuBoard2.solveSudoku();
         long endTime2 = System.currentTimeMillis();
-        System.out.println("It took " + (endTime2 - startTime2) + " miliseconds to solve sudoku.");
+        System.out.println("It took " + (endTime2 - startTime2) + " milliseconds to solve sudoku.");
     }
 
     private SudokuElement[][] elements = new SudokuElement[9][9];
@@ -33,6 +33,7 @@ public class SimpleSudokuBoard {
     }
 
     public void solveSudoku() {
+        long startTime = System.currentTimeMillis();
         boolean isSolved = false;
         int counter = 0;
         mainLoop:
@@ -98,6 +99,8 @@ public class SimpleSudokuBoard {
                 }
             }
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds.");
     }
 
     private boolean isSolvable() {

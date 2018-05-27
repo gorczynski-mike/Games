@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class ConsoleUserInterface implements UserInterface {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
+//    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
+    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku";
 
     @Override
     public String getUserInput() {

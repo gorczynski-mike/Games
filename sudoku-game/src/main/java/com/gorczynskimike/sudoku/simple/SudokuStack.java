@@ -15,8 +15,12 @@ public class SudokuStack {
         return sudokuStack.poll();
     }
 
+    public static int getStackSize() {
+        return sudokuStack.size();
+    }
+
     public static void printStackSize() {
-        System.out.println(sudokuStack.size());
+        System.out.println("Stack size: " + sudokuStack.size());
     }
 
 }

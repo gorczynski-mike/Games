@@ -5,9 +5,21 @@ import java.util.Arrays;
 public class SimpleSudokuBoard {
 
     public static void main(String[] args) {
-        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
-        simpleSudokuBoard.printBoard();
-        simpleSudokuBoard.solveSudoku();
+//        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
+//        simpleSudokuBoard.printBoard();
+//        long startTime = System.currentTimeMillis();
+//        simpleSudokuBoard.solveSudoku();
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("It took " + (endTime - startTime) + " miliseconds to solve empty sudoku.");
+
+        SimpleSudokuBoard simpleSudokuBoard2 = new SimpleSudokuBoard();
+        simpleSudokuBoard2.setElement(0,0,5);
+        simpleSudokuBoard2.setElement(0,1,6);
+        simpleSudokuBoard2.setElement(0,2,7);
+        long startTime2 = System.currentTimeMillis();
+        simpleSudokuBoard2.solveSudoku();
+        long endTime2 = System.currentTimeMillis();
+        System.out.println("It took " + (endTime2 - startTime2) + " miliseconds to solve sudoku.");
     }
 
     private SudokuElement[][] elements = new SudokuElement[9][9];
@@ -27,14 +39,18 @@ public class SimpleSudokuBoard {
         while (!isSolved) {
 //            System.out.println("main loop");
             counter++;
-            if(counter % 5000 == 0) {
-                System.out.println(counter);
-                printBoard();
-                SudokuStack.printStackSize();
-            }
+//            if(counter % 5000 == 0) {
+//                System.out.println(counter);
+//                printBoard();
+//                SudokuStack.printStackSize();
+//            }
             int unsetElements = 0;
             int modifiedElements = 0;
             if(!isSolvable()) {
+                if(SudokuStack.getStackSize() == 0) {
+                    System.out.println("Sorry, it's impossible to solve this sudoku.");
+                    break mainLoop;
+                }
                 SudokuState lastState = SudokuStack.popSudokuState();
                 elements = lastState.getBoard();
                 elements[lastState.getxIndex()][lastState.getyIndex()].getPossibleValues().remove((Integer) lastState.getGuessedNumber());
@@ -60,6 +76,8 @@ public class SimpleSudokuBoard {
             if(unsetElements == 0) {
                 System.out.println("Solved");
                 printBoard();
+                SudokuStack.printStackSize();
+                System.out.println("Number of loops: " + counter);
                 isSolved = true;
                 break mainLoop;
             }

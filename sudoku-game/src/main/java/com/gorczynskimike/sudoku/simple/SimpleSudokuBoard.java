@@ -127,6 +127,13 @@ public class SimpleSudokuBoard {
 
     public void setElement(int xIndex, int yIndex, int value) {
 
+        if(
+                (xIndex < 0 || xIndex > 8)
+                || (yIndex < 0 || yIndex > 8)
+                || (value < 1 || value > 9)) {
+            throw new IllegalArgumentException("One of values is out of bounds.");
+        }
+
         elements[xIndex][yIndex].setValue(value);
 
         //row

@@ -6,22 +6,22 @@ public class App {
 
     public static void main(String[] args) {
         UserInterface userInterface = new ConsoleUserInterface();
+        boolean keepPlaying = true;
 
-        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
-        simpleSudokuBoard.printBoard();
-
-
-        boolean finishLoopFlag = false;
-        while(!finishLoopFlag) {
-            String userInput = userInterface.getUserInput();
-            if(userInput.equalsIgnoreCase("error")) {
-                System.out.println("Invalid format, try again.");
-                continue;
-            }
-            if(userInput.equalsIgnoreCase("sudoku")) {
-                finishLoopFlag = true;
-                simpleSudokuBoard.solveSudoku();
-            } else
+        while (keepPlaying) {
+            SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
+            simpleSudokuBoard.printBoard();
+            boolean finishLoopFlag = false;
+            while (!finishLoopFlag) {
+                String userInput = userInterface.getUserInput();
+                if (userInput.equalsIgnoreCase("error")) {
+                    System.out.println("Invalid format, try again.");
+                    continue;
+                }
+                if (userInput.equalsIgnoreCase("sudoku")) {
+                    finishLoopFlag = true;
+                    simpleSudokuBoard.solveSudoku();
+                } else
 //                if (userInput.contains("unset")) {
 //                String[] inputParts = userInput.split(",");
 //                try {
@@ -36,20 +36,21 @@ public class App {
 //            }
 //            else
                 {
-                String[] inputParts = userInput.split(",");
-                try {
-                    simpleSudokuBoard.setElement(
-                            Integer.parseInt(inputParts[0]),
-                            Integer.parseInt(inputParts[1]),
-                            Integer.parseInt(inputParts[2])
-                    );
-                    simpleSudokuBoard.printBoard();
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Sorry, one of the values is out of bounds: ");
-                    System.out.println(e.getMessage());
+                    String[] inputParts = userInput.split(",");
+                    try {
+                        simpleSudokuBoard.setElement(
+                                Integer.parseInt(inputParts[0]),
+                                Integer.parseInt(inputParts[1]),
+                                Integer.parseInt(inputParts[2])
+                        );
+                        simpleSudokuBoard.printBoard();
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Sorry, one of the values is out of bounds: ");
+                        System.out.println(e.getMessage());
+                    }
                 }
             }
+            keepPlaying = userInterface.getNewGameDecision();
         }
     }
-
 }

@@ -7,6 +7,7 @@ public class ConsoleUserInterface implements UserInterface {
     private static Scanner scanner = new Scanner(System.in);
 //    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
     private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku";
+    private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
     @Override
     public String getUserInput() {
@@ -20,5 +21,18 @@ public class ConsoleUserInterface implements UserInterface {
         } else {
             return userInput;
         }
+    }
+
+    @Override
+    public boolean getNewGameDecision() {
+        System.out.println("Do you want to start new game? Y - yes, N - exit application");
+        String userInput = scanner.nextLine();
+        userInput = userInput.toLowerCase();
+        while(!userInput.matches(VALID_NEW_GAME_CHOICE)) {
+            System.out.println("Sorry, invalid format, type either 'y' or 'n'.");
+            userInput = scanner.nextLine();
+            userInput = userInput.toLowerCase();
+        }
+        return userInput.matches("y") ? true : false;
     }
 }

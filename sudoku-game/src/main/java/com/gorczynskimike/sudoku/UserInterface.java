@@ -4,4 +4,6 @@ public interface UserInterface {
 
     String getUserInput();
 
+    boolean getNewGameDecision();
+
 }

@@ -34,6 +34,7 @@ public class SimpleSudokuBoard {
 
     public void solveSudoku() {
         long startTime = System.currentTimeMillis();
+        long startTimeNano = System.nanoTime();
         boolean isSolved = false;
         int counter = 0;
         mainLoop:
@@ -78,6 +79,7 @@ public class SimpleSudokuBoard {
                 System.out.println("Solved");
                 printBoard();
                 SudokuStack.printStackSize();
+                SudokuStack.clearStack();
                 System.out.println("Number of loops: " + counter);
                 isSolved = true;
                 break mainLoop;
@@ -85,22 +87,32 @@ public class SimpleSudokuBoard {
             if(modifiedElements > 0) {
                 continue mainLoop;
             } else {
+                int bestXIndex = 0;
+                int bestYIndex = 0;
+                int minPossibilities = 10;
+                SudokuElement current = null;
                 for (int i = 0; i < 9; i++) {
                     for (int j = 0; j < 9; j++) {
-                        if(elements[i][j].getValue() == 0) {
+                        current = elements[i][j];
+                        if(current.getValue() == 0 && current.getPossibleValues().size() < minPossibilities) {
 //                            System.out.println("===============");
 //                            printBoard();
-                            int guessedNumber = elements[i][j].getPossibleValues().get(0);
-                            SudokuStack.pushSudokuState(new SudokuState(this.elements, i, j, guessedNumber));
-                            setElement(i,j,guessedNumber);
-                            continue mainLoop;
+                            bestXIndex = i;
+                            bestYIndex = j;
+                            minPossibilities = current.getPossibleValues().size();
                         }
                     }
                 }
+                int guessedNumber = elements[bestXIndex][bestYIndex].getPossibleValues().get(0);
+                SudokuStack.pushSudokuState(new SudokuState(this.elements, bestXIndex, bestYIndex, guessedNumber));
+                setElement(bestXIndex,bestYIndex,guessedNumber);
+                continue mainLoop;
             }
         }
         long endTime = System.currentTimeMillis();
-        System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds.");
+        long endTimeNano = System.nanoTime();
+        System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds. " +
+                "( " + (endTimeNano - startTimeNano) + " nano seconds)");
     }
 
     private boolean isSolvable() {

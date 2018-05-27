@@ -23,4 +23,8 @@ public class SudokuStack {
         System.out.println("Stack size: " + sudokuStack.size());
     }
 
+    public static void clearStack() {
+        sudokuStack.clear();
+    }
+
 }

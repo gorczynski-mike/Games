@@ -5,6 +5,7 @@ import java.util.*;
 public class SudokuElement {
 
     private int value = -1;
+    private boolean valueSet = false;
     private int xIndex;
     private int yIndex;
     private Set<Integer> possibleValues = new HashSet<>();
@@ -20,14 +21,31 @@ public class SudokuElement {
     }
 
     public void setValue(int value) {
+        if(!this.possibleValues.contains(value)) {
+            throw new IllegalStateException("Invalid value: the value is either out of bounds or already taken by " +
+                    "an element in the same row, column or section. Value: " + value);
+        }
         this.value = value;
-        this.possibleValues.clear();
+        valueSet = true;
     }
 
     public void unset(Collection<Integer> possibleValues) {
         this.value = -1;
         this.possibleValues.clear();
         this.possibleValues.addAll(possibleValues);
+        valueSet = false;
+    }
+
+    public boolean isValueSet() {
+        return valueSet;
+    }
+
+    public int getxIndex() {
+        return xIndex;
+    }
+
+    public int getyIndex() {
+        return yIndex;
     }
 
     public void removePossibleValue(Integer value) {

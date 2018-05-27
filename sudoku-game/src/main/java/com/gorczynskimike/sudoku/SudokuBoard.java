@@ -16,6 +16,24 @@ public class SudokuBoard {
             }
         }
     }
+//
+//    public static SudokuBoard getFilledBoard() {
+//        SudokuBoard sudokuBoard = new SudokuBoard();
+//        for(int i=1; i<=9; i++) {
+//            rowLoop:
+//            for(int j=0; j<BOARD_Y_SIZE; j++) {
+//                for(SudokuElement element : sudokuBoard.getRow(j)) {
+//                    if(element.isValueSet() || !(element.getPossibleValues().contains(i))) {
+//                        continue;
+//                    } else {
+//                        sudokuBoard.setElementValue(element.getxIndex(), element.getyIndex(), i);
+//                        continue rowLoop;
+//                    }
+//                }
+//            }
+//        }
+//        return sudokuBoard;
+//    }
 
     public void printBoard() {
         System.out.println(getBoardStringRepresentation());
@@ -146,6 +164,29 @@ public class SudokuBoard {
         otherElements.addAll(getSection(xIndex, yIndex));
         otherElements.remove(sudokuElements[xIndex][yIndex]);
         return otherElements;
+    }
+
+    private List<SudokuElement> getAllElements() {
+        List<SudokuElement> resultList = new ArrayList<>();
+        for(int i=0 ;i<BOARD_Y_SIZE; i++) {
+            resultList.addAll(getRow(i));
+        }
+        return resultList;
+    }
+
+    private List<SudokuElement> getAllUnsetElements() {
+        List<SudokuElement> resultList = getAllElements();
+        resultList.removeIf(sudokuElement -> sudokuElement.isValueSet());
+        return resultList;
+    }
+
+    private boolean checkIfSolvable() {
+        Collection<SudokuElement> unsetElements = getAllUnsetElements();
+        if(unsetElements.size() == 0) { return true; }
+        OptionalInt minPossibilities = getAllUnsetElements().stream()
+                .mapToInt(element -> element.getPossibleValues().size())
+                .min();
+        return minPossibilities.getAsInt() != 0;
     }
 
 }

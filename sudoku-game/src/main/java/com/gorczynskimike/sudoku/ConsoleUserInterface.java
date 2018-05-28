@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class ConsoleUserInterface implements UserInterface {
 
     private static Scanner scanner = new Scanner(System.in);
-//    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
     private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
     private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
     @Override
     public String getUserInput() {
         System.out.println("Please type either new value for the board in format 'x,y,value' or type 'SUDOKU' to solve the game. " +
-                "if you type 'x,y,unset' you will unset given element.");
+                "If you type 'x,y,unset' you will unset given element. ");
+        System.out.println("(IMPORTANT: only single digits are valid for x,y or value; valid range: 1-9)");
         String userInput = scanner.nextLine();
         userInput = userInput.toLowerCase();
         if(!userInput.matches(VALID_INPUT)) {

@@ -220,7 +220,10 @@ public class SimpleSudokuBoard {
     }
 
     public void generateRandomNumbers(int howMany) {
-        Random random = new Random();
+        if(howMany < 1 || howMany > 81) {
+            System.out.println("Sorry, can't generate " + howMany + " numbers, valid range is: 1 - 81");
+            return;
+        }
         int succesfullyGeneratedNumbers = 0;
         while(howMany > 0) {
             boolean wasNumberGenerated = generateOneNumber();
@@ -233,6 +236,7 @@ public class SimpleSudokuBoard {
             howMany--;
         }
         System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
+        this.printBoard();
     }
 
     private boolean generateOneNumber() {

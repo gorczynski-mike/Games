@@ -35,6 +35,12 @@ public class App {
                     } finally {
                         simpleSudokuBoard.printBoard();
                     }
+                } else if (userInput.matches("random")) {
+                    simpleSudokuBoard.generateRandomNumbers(1);
+                } else if (userInput.matches("random,\\d+")) {
+                    String[] inputParts = userInput.split(",");
+                    int howManyToGuess = Integer.parseInt(inputParts[1]);
+                    simpleSudokuBoard.generateRandomNumbers(howManyToGuess);
                 } else {
                     String[] inputParts = userInput.split(",");
                     try {

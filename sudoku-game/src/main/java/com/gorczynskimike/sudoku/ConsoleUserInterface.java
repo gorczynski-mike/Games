@@ -5,14 +5,20 @@ import java.util.Scanner;
 public class ConsoleUserInterface implements UserInterface {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset";
+    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+";
     private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
     @Override
     public String getUserInput() {
-        System.out.println("Please type either new value for the board in format 'x,y,value' or type 'SUDOKU' to solve the game. " +
-                "If you type 'x,y,unset' you will unset given element. ");
-        System.out.println("(IMPORTANT: only single digits are valid for x,y or value; valid range: 1-9)");
+        System.out.println("Please type: ");
+        System.out.println("- new value for the board in format 'x,y,value' (<value> is a single digit number)");
+        System.out.println("- 'sudoku' to solve the board");
+        System.out.println("- 'x,y,unset' to unset given element");
+        System.out.println("- 'random' to generate one number on the board");
+        System.out.println("- 'random,z' to generate <z> numbers on the board");
+        System.out.println("(IMPORTANT: valid range for <x>, <y>, <value>: 1-9, valid range for <z>: 1-81)");
+        System.out.println("(IMPORTANT: 'sudoku', 'unset' and 'random' are complete english words)");
+        System.out.println("(IMPORTANT: generated random numbers won't violate sudoku rules, but might create unsolvable sudoku)");
         String userInput = scanner.nextLine();
         userInput = userInput.toLowerCase();
         if(!userInput.matches(VALID_INPUT)) {

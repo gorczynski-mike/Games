@@ -35,6 +35,10 @@ public class SudokuElement {
         this.value = value;
     }
 
+    public void clearValue(){
+        this.value = 0;
+    }
+
     @Override
     public String toString() {
         return "" + value;

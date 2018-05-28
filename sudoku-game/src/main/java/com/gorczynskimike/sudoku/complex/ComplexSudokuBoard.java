@@ -3,40 +3,40 @@ package com.gorczynskimike.sudoku.complex;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SudokuBoard {
+public class ComplexSudokuBoard {
 
     private static final int BOARD_X_SIZE = 9;
     private static final int BOARD_Y_SIZE = 9;
-    private final SudokuElement[][] sudokuElements = new SudokuElement[BOARD_X_SIZE][BOARD_Y_SIZE];
+    private final ComplexSudokuElement[][] complexSudokuElements = new ComplexSudokuElement[BOARD_X_SIZE][BOARD_Y_SIZE];
 
-    public SudokuBoard() {
+    public ComplexSudokuBoard() {
         for(int i=0; i<BOARD_X_SIZE; i++) {
             for(int j=0; j<BOARD_Y_SIZE; j++){
-                sudokuElements[i][j] = new SudokuElement(i,j);
+                complexSudokuElements[i][j] = new ComplexSudokuElement(i,j);
             }
         }
     }
 
-    public SudokuBoard getDeepCopy() {
-        SudokuBoard sudokuBoardDeepCopy = new SudokuBoard();
+    public ComplexSudokuBoard getDeepCopy() {
+        ComplexSudokuBoard complexSudokuBoardDeepCopy = new ComplexSudokuBoard();
         for(int i=0; i<BOARD_X_SIZE; i++) {
             for(int j=0; j<BOARD_Y_SIZE; j++) {
-                sudokuBoardDeepCopy.sudokuElements[i][j] = this.sudokuElements[i][j].getDeepCopy();
+                complexSudokuBoardDeepCopy.complexSudokuElements[i][j] = this.complexSudokuElements[i][j].getDeepCopy();
             }
         }
-        return sudokuBoardDeepCopy;
+        return complexSudokuBoardDeepCopy;
     }
 
-    private void restoreFromDeepCopy(SudokuBoard deepCopy) {
+    private void restoreFromDeepCopy(ComplexSudokuBoard deepCopy) {
         for(int i=0; i<BOARD_X_SIZE; i++) {
             for(int j=0; j<BOARD_Y_SIZE; j++) {
-                this.sudokuElements[i][j] = deepCopy.sudokuElements[i][j].getDeepCopy();
+                this.complexSudokuElements[i][j] = deepCopy.complexSudokuElements[i][j].getDeepCopy();
             }
         }
     }
 
     public void solveBoard() {
-        List<SudokuElement> unsetElements;
+        List<ComplexSudokuElement> unsetElements;
         int counter = 0;
         mainLoop:
         while(!(unsetElements = getAllUnsetElements()).isEmpty()) {
@@ -45,7 +45,7 @@ public class SudokuBoard {
                 printBoard();
                 System.out.println(counter + " : " + unsetElements.size());
             }
-            for(SudokuElement element : unsetElements) {
+            for(ComplexSudokuElement element : unsetElements) {
                 if(element.getPossibleValues().size() == 1) {
                     setElementValue(element.getxIndex(), element.getyIndex(), element.getPossibleValues().get(0));
                     unsetElements.remove(element);
@@ -54,13 +54,13 @@ public class SudokuBoard {
             }
             if(!checkIfSolvable()) {
                 SudokuGuessState lastGuessedState = SudokuStack.popSudokuState();
-                restoreFromDeepCopy(lastGuessedState.getSudokuBoardDeepCopy());
-                sudokuElements[lastGuessedState.getxIndexOfGuessesElement()][lastGuessedState.getyIndexOfGuessesElement()]
+                restoreFromDeepCopy(lastGuessedState.getComplexSudokuBoardDeepCopy());
+                complexSudokuElements[lastGuessedState.getxIndexOfGuessesElement()][lastGuessedState.getyIndexOfGuessesElement()]
                         .getPossibleValues().remove((Integer)lastGuessedState.getValueBeingGuessed());
 //                unsetElements = getAllUnsetElements();
                 continue mainLoop;
             } else {
-                SudokuElement elementBeingGuessed = unsetElements.get(0);
+                ComplexSudokuElement elementBeingGuessed = unsetElements.get(0);
                 int valueBeingGuessed = elementBeingGuessed.getPossibleValues().get(0);
                 SudokuStack.pushSudokuState(new SudokuGuessState(
                         this.getDeepCopy(),
@@ -103,14 +103,14 @@ public class SudokuBoard {
         if(value < 1 || value > 9) {
             throw new IllegalArgumentException("Value out of bounds: " + value);
         }
-        SudokuElement theElement = sudokuElements[xIndex][yIndex];
+        ComplexSudokuElement theElement = complexSudokuElements[xIndex][yIndex];
         if(!theElement.getPossibleValues().contains(value)) {
             System.out.println("Can't set given value for given element. Possibly the number is already assigned in " +
                     "the row, column or 3x3 section of this element");
             return false;
         }
-        sudokuElements[xIndex][yIndex].setValue(value);
-        getAllLinkedElementsToElement(xIndex,yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue((Integer)value));
+        complexSudokuElements[xIndex][yIndex].setValue(value);
+        getAllLinkedElementsToElement(xIndex,yIndex).forEach(complexSudokuElement -> complexSudokuElement.removePossibleValue((Integer)value));
 //        getRow(yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
 //        getColumn(xIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
 //        getSection(xIndex, yIndex).forEach(sudokuElement -> sudokuElement.removePossibleValue(value));
@@ -124,7 +124,7 @@ public class SudokuBoard {
         if(yIndex < 0 || yIndex >= BOARD_Y_SIZE) {
             throw new IllegalArgumentException("Y index out of bounds: " + yIndex);
         }
-        SudokuElement theElement = sudokuElements[xIndex][yIndex];
+        ComplexSudokuElement theElement = complexSudokuElements[xIndex][yIndex];
         if(theElement.getValue() == -1) {
             System.out.println("Can't unset element, the element had not been set.");
             return false;
@@ -140,7 +140,7 @@ public class SudokuBoard {
     private String getRowString(int yIndex) {
         StringJoiner sj = new StringJoiner("|", "|", "|");
         for(int i=0; i<BOARD_X_SIZE; i++) {
-            int currentValue = sudokuElements[i][yIndex].getValue();
+            int currentValue = complexSudokuElements[i][yIndex].getValue();
             String currectValueString = currentValue == -1 ? " " : String.valueOf(currentValue);
             sj.add(currectValueString);
         }
@@ -156,36 +156,36 @@ public class SudokuBoard {
         return sb.toString();
     }
 
-    private List<SudokuElement> getRow(int rowIndex) {
-        List<SudokuElement> resultList = new ArrayList<>();
+    private List<ComplexSudokuElement> getRow(int rowIndex) {
+        List<ComplexSudokuElement> resultList = new ArrayList<>();
         for(int i=0 ; i<BOARD_X_SIZE; i++) {
-            resultList.add(sudokuElements[i][rowIndex]);
+            resultList.add(complexSudokuElements[i][rowIndex]);
         }
         return resultList;
     }
 
-    private List<SudokuElement> getColumn(int columnIndex) {
-        List<SudokuElement> resultList = new ArrayList<>();
+    private List<ComplexSudokuElement> getColumn(int columnIndex) {
+        List<ComplexSudokuElement> resultList = new ArrayList<>();
         for(int i=0 ; i<BOARD_Y_SIZE; i++) {
-            resultList.add(sudokuElements[columnIndex][i]);
+            resultList.add(complexSudokuElements[columnIndex][i]);
         }
         return resultList;
     }
 
-    private List<SudokuElement> getSection(int xIndex, int yIndex) {
-        List<SudokuElement> resultList = new ArrayList<>();
+    private List<ComplexSudokuElement> getSection(int xIndex, int yIndex) {
+        List<ComplexSudokuElement> resultList = new ArrayList<>();
         int xStartIndex = xIndex - xIndex%3;
         int yStartIndex = yIndex - yIndex%3;
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
-                resultList.add(sudokuElements[xStartIndex + i][yStartIndex + j]);
+                resultList.add(complexSudokuElements[xStartIndex + i][yStartIndex + j]);
             }
         }
         return resultList;
     }
 
     private Collection<Integer> getAllPossibleValuesForElement(int xIndex, int yIndex) {
-        Set<SudokuElement> otherElements = getAllLinkedElementsToElement(xIndex, yIndex);
+        Set<ComplexSudokuElement> otherElements = getAllLinkedElementsToElement(xIndex, yIndex);
         Set<Integer> impossibleValues = otherElements.stream()
                 .map(element -> element.getValue())
                 .collect(Collectors.toSet());
@@ -200,31 +200,31 @@ public class SudokuBoard {
      * @param yIndex
      * @return a Set of all elements in the same row, column or 3x3 section
      */
-    private Set<SudokuElement> getAllLinkedElementsToElement(int xIndex, int yIndex) {
-        Set<SudokuElement> otherElements = new HashSet<>();
+    private Set<ComplexSudokuElement> getAllLinkedElementsToElement(int xIndex, int yIndex) {
+        Set<ComplexSudokuElement> otherElements = new HashSet<>();
         otherElements.addAll(getRow(yIndex));
         otherElements.addAll(getColumn(xIndex));
         otherElements.addAll(getSection(xIndex, yIndex));
-        otherElements.remove(sudokuElements[xIndex][yIndex]);
+        otherElements.remove(complexSudokuElements[xIndex][yIndex]);
         return otherElements;
     }
 
-    private List<SudokuElement> getAllElements() {
-        List<SudokuElement> resultList = new ArrayList<>();
+    private List<ComplexSudokuElement> getAllElements() {
+        List<ComplexSudokuElement> resultList = new ArrayList<>();
         for(int i=0 ;i<BOARD_Y_SIZE; i++) {
             resultList.addAll(getRow(i));
         }
         return resultList;
     }
 
-    private List<SudokuElement> getAllUnsetElements() {
-        List<SudokuElement> resultList = getAllElements();
-        resultList.removeIf(sudokuElement -> sudokuElement.isValueSet());
+    private List<ComplexSudokuElement> getAllUnsetElements() {
+        List<ComplexSudokuElement> resultList = getAllElements();
+        resultList.removeIf(complexSudokuElement -> complexSudokuElement.isValueSet());
         return resultList;
     }
 
     private boolean checkIfSolvable() {
-        Collection<SudokuElement> unsetElements = getAllUnsetElements();
+        Collection<ComplexSudokuElement> unsetElements = getAllUnsetElements();
         if(unsetElements.size() == 0) { return true; }
         OptionalInt minPossibilities = getAllUnsetElements().stream()
                 .mapToInt(element -> element.getPossibleValues().size())

@@ -5,17 +5,18 @@ import java.util.Arrays;
 public class SimpleSudokuBoard {
 
     public static void main(String[] args) {
-//        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
-//        simpleSudokuBoard.printBoard();
-//        long startTime = System.currentTimeMillis();
-//        simpleSudokuBoard.solveSudoku();
-//        long endTime = System.currentTimeMillis();
-//        System.out.println("It took " + (endTime - startTime) + " milliseconds to solve empty sudoku.");
+        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
+        simpleSudokuBoard.printBoard();
+        long startTime = System.currentTimeMillis();
+        simpleSudokuBoard.solveSudoku();
+        long endTime = System.currentTimeMillis();
+        System.out.println("It took " + (endTime - startTime) + " milliseconds to solve empty sudoku.");
 
         SimpleSudokuBoard simpleSudokuBoard2 = new SimpleSudokuBoard();
         simpleSudokuBoard2.setElement(0,0,5);
         simpleSudokuBoard2.setElement(0,1,6);
         simpleSudokuBoard2.setElement(0,2,7);
+        simpleSudokuBoard2.printBoard();
         long startTime2 = System.currentTimeMillis();
         simpleSudokuBoard2.solveSudoku();
         long endTime2 = System.currentTimeMillis();
@@ -140,12 +141,20 @@ public class SimpleSudokuBoard {
     public void setElement(int xIndex, int yIndex, int value) {
 
         if(
-                (xIndex < 0 || xIndex > 8)
-                || (yIndex < 0 || yIndex > 8)
-                || (value < 1 || value > 9)) {
-            throw new IllegalArgumentException("One of values is out of bounds.");
+                   (xIndex < 0 || xIndex > 8)
+                || (yIndex < 0 || yIndex > 8)) {
+            throw new IllegalArgumentException("X or Y coordinate out of bounds.");
+        }
+        if ( value < 1 || value > 9) {
+            throw new IllegalArgumentException("Value out of bounds.");
         }
 
+        int oldValue = elements[xIndex][yIndex].getValue();
+        if(oldValue != 0) {
+            System.out.println("Sorry, can't set this element, the element had been already set.");
+            System.out.println("You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
+            return;
+        }
         elements[xIndex][yIndex].setValue(value);
 
         //row
@@ -164,6 +173,43 @@ public class SimpleSudokuBoard {
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
                 elements[xStartIndex + i][yStartIndex + j].getPossibleValues().remove((Integer)value);
+            }
+        }
+    }
+
+    public void unsetElement(int xIndex, int yIndex) {
+
+        if(
+               (xIndex < 0 || xIndex > 8)
+            || (yIndex < 0 || yIndex > 8)) {
+        throw new IllegalArgumentException("X or Y coordinate out of bounds.");
+        }
+        int oldValue = elements[xIndex][yIndex].getValue();
+        if(oldValue == 0) {
+            System.out.println("Can't unset this element, the element had not been set.");
+            return;
+        }
+        elements[xIndex][yIndex].clearValue();
+
+        //row
+        for(int i=0; i<9; i++) {
+            if(!elements[i][yIndex].getPossibleValues().contains((Integer)oldValue))
+            elements[i][yIndex].getPossibleValues().add((Integer)oldValue);
+        }
+
+        //column
+        for(int i=0; i<9; i++) {
+            if(!elements[xIndex][i].getPossibleValues().contains((Integer)oldValue))
+            elements[xIndex][i].getPossibleValues().add((Integer)oldValue);
+        }
+
+        //3x3 section
+        int xStartIndex = xIndex - xIndex%3;
+        int yStartIndex = yIndex - yIndex%3;
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                if(!elements[xStartIndex + i][yStartIndex + j].getPossibleValues().contains((Integer)oldValue))
+                elements[xStartIndex + i][yStartIndex + j].getPossibleValues().add((Integer)oldValue);
             }
         }
     }

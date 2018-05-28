@@ -1,18 +1,18 @@
 package com.gorczynskimike.sudoku;
 
-import com.gorczynskimike.sudoku.complex.SudokuBoard;
+import com.gorczynskimike.sudoku.complex.ComplexSudokuBoard;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SudokuBoardTestSuite {
+public class ComplexSudokuBoardTestSuite {
 
     @Test
     public void testCreateEmptyBoard() {
         //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
+        ComplexSudokuBoard complexSudokuBoard = new ComplexSudokuBoard();
 
         //When
-        String boardString = sudokuBoard.getBoardStringRepresentation();
+        String boardString = complexSudokuBoard.getBoardStringRepresentation();
 
         //Then
         Assert.assertEquals(
@@ -40,13 +40,13 @@ public class SudokuBoardTestSuite {
     @Test
     public void testSetElementValue() {
         //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
+        ComplexSudokuBoard complexSudokuBoard = new ComplexSudokuBoard();
 
         //When
-        sudokuBoard.setElementValue(0,0,1);
-        sudokuBoard.setElementValue(4,4,5);
-        sudokuBoard.setElementValue(8,8,9);
-        String boardString = sudokuBoard.getBoardStringRepresentation();
+        complexSudokuBoard.setElementValue(0,0,1);
+        complexSudokuBoard.setElementValue(4,4,5);
+        complexSudokuBoard.setElementValue(8,8,9);
+        String boardString = complexSudokuBoard.getBoardStringRepresentation();
 
         //Then
         Assert.assertEquals(
@@ -108,12 +108,12 @@ public class SudokuBoardTestSuite {
     @Test
     public void testCantAssignTheSameNumberTwiceInARow() {
         //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
+        ComplexSudokuBoard complexSudokuBoard = new ComplexSudokuBoard();
 
         //When
-        boolean resultFirstElement = sudokuBoard.setElementValue(0,0,1);
-        boolean resultSameRow = sudokuBoard.setElementValue(8,0,1);
-        boolean resultDifferentRow = sudokuBoard.setElementValue(8,1,1);
+        boolean resultFirstElement = complexSudokuBoard.setElementValue(0,0,1);
+        boolean resultSameRow = complexSudokuBoard.setElementValue(8,0,1);
+        boolean resultDifferentRow = complexSudokuBoard.setElementValue(8,1,1);
 
         //Then
         Assert.assertEquals(true, resultFirstElement);
@@ -124,12 +124,12 @@ public class SudokuBoardTestSuite {
     @Test
     public void testCantAssignTheSameNumberTwiceInAColumn() {
         //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
+        ComplexSudokuBoard complexSudokuBoard = new ComplexSudokuBoard();
 
         //When
-        boolean resultFirstElement = sudokuBoard.setElementValue(0,0,1);
-        boolean resultSameColumn = sudokuBoard.setElementValue(0,8,1);
-        boolean resultDifferentColumn = sudokuBoard.setElementValue(1,8,1);
+        boolean resultFirstElement = complexSudokuBoard.setElementValue(0,0,1);
+        boolean resultSameColumn = complexSudokuBoard.setElementValue(0,8,1);
+        boolean resultDifferentColumn = complexSudokuBoard.setElementValue(1,8,1);
 
         //Then
         Assert.assertEquals(true, resultFirstElement);
@@ -140,12 +140,12 @@ public class SudokuBoardTestSuite {
     @Test
     public void testCantAssignTheSameNumberTwiceInASection() {
         //Given
-        SudokuBoard sudokuBoard = new SudokuBoard();
+        ComplexSudokuBoard complexSudokuBoard = new ComplexSudokuBoard();
 
         //When
-        boolean resultFirstElement = sudokuBoard.setElementValue(0,0,1);
-        boolean resultSameSection = sudokuBoard.setElementValue(2,2,1);
-        boolean resultDifferentSection = sudokuBoard.setElementValue(3,3,1);
+        boolean resultFirstElement = complexSudokuBoard.setElementValue(0,0,1);
+        boolean resultSameSection = complexSudokuBoard.setElementValue(2,2,1);
+        boolean resultDifferentSection = complexSudokuBoard.setElementValue(3,3,1);
 
         //Then
         Assert.assertEquals(true, resultFirstElement);
@@ -155,7 +155,7 @@ public class SudokuBoardTestSuite {
 
     @Test
     public void testBordSolve() {
-        SudokuBoard sudokuBoard = new SudokuBoard();
-        sudokuBoard.solveBoard();
+        ComplexSudokuBoard complexSudokuBoard = new ComplexSudokuBoard();
+        complexSudokuBoard.solveBoard();
     }
 }

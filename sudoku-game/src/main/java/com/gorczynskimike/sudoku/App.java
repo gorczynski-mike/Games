@@ -21,32 +21,34 @@ public class App {
                 if (userInput.equalsIgnoreCase("sudoku")) {
                     finishLoopFlag = true;
                     simpleSudokuBoard.solveSudoku();
-                } else
-//                if (userInput.contains("unset")) {
-//                String[] inputParts = userInput.split(",");
-//                try {
-//                    simpleSudokuBoard.unsetElement(
-//                            Integer.parseInt(inputParts[0]),
-//                            Integer.parseInt(inputParts[1])
-//                    );
-//                } catch (IllegalArgumentException e) {
-//                    System.out.println("Sorry, one of the values is out of bounds: ");
-//                    System.out.println(e.getMessage());
-//                }
-//            }
-//            else
-                {
+                } else if (userInput.contains("unset")) {
                     String[] inputParts = userInput.split(",");
                     try {
+                        //minus 1 to coordinates so the user can select row/column in range 1-9, not 0-8
+                        simpleSudokuBoard.unsetElement(
+                                Integer.parseInt(inputParts[1])-1,
+                                Integer.parseInt(inputParts[0])-1
+                        );
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Unsetting element failed: ");
+                        System.out.println(e.getMessage());
+                    } finally {
+                        simpleSudokuBoard.printBoard();
+                    }
+                } else {
+                    String[] inputParts = userInput.split(",");
+                    try {
+                        //minus 1 to coordinates, so the user can select row/column in range 1-9, not 0-8
                         simpleSudokuBoard.setElement(
-                                Integer.parseInt(inputParts[0]),
-                                Integer.parseInt(inputParts[1]),
+                                Integer.parseInt(inputParts[1])-1,
+                                Integer.parseInt(inputParts[0])-1,
                                 Integer.parseInt(inputParts[2])
                         );
-                        simpleSudokuBoard.printBoard();
                     } catch (IllegalArgumentException e) {
-                        System.out.println("Sorry, one of the values is out of bounds: ");
+                        System.out.println("Setting element failed: ");
                         System.out.println(e.getMessage());
+                    } finally {
+                        simpleSudokuBoard.printBoard();
                     }
                 }
             }

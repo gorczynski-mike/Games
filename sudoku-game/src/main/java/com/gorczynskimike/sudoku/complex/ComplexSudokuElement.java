@@ -2,7 +2,7 @@ package com.gorczynskimike.sudoku.complex;
 
 import java.util.*;
 
-public class SudokuElement {
+public class ComplexSudokuElement {
 
     private int value = -1;
     private boolean valueSet = false;
@@ -10,17 +10,17 @@ public class SudokuElement {
     private int yIndex;
     private Set<Integer> possibleValues = new HashSet<>();
 
-    public SudokuElement(int xIndex, int yIndex) {
+    public ComplexSudokuElement(int xIndex, int yIndex) {
         this.xIndex = xIndex;
         this.yIndex = yIndex;
         this.possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
     }
 
-    public SudokuElement getDeepCopy() {
-        return new SudokuElement(this.value, this.valueSet, this.xIndex, this.yIndex, this.possibleValues);
+    public ComplexSudokuElement getDeepCopy() {
+        return new ComplexSudokuElement(this.value, this.valueSet, this.xIndex, this.yIndex, this.possibleValues);
     }
 
-    private SudokuElement(int value, boolean valueSet, int xIndex, int yIndex, Set<Integer> possibleValues) {
+    private ComplexSudokuElement(int value, boolean valueSet, int xIndex, int yIndex, Set<Integer> possibleValues) {
         this.value = value;
         this.valueSet = valueSet;
         this.xIndex = xIndex;
@@ -74,7 +74,7 @@ public class SudokuElement {
 
     @Override
     public String toString() {
-        return "SudokuElement{" +
+        return "ComplexSudokuElement{" +
                 "value=" + value +
                 ", xIndex=" + xIndex +
                 ", yIndex=" + yIndex +
@@ -85,7 +85,7 @@ public class SudokuElement {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SudokuElement that = (SudokuElement) o;
+        ComplexSudokuElement that = (ComplexSudokuElement) o;
         return xIndex == that.xIndex &&
                 yIndex == that.yIndex;
     }

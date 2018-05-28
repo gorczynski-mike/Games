@@ -2,20 +2,20 @@ package com.gorczynskimike.sudoku.complex;
 
 public class SudokuGuessState {
 
-    private final SudokuBoard sudokuBoardDeepCopy;
+    private final ComplexSudokuBoard complexSudokuBoardDeepCopy;
     private final int xIndexOfGuessesElement;
     private final int yIndexOfGuessesElement;
     private final int valueBeingGuessed;
 
-    public SudokuGuessState(SudokuBoard sudokuBoard, int xIndexOfGuessesElement, int yIndexOfGuessesElement, int valueBeingGuessed) {
-        this.sudokuBoardDeepCopy = sudokuBoard.getDeepCopy();
+    public SudokuGuessState(ComplexSudokuBoard complexSudokuBoard, int xIndexOfGuessesElement, int yIndexOfGuessesElement, int valueBeingGuessed) {
+        this.complexSudokuBoardDeepCopy = complexSudokuBoard.getDeepCopy();
         this.xIndexOfGuessesElement = xIndexOfGuessesElement;
         this.yIndexOfGuessesElement = yIndexOfGuessesElement;
         this.valueBeingGuessed = valueBeingGuessed;
     }
 
-    public SudokuBoard getSudokuBoardDeepCopy() {
-        return sudokuBoardDeepCopy;
+    public ComplexSudokuBoard getComplexSudokuBoardDeepCopy() {
+        return complexSudokuBoardDeepCopy;
     }
 
     public int getxIndexOfGuessesElement() {

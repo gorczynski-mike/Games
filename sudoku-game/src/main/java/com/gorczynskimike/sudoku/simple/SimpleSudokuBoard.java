@@ -1,11 +1,16 @@
 package com.gorczynskimike.sudoku.simple;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class SimpleSudokuBoard {
 
     public static void main(String[] args) {
         SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
+        simpleSudokuBoard.printBoard();
+        simpleSudokuBoard.generateRandomNumbers(21);
         simpleSudokuBoard.printBoard();
         long startTime = System.currentTimeMillis();
         simpleSudokuBoard.solveSudoku();
@@ -212,6 +217,44 @@ public class SimpleSudokuBoard {
                 elements[xStartIndex + i][yStartIndex + j].getPossibleValues().add((Integer)oldValue);
             }
         }
+    }
+
+    public void generateRandomNumbers(int howMany) {
+        Random random = new Random();
+        int succesfullyGeneratedNumbers = 0;
+        while(howMany > 0) {
+            boolean wasNumberGenerated = generateOneNumber();
+            if(!wasNumberGenerated) {
+                System.out.println("Sorry, it's impossible to generate more numbers without breaking sudoku rules.");
+                break;
+            } else {
+                succesfullyGeneratedNumbers++;
+            }
+            howMany--;
+        }
+        System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
+    }
+
+    private boolean generateOneNumber() {
+        int possibleNumbers = 0;
+        List<CoordinatePair> listOfEmptyFields = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(elements[i][j].getValue() == 0 && elements[i][j].getPossibleValues().size() > 0) {
+                    possibleNumbers++;
+                    listOfEmptyFields.add(new CoordinatePair(i,j));
+                }
+            }
+        }
+        if(possibleNumbers == 0) {
+            return false;
+        }
+        Random random = new Random();
+        CoordinatePair chosenFieldCoordinates = listOfEmptyFields.get(random.nextInt(listOfEmptyFields.size()));
+        SudokuElement chosenElement = elements[chosenFieldCoordinates.getX()][chosenFieldCoordinates.getY()];
+        int chosenValue = chosenElement.getPossibleValues().get(random.nextInt(chosenElement.getPossibleValues().size()));
+        setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
+        return true;
     }
 
 }

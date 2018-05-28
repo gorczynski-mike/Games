@@ -93,8 +93,8 @@ public class SimpleSudokuBoard {
                     System.out.println("Solved");
                     printBoard();
                     System.out.println("Number of loops: " + counter);
+                    SudokuStack.printStackSize();
                 }
-                SudokuStack.printStackSize();
                 SudokuStack.clearStack();
                 isSolved = true;
                 result = true;
@@ -233,10 +233,21 @@ public class SimpleSudokuBoard {
     }
 
     public void generateRandomNumbers(int howMany) {
+        //initial check of range
         if(howMany < 1 || howMany > 81) {
             System.out.println("Sorry, can't generate " + howMany + " numbers, valid range is: 1 - 81");
             return;
         }
+
+        //check if there are enough not set elements to fill
+        int numberOfEmptyElements = getNumberOfEmptyElements();
+        if(numberOfEmptyElements < howMany) {
+            System.out.println("Sorry, can't generate that many numbers: " + howMany + " there is only: " +
+                    + numberOfEmptyElements + " empty elements left.");
+            return;
+        }
+
+        //generate
         int succesfullyGeneratedNumbers = 0;
         while(howMany > 0) {
             boolean wasNumberGenerated = generateOneNumber();
@@ -299,11 +310,43 @@ public class SimpleSudokuBoard {
         return copy;
     }
 
+    private int getNumberOfEmptyElements() {
+        int numberOfEmptyElements = 0;
+        for(int i=0; i<elements.length; i++) {
+            for(int j=0; j<elements.length; j++) {
+                if(elements[i][j].getValue() == 0) {
+                    numberOfEmptyElements++;
+                }
+            }
+        }
+        return numberOfEmptyElements;
+    }
+
     public void generateSolvableBoard(int howManyNumbers) {
+        //initial check of range
         if(howManyNumbers < 0 || howManyNumbers > 81) {
             throw new IllegalArgumentException("Valid range is 0-81. Passed value: " + howManyNumbers);
         }
 
+        //check if the board is solvable before any modifications
+        SudokuElement[][] boardCopy = copySudokuBoard(this.elements);
+        if(!solveSudoku(true)) {
+            System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
+                    "some numbers and try again.");
+            this.elements = boardCopy;
+            return;
+        }
+        this.elements = boardCopy;
+
+        //check if there are enough not set elements to fill
+        int numberOfEmptyElements = getNumberOfEmptyElements();
+        if(numberOfEmptyElements < howManyNumbers) {
+            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbers + " there is only: " +
+                    + numberOfEmptyElements + " empty elements left.");
+            return;
+        }
+
+        //generate numbers
         while(howManyNumbers > 0) {
             SudokuElement[][] boardCopyBefore = copySudokuBoard(this.elements);
             generateOneNumber();

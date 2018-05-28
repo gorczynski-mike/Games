@@ -17,8 +17,7 @@ public class App {
                 if (userInput.equalsIgnoreCase("error")) {
                     System.out.println("Invalid format, try again.");
                     continue;
-                }
-                if (userInput.equalsIgnoreCase("sudoku")) {
+                } else if (userInput.equalsIgnoreCase("sudoku")) {
                     finishLoopFlag = true;
                     simpleSudokuBoard.solveSudoku(false);
                 } else if (userInput.contains("unset")) {

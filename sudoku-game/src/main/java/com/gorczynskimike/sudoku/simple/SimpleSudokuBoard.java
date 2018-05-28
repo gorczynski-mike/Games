@@ -120,7 +120,8 @@ public class SimpleSudokuBoard {
                     }
                 }
                 int guessedNumber = elements[bestXIndex][bestYIndex].getPossibleValues().get(0);
-                SudokuStack.pushSudokuState(new SudokuState(this.elements, bestXIndex, bestYIndex, guessedNumber));
+                SudokuState savedState = new SudokuState(this.elements, bestXIndex, bestYIndex, guessedNumber);
+                SudokuStack.pushSudokuState(savedState);
                 setElement(bestXIndex,bestYIndex,guessedNumber);
                 continue mainLoop;
             }

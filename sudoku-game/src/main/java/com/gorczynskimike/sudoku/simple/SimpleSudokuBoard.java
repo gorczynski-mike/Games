@@ -363,4 +363,8 @@ public class SimpleSudokuBoard {
         printBoard();
     }
 
+    public void clearTheBoard() {
+        this.elements = SudokuArrayFactory.getEmptySudokuArray();
+    }
+
 }

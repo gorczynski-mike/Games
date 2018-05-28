@@ -36,6 +36,9 @@ public class App {
                     }
                 } else if (userInput.matches("random")) {
                     simpleSudokuBoard.generateRandomNumbers(1);
+                } else if (userInput.matches("clear")) {
+                    simpleSudokuBoard.clearTheBoard();
+                    simpleSudokuBoard.printBoard();
                 } else if (userInput.matches("random,\\d+")) {
                     String[] inputParts = userInput.split(",");
                     int howManyToGuess = Integer.parseInt(inputParts[1]);

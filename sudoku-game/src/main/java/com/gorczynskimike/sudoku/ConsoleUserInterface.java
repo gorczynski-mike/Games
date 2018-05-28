@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ConsoleUserInterface implements UserInterface {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+|solvable,\\d+";
+    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+|solvable,\\d+|clear";
     private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
     @Override
@@ -17,8 +17,9 @@ public class ConsoleUserInterface implements UserInterface {
         System.out.println("- 'random' to generate one number on the board");
         System.out.println("- 'random,z' to generate <z> numbers on the board");
         System.out.println("- 'solvable,z' to generate <z> numbers on the board");
+        System.out.println("- 'clear' to clear the board");
         System.out.println("(IMPORTANT: valid range for <x>, <y>, <value>: 1-9, valid range for <z>: 1-81)");
-        System.out.println("(IMPORTANT: 'sudoku', 'unset', 'solvable' and 'random' are complete english words)");
+        System.out.println("(IMPORTANT: 'sudoku', 'unset', 'solvable', 'clear' and 'random' are complete english words)");
         System.out.println("(IMPORTANT: generated random numbers won't violate sudoku rules, but might create unsolvable sudoku)");
         System.out.println("(IMPORTANT: 'solvable' guarantees that created board will be solvable)");
         String userInput = scanner.nextLine();

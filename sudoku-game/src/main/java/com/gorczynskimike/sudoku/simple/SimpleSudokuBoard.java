@@ -8,24 +8,28 @@ import java.util.Random;
 public class SimpleSudokuBoard {
 
     public static void main(String[] args) {
-        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
-        simpleSudokuBoard.printBoard();
-        simpleSudokuBoard.generateRandomNumbers(21);
-        simpleSudokuBoard.printBoard();
-        long startTime = System.currentTimeMillis();
-        simpleSudokuBoard.solveSudoku();
-        long endTime = System.currentTimeMillis();
-        System.out.println("It took " + (endTime - startTime) + " milliseconds to solve empty sudoku.");
+//        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
+//        simpleSudokuBoard.printBoard();
+//        simpleSudokuBoard.generateRandomNumbers(21);
+//        simpleSudokuBoard.printBoard();
+//        long startTime = System.currentTimeMillis();
+//        simpleSudokuBoard.solveSudoku();
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("It took " + (endTime - startTime) + " milliseconds to solve empty sudoku.");
+//
+//        SimpleSudokuBoard simpleSudokuBoard2 = new SimpleSudokuBoard();
+//        simpleSudokuBoard2.setElement(0,0,5);
+//        simpleSudokuBoard2.setElement(0,1,6);
+//        simpleSudokuBoard2.setElement(0,2,7);
+//        simpleSudokuBoard2.printBoard();
+//        long startTime2 = System.currentTimeMillis();
+//        simpleSudokuBoard2.solveSudoku();
+//        long endTime2 = System.currentTimeMillis();
+//        System.out.println("It took " + (endTime2 - startTime2) + " milliseconds to solve sudoku.");
 
-        SimpleSudokuBoard simpleSudokuBoard2 = new SimpleSudokuBoard();
-        simpleSudokuBoard2.setElement(0,0,5);
-        simpleSudokuBoard2.setElement(0,1,6);
-        simpleSudokuBoard2.setElement(0,2,7);
-        simpleSudokuBoard2.printBoard();
-        long startTime2 = System.currentTimeMillis();
-        simpleSudokuBoard2.solveSudoku();
-        long endTime2 = System.currentTimeMillis();
-        System.out.println("It took " + (endTime2 - startTime2) + " milliseconds to solve sudoku.");
+        SimpleSudokuBoard simpleSudokuBoard3 = new SimpleSudokuBoard();
+        simpleSudokuBoard3.generateSolvableBoard(1);
+        simpleSudokuBoard3.solveSudoku(false);
     }
 
     private SudokuElement[][] elements = new SudokuElement[9][9];
@@ -38,10 +42,11 @@ public class SimpleSudokuBoard {
         }
     }
 
-    public void solveSudoku() {
+    public boolean solveSudoku(boolean silentMode) {
         long startTime = System.currentTimeMillis();
         long startTimeNano = System.nanoTime();
         boolean isSolved = false;
+        boolean result = false;
         int counter = 0;
         mainLoop:
         while (!isSolved) {
@@ -56,7 +61,9 @@ public class SimpleSudokuBoard {
             int modifiedElements = 0;
             if(!isSolvable()) {
                 if(SudokuStack.getStackSize() == 0) {
-                    System.out.println("Sorry, it's impossible to solve this sudoku.");
+                    if(!silentMode) {
+                        System.out.println("Sorry, it's impossible to solve this sudoku.");
+                    }
                     break mainLoop;
                 }
                 SudokuState lastState = SudokuStack.popSudokuState();
@@ -82,12 +89,15 @@ public class SimpleSudokuBoard {
                 }
             }
             if(unsetElements == 0) {
-                System.out.println("Solved");
-                printBoard();
+                if(!silentMode) {
+                    System.out.println("Solved");
+                    printBoard();
+                    System.out.println("Number of loops: " + counter);
+                }
                 SudokuStack.printStackSize();
                 SudokuStack.clearStack();
-                System.out.println("Number of loops: " + counter);
                 isSolved = true;
+                result = true;
                 break mainLoop;
             }
             if(modifiedElements > 0) {
@@ -117,8 +127,11 @@ public class SimpleSudokuBoard {
         }
         long endTime = System.currentTimeMillis();
         long endTimeNano = System.nanoTime();
-        System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds. " +
-                "( " + (endTimeNano - startTimeNano) + " nano seconds)");
+        if(!silentMode) {
+            System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds. " +
+                    "( " + (endTimeNano - startTimeNano) + " nano seconds)");
+        }
+        return result;
     }
 
     private boolean isSolvable() {
@@ -259,6 +272,52 @@ public class SimpleSudokuBoard {
         int chosenValue = chosenElement.getPossibleValues().get(random.nextInt(chosenElement.getPossibleValues().size()));
         setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
         return true;
+    }
+
+    /**
+     * Method assumes that original board is a square, eg. 9x9
+     * @param original
+     * @return
+     */
+    private SudokuElement[][] copySudokuBoard(SudokuElement[][] original) {
+
+        //check if original is a square
+        int originalSide = original.length;
+        for(int i=0; i<original.length; i++) {
+            if(original[i].length != originalSide) {
+                throw new IllegalArgumentException("Array passed to this method must be a square.");
+            }
+        }
+
+        //create a copy
+        SudokuElement[][] copy = new SudokuElement[original.length][original.length];
+        for(int i=0; i<original.length; i++) {
+            for(int j=0; j<original.length; j++) {
+                copy[i][j] = original[i][j].getCopy();
+            }
+        }
+        return copy;
+    }
+
+    public void generateSolvableBoard(int howManyNumbers) {
+        if(howManyNumbers < 0 || howManyNumbers > 81) {
+            throw new IllegalArgumentException("Valid range is 0-81. Passed value: " + howManyNumbers);
+        }
+
+        while(howManyNumbers > 0) {
+            SudokuElement[][] boardCopyBefore = copySudokuBoard(this.elements);
+            generateOneNumber();
+            SudokuElement[][] boardCopyAfter = copySudokuBoard(this.elements);
+            if(solveSudoku(true)) {
+                howManyNumbers--;
+                this.elements = boardCopyAfter;
+                continue;
+            } else {
+                this.elements = boardCopyBefore;
+            }
+        }
+
+        printBoard();
     }
 
 }

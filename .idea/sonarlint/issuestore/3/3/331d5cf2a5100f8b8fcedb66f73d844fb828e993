@@ -1,0 +1,41 @@
+
+<squid:S1065C"Remove this unused label.(ñ¬’ÿÿÿÿÿ8Ì¡ñªº,
+W
+squid:S106à"9Replace this use of System.out or System.err by a logger.(­Ñ†¢8ÌšŸ®º,
+]squid:S1155÷">Use isEmpty() to check whether the collection is empty or not.(ş Ô8„ ï­º,
+9squid:S3626I"Remove this redundant jump.(ÉŠ©ƒ8Ì¡ñªº,
+V
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ú„êù8Ì¡ñªº,
+[
+squid:S106;"9Replace this use of System.out or System.err by a logger.(”ÂöĞüÿÿÿÿ8Ì¡ñªº,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(üŞ£‰üÿÿÿÿ8Ì¡ñªº,
+\
+squid:S106 "9Replace this use of System.out or System.err by a logger.(«ÉÚÔûÿÿÿÿ8œàî«º,
+psquid:S3776)"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(å¤á®8Ì¡ñªº,
+W
+squid:S106Â"9Replace this use of System.out or System.err by a logger.(Îòë8À»’«º,
+U
+squid:S106x"9Replace this use of System.out or System.err by a logger.(ıŞJ8Ì¡ñªº,
+isquid:CommentedOutCodeLine2"<This block of commented-out lines of code should be removed.(şøà€8Ì¡ñªº,
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ğ¤Á—üÿÿÿÿ8Ì¡ñªº,
+\
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(»×ƒ’üÿÿÿÿ8µ¯æ«º,
+nsquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(í¨ñÅşÿÿÿÿ8Ì¡ñªº,
+_squid:S1854Z"<Remove this useless assignment to local variable "isSolved".(…÷°óûÿÿÿÿ8Ì¡ñªº,
+W
+squid:S106ç"9Replace this use of System.out or System.err by a logger.(èç–Ò8«áë­º,
+s squid:LabelsShouldNotBeUsedCheckC";Refactor the code to remove this label and the need for it.(ñ¬’ÿÿÿÿÿ8Ì¡ñªº,
+V
+squid:S106Y"9Replace this use of System.out or System.err by a logger.(—½ı8Ì¡ñªº,
+n squid:LabelsShouldNotBeUsedCheck.";Refactor the code to remove this label and the need for it.(²°8Ì¡ñªº,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(í‰Åçûÿÿÿÿ8¬ïªº,
+8squid:S3626^"Remove this redundant jump.(–½8Ì¡ñªº,
+W
+squid:S106î"9Replace this use of System.out or System.err by a logger.(ÀÔ¬8„ ï­º,
+{
+squid:S135/"YReduce the total number of break and continue statements in this loop to use at most one.(†×Áùÿÿÿÿ8Ì¡ñªº,
+8squid:S3626s"Remove this redundant jump.(–½8Ì¡ñªº,
+isquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(È½ûğ8Ì¡ñªº,

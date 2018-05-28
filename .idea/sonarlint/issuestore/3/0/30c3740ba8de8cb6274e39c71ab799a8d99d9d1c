@@ -1,0 +1,21 @@
+
+]squid:S1155ä">Use isEmpty() to check whether the collection is empty or not.(ýï‘Þ8È’‹Œº,
+nsquid:CommentedOutCodeLiner"<This block of commented-out lines of code should be removed.(½×Ïæÿÿÿÿÿ8ê¿º,
+n squid:LabelsShouldNotBeUsedCheck)";Refactor the code to remove this label and the need for it.(²°8ªÔÍ‹º,
+V
+squid:S106l"9Replace this use of System.out or System.err by a logger.(¸®Ù®8È’‹Œº,
+Psquid:S1612Þ",Replace this lambda with a method reference.(ª¡ÆÑøÿÿÿÿ8È’‹Œº,
+8squid:S3626="Remove this redundant jump.(–½8È’‹Œº,
+nsquid:CommentedOutCodeLine<"<This block of commented-out lines of code should be removed.(®ë«ûÿÿÿÿÿ8ÜæŒº,
+[
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(ÈÊš§ÿÿÿÿÿ8È’‹Œº,
+Psquid:S1612¾",Replace this lambda with a method reference.(ÿ£ÛŠúÿÿÿÿ8È’‹Œº,
+\
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ó¸â‡ÿÿÿÿÿ8È’‹Œº,
+[
+squid:S106."9Replace this use of System.out or System.err by a logger.(Ž‹ÜÜýÿÿÿÿ8È’‹Œº,
+{
+squid:S135*"YReduce the total number of break and continue statements in this loop to use at most one.(ùäÝúÿÿÿÿ8…Ãú‹º,
+8squid:S3626I"Remove this redundant jump.(–½8È’‹Œº,
+[
+squid:S106L"9Replace this use of System.out or System.err by a logger.(õÍüúúÿÿÿÿ8È’‹Œº,

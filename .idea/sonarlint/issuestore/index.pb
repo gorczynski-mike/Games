@@ -59,3 +59,5 @@ Msudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuElement.java,
 Qsudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java,3\3\331d5cf2a5100f8b8fcedb66f73d844fb828e993
 ‚
 Rsudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java,c\1\c16436a4716fab1dc889c7ecfd9ed38f9b3d3234
+z
+Jsudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/StateSaver.java,9\b\9bde630347a8d0b04571bf7fc5680585b0afa4ce

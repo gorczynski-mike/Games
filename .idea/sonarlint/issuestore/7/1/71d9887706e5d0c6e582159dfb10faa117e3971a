@@ -1,5 +1,6 @@
 
-Xsquid:S1118":Add a private constructor to hide the implicit public one.(™·ò«8ŞÌ“º,
-8squid:S1700"Rename field "sudokuStack"(†±ª€8Á±óº,
 [
-squid:S106"9Replace this use of System.out or System.err by a logger.(¯Î‚óúÿÿÿÿ8Èüâº,
+squid:S106"9Replace this use of System.out or System.err by a logger.(¯Î‚óúÿÿÿÿ8® ò½º,
+Xsquid:S1118":Add a private constructor to hide the implicit public one.(™·ò«8® ò½º,
+Wsquid:UselessImportCheck",Remove this unused import 'java.util.Queue'.(Äá™ô8® ò½º,
+=squid:S1700	"Rename field "sudokuStack"(è¢üÿÿÿÿ8® ò½º,

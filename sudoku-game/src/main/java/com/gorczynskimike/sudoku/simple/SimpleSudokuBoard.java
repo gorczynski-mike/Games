@@ -1,5 +1,6 @@
 package com.gorczynskimike.sudoku.simple;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -48,8 +49,16 @@ public class SimpleSudokuBoard {
         boolean isSolved = false;
         boolean result = false;
         int counter = 0;
+        int filenameCounter = 2000;
+        try {
+            StateSaver.deleteOldFiles();
+        } catch (IOException e) {e.printStackTrace();}
+
         mainLoop:
         while (!isSolved) {
+            try {
+                StateSaver.saveSudokuArrayToFile(this.elements, (char)filenameCounter++ + ".txt");
+            } catch (IOException e) {e.printStackTrace();}
 //            System.out.println("main loop");
             counter++;
 //            if(counter % 5000 == 0) {
@@ -84,6 +93,9 @@ public class SimpleSudokuBoard {
                             setElement(i,j,current.getPossibleValues().get(0));
                             modifiedElements++;
                             unsetElements--;
+                            try {
+                                StateSaver.saveSudokuArrayToFile(this.elements, (char)filenameCounter++ + ".txt");
+                            } catch (IOException e) {e.printStackTrace();}
                         }
                     }
                 }

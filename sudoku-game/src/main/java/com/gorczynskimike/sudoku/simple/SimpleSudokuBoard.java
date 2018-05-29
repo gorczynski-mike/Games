@@ -9,38 +9,13 @@ import java.util.Random;
 public class SimpleSudokuBoard {
 
     public static void main(String[] args) {
-//        SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
-//        simpleSudokuBoard.printBoard();
-//        simpleSudokuBoard.generateRandomNumbers(21);
-//        simpleSudokuBoard.printBoard();
-//        long startTime = System.currentTimeMillis();
-//        simpleSudokuBoard.solveSudoku();
-//        long endTime = System.currentTimeMillis();
-//        System.out.println("It took " + (endTime - startTime) + " milliseconds to solve empty sudoku.");
-//
-//        SimpleSudokuBoard simpleSudokuBoard2 = new SimpleSudokuBoard();
-//        simpleSudokuBoard2.setElement(0,0,5);
-//        simpleSudokuBoard2.setElement(0,1,6);
-//        simpleSudokuBoard2.setElement(0,2,7);
-//        simpleSudokuBoard2.printBoard();
-//        long startTime2 = System.currentTimeMillis();
-//        simpleSudokuBoard2.solveSudoku();
-//        long endTime2 = System.currentTimeMillis();
-//        System.out.println("It took " + (endTime2 - startTime2) + " milliseconds to solve sudoku.");
-
-        SimpleSudokuBoard simpleSudokuBoard3 = new SimpleSudokuBoard();
-        simpleSudokuBoard3.generateSolvableBoard(1);
-        simpleSudokuBoard3.solveSudoku(false);
+        //do nothing, for testing purposes
     }
 
-    private SudokuElement[][] elements = new SudokuElement[9][9];
+    private SudokuElement[][] elements;
 
     public SimpleSudokuBoard() {
-        for(int i=0; i<9; i++) {
-            for(int j=0; j<9; j++) {
-                elements[i][j] = new SudokuElement();
-            }
-        }
+        this.elements = SudokuArrayFactory.getEmptySudokuArray();
     }
 
     public boolean solveSudoku(boolean silentMode) {
@@ -59,13 +34,7 @@ public class SimpleSudokuBoard {
             try {
                 StateSaver.saveSudokuArrayToFile(this.elements, (char)filenameCounter++ + ".txt");
             } catch (IOException e) {e.printStackTrace();}
-//            System.out.println("main loop");
             counter++;
-//            if(counter % 5000 == 0) {
-//                System.out.println(counter);
-//                printBoard();
-//                SudokuStack.printStackSize();
-//            }
             int unsetElements = 0;
             int modifiedElements = 0;
             if(!isSolvable()) {
@@ -108,7 +77,6 @@ public class SimpleSudokuBoard {
                     SudokuStack.printStackSize();
                 }
                 SudokuStack.clearStack();
-                isSolved = true;
                 result = true;
                 break mainLoop;
             }
@@ -123,8 +91,6 @@ public class SimpleSudokuBoard {
                     for (int j = 0; j < 9; j++) {
                         current = elements[i][j];
                         if(current.getValue() == 0 && current.getPossibleValues().size() < minPossibilities) {
-//                            System.out.println("===============");
-//                            printBoard();
                             bestXIndex = i;
                             bestYIndex = j;
                             minPossibilities = current.getPossibleValues().size();
@@ -171,6 +137,7 @@ public class SimpleSudokuBoard {
 
     public void setElement(int xIndex, int yIndex, int value) {
 
+        //range checks on arguments
         if(
                    (xIndex < 0 || xIndex > 8)
                 || (yIndex < 0 || yIndex > 8)) {
@@ -180,6 +147,7 @@ public class SimpleSudokuBoard {
             throw new IllegalArgumentException("Value out of bounds.");
         }
 
+        //check if element is not set
         int oldValue = elements[xIndex][yIndex].getValue();
         if(oldValue != 0) {
             System.out.println("Sorry, can't set this element, the element had been already set.");
@@ -210,6 +178,7 @@ public class SimpleSudokuBoard {
 
     public void unsetElement(int xIndex, int yIndex) {
 
+        //initial checks on range
         if(
                (xIndex < 0 || xIndex > 8)
             || (yIndex < 0 || yIndex > 8)) {
@@ -220,6 +189,7 @@ public class SimpleSudokuBoard {
             System.out.println("Can't unset this element, the element had not been set.");
             return;
         }
+
         elements[xIndex][yIndex].clearValue();
 
         //row

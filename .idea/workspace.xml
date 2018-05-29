@@ -2,7 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/UserChoiceHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߐ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߐ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߑ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߑ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߒ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߒ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߓ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߓ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߔ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߔ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߕ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߕ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߖ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߖ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߗ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߗ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߘ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߘ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߙ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߙ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߚ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߚ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߛ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߛ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߜ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߜ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߝ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߝ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߞ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߞ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߟ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߟ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߠ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߠ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߡ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߡ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߢ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߢ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߣ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߣ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߤ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߤ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߥ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߥ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߦ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߦ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߧ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߧ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߨ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߨ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߩ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߩ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߪ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߪ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߫.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߫.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߬.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߬.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߭.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߭.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߮.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߮.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߯.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߯.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߰.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߰.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߱.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߱.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߲.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߲.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߳.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߳.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߴ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߴ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߵ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߵ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߶.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߶.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߷.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߷.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߸.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߸.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߹.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߹.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/ߺ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/ߺ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/߻.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/߻.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/ConsoleUserInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/UserInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/ConsoleUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java" afterDir="false" />
     </list>
@@ -42,20 +95,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="399">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserChoiceHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/UserChoiceHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ConsoleUserInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/ConsoleUserInterface.java">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="84">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -63,15 +134,18 @@
       <file leaf-file-name="SimpleSudokuBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-176">
-              <caret line="275" column="39" selection-start-line="275" selection-start-column="39" selection-end-line="275" selection-end-column="39" />
+            <state relative-caret-position="340">
+              <caret line="268" column="5" selection-start-line="268" selection-start-column="5" selection-end-line="268" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1521#1522#0" expanded="true" />
-                <element signature="e#1593#1594#0" expanded="true" />
-                <element signature="method#isSolvable#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#main#0;class#SimpleSudokuBoard#0" />
                 <element signature="method#printBoard#0;class#SimpleSudokuBoard#0" />
                 <element signature="method#setElement#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#unsetElement#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#generateRandomNumbers#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#generateOneNumber#0;class#SimpleSudokuBoard#0" />
+                <element signature="e#14812#14813#0" expanded="true" />
+                <element signature="e#14884#14885#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,7 +175,7 @@
       <file leaf-file-name="StateSaver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/StateSaver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="-21">
               <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -119,42 +193,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuArrayFactory.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SudokuArrayFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SudokuStack.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuStack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#286#287#0" expanded="true" />
-                <element signature="e#337#338#0" expanded="true" />
-                <element signature="e#387#388#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SudokuElement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuElement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#338#339#0" expanded="true" />
-                <element signature="e#665#666#0" expanded="true" />
-                <element signature="e#693#694#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="23" column="81" selection-start-line="23" selection-start-column="81" selection-end-line="23" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -1088,8 +1131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/GameRunner.java" />
-        <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/SubmitButtonListener.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/Application.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/App.java" />
         <option value="$PROJECT_DIR$/warmer-colder-game/src/main/java/com/gorczynskimike/warmercolder/MessageService.java" />
@@ -1133,12 +1174,14 @@
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/README.txt" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/CoordinatePair.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/ConsoleUserInterface.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuStack.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/StateSaver.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/visualisation/SwingVisualizer.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/MainMenu.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/UserChoiceHandler.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" />
       </list>
     </option>
   </component>
@@ -1215,16 +1258,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sudoku" type="462c0819:PsiDirectoryNode" />
               <item name="simple" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="sudoku-game" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sudoku" type="462c0819:PsiDirectoryNode" />
-              <item name="visualisation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="games" type="b2602c69:ProjectViewProjectNode" />
@@ -1483,7 +1516,7 @@
       <workItem from="1527523027800" duration="1612000" />
       <workItem from="1527524844473" duration="2758000" />
       <workItem from="1527528318227" duration="5108000" />
-      <workItem from="1527579590911" duration="401000" />
+      <workItem from="1527579590911" duration="2585000" />
     </task>
     <servers />
   </component>
@@ -1520,7 +1553,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137272000" />
+    <option name="totallyTimeSpent" value="139456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -1528,6 +1561,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32984293" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -1535,8 +1569,8 @@
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24712043" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.07539267" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.11623037" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.19790576" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972914" />
@@ -1548,7 +1582,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.21465969" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.32984293" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -1572,7 +1605,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/warmer-colder-game/src/main/resources/gameMessages_pl_PL.propertiesUTF8.txt" />
     <entry file="jar://D:/Java_installation/jdk1.8.0_131/javafx-src.zip!/javafx/scene/media/Media.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7413">
@@ -1787,13 +1819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/test/java/com/gorczynskimike/sudoku/ComplexSudokuBoardTestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3318">
@@ -1846,13 +1871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/ConsoleUserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuStack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1880,13 +1898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/visualisation/SwingVisualizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
@@ -1897,9 +1908,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/StateSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="-21">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1907,25 +1932,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="81" selection-start-line="23" selection-start-column="81" selection-end-line="23" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="275" column="39" selection-start-line="275" selection-start-column="39" selection-end-line="275" selection-end-column="39" />
+        <state relative-caret-position="340">
+          <caret line="268" column="5" selection-start-line="268" selection-start-column="5" selection-end-line="268" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1521#1522#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="method#isSolvable#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#main#0;class#SimpleSudokuBoard#0" />
             <element signature="method#printBoard#0;class#SimpleSudokuBoard#0" />
             <element signature="method#setElement#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#unsetElement#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#generateRandomNumbers#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#generateOneNumber#0;class#SimpleSudokuBoard#0" />
+            <element signature="e#14812#14813#0" expanded="true" />
+            <element signature="e#14884#14885#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java">
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/UserChoiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        <state relative-caret-position="50">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>

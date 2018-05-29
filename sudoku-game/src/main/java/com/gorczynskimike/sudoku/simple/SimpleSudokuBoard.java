@@ -268,31 +268,6 @@ public class SimpleSudokuBoard {
         return true;
     }
 
-    /**
-     * Method assumes that original board is a square, eg. 9x9
-     * @param original
-     * @return
-     */
-    private SudokuElement[][] copySudokuBoard(SudokuElement[][] original) {
-
-        //check if original is a square
-        int originalSide = original.length;
-        for(int i=0; i<original.length; i++) {
-            if(original[i].length != originalSide) {
-                throw new IllegalArgumentException("Array passed to this method must be a square.");
-            }
-        }
-
-        //create a copy
-        SudokuElement[][] copy = new SudokuElement[original.length][original.length];
-        for(int i=0; i<original.length; i++) {
-            for(int j=0; j<original.length; j++) {
-                copy[i][j] = original[i][j].getCopy();
-            }
-        }
-        return copy;
-    }
-
     private int getNumberOfEmptyElements() {
         int numberOfEmptyElements = 0;
         for(int i=0; i<elements.length; i++) {
@@ -312,7 +287,7 @@ public class SimpleSudokuBoard {
         }
 
         //check if the board is solvable before any modifications
-        SudokuElement[][] boardCopy = copySudokuBoard(this.elements);
+        SudokuElement[][] boardCopy = SudokuArrayFactory.copySudokuBoard(this.elements);
         if(!solveSudoku(true)) {
             System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
                     "some numbers and try again.");
@@ -331,9 +306,9 @@ public class SimpleSudokuBoard {
 
         //generate numbers
         while(howManyNumbers > 0) {
-            SudokuElement[][] boardCopyBefore = copySudokuBoard(this.elements);
+            SudokuElement[][] boardCopyBefore = SudokuArrayFactory.copySudokuBoard(this.elements);
             generateOneNumber();
-            SudokuElement[][] boardCopyAfter = copySudokuBoard(this.elements);
+            SudokuElement[][] boardCopyAfter = SudokuArrayFactory.copySudokuBoard(this.elements);
             if(solveSudoku(true)) {
                 howManyNumbers--;
                 this.elements = boardCopyAfter;

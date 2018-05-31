@@ -2,6 +2,10 @@ package com.gorczynskimike.sudoku.simple;
 
 import java.util.Arrays;
 
+/**
+ * Sudoku main class. It holds an array of SudokuElements. It provides the interface to manipulate the board, makes
+ * sure that the board is in valid state and it can solve the board.
+ */
 public class SimpleSudokuBoard {
 
     private SudokuElement[][] sudokuElementsArray;

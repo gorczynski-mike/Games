@@ -14,7 +14,7 @@ public class SudokuElement {
     public SudokuElement getCopy() {
         SudokuElement copy = new SudokuElement();
         copy.value = this.value;
-        copy.getPossibleValuesCopy().retainAll(this.possibleValues);
+        copy.possibleValues.retainAll(this.possibleValues);
         return copy;
     }
 
@@ -40,7 +40,8 @@ public class SudokuElement {
 
     public void setValue(int value) {
         if(!possibleValues.contains(value)) {
-            throw new IllegalArgumentException("Can't set value, value is not possible here.");
+            throw new IllegalArgumentException("Can't set value, value is not possible here. Value: " + value +
+            "Possible values: " + possibleValues);
         }
         this.value = value;
     }
@@ -51,6 +52,6 @@ public class SudokuElement {
 
     @Override
     public String toString() {
-        return "" + value;
+        return String.valueOf(value);
     }
 }

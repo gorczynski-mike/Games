@@ -1,7 +1,13 @@
 package com.gorczynskimike.sudoku.simple;
 
+/**
+ * Utility class that can create or copy arrays of SudokuElements
+ */
 public final class SudokuArrayFactory {
 
+    /**
+     * This utility class shouldn't be instantiated, thus one private constructor
+     */
     private SudokuArrayFactory() {
         //do nothing
     }

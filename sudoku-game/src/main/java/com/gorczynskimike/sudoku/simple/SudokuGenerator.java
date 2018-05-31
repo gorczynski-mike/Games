@@ -22,7 +22,7 @@ public class SudokuGenerator {
         Random random = new Random();
         CoordinatePair chosenFieldCoordinates = listOfEmptyFields.get(random.nextInt(listOfEmptyFields.size()));
         SudokuElement chosenElement = sudokuElementsArray[chosenFieldCoordinates.getX()][chosenFieldCoordinates.getY()];
-        int chosenValue = chosenElement.getPossibleValues().get(random.nextInt(chosenElement.getPossibleValues().size()));
+        int chosenValue = chosenElement.getPossibleValuesCopy().get(random.nextInt(chosenElement.getPossibleValuesCopy().size()));
         simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
         return true;
     }
@@ -77,15 +77,15 @@ public class SudokuGenerator {
             }
             CoordinatePair chosenFieldCoordinates = listOfEmptyFields.get(random.nextInt(listOfEmptyFields.size()));
             SudokuElement chosenElement = sudokuElementsArray[chosenFieldCoordinates.getX()][chosenFieldCoordinates.getY()];
-            if(chosenElement.getPossibleValues().size() == 0) {
+            if(chosenElement.getPossibleValuesCopy().size() == 0) {
                 listOfEmptyFields.remove(chosenElement);
                 continue;
             }
-            int chosenValue = chosenElement.getPossibleValues().get(random.nextInt(chosenElement.getPossibleValues().size()));
+            int chosenValue = chosenElement.getPossibleValuesCopy().get(random.nextInt(chosenElement.getPossibleValuesCopy().size()));
             simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
             if(!simpleSudokuBoard.checkIfSolvable()) {
                 simpleSudokuBoard.unsetElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY());
-                chosenElement.getPossibleValues().remove((Integer) chosenValue);
+                chosenElement.getPossibleValuesCopy().remove((Integer) chosenValue);
                 continue;
             } else {
                 generatedNumberSuccessfully = true;
@@ -138,7 +138,7 @@ public class SudokuGenerator {
         List<CoordinatePair> listOfEmptyFields = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if(sudokuElementsArray[i][j].getValue() == 0 && sudokuElementsArray[i][j].getPossibleValues().size() > 0) {
+                if(sudokuElementsArray[i][j].getValue() == 0 && sudokuElementsArray[i][j].getPossibleValuesCopy().size() > 0) {
                     listOfEmptyFields.add(new CoordinatePair(i,j));
                 }
             }

@@ -14,12 +14,24 @@ public class SudokuElement {
     public SudokuElement getCopy() {
         SudokuElement copy = new SudokuElement();
         copy.value = this.value;
-        copy.getPossibleValues().retainAll(this.possibleValues);
+        copy.getPossibleValuesCopy().retainAll(this.possibleValues);
         return copy;
     }
 
-    public List<Integer> getPossibleValues() {
-        return possibleValues;
+    public List<Integer> getPossibleValuesCopy() {
+        return new ArrayList<>(possibleValues);
+    }
+
+    public boolean removePossibleValue(Integer value) {
+        return this.possibleValues.remove(value);
+    }
+
+    public boolean addPossibleValue(Integer value) {
+        if(this.possibleValues.contains(value)) {
+            return false;
+        } else {
+            return this.possibleValues.add(value);
+        }
     }
 
     public int getValue() {

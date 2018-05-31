@@ -50,8 +50,8 @@ public class SimpleSudokuBoard {
                         continue;
                     } else {
                         unsetElements++;
-                        if(current.getPossibleValues().size() == 1) {
-                            setElement(i,j,current.getPossibleValues().get(0));
+                        if(current.getPossibleValuesCopy().size() == 1) {
+                            setElement(i,j,current.getPossibleValuesCopy().get(0));
                             modifiedElements++;
                             unsetElements--;
                         }
@@ -124,12 +124,12 @@ public class SimpleSudokuBoard {
 
         //row
         for(int i=0; i<9; i++) {
-            sudokuElementsArray[i][yIndex].getPossibleValues().remove((Integer)value);
+            sudokuElementsArray[i][yIndex].removePossibleValue(value);
         }
 
         //column
         for(int i=0; i<9; i++) {
-            sudokuElementsArray[xIndex][i].getPossibleValues().remove((Integer)value);
+            sudokuElementsArray[xIndex][i].removePossibleValue(value);
         }
 
         //3x3 section
@@ -137,7 +137,7 @@ public class SimpleSudokuBoard {
         int yStartIndex = yIndex - yIndex%3;
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
-                sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().remove((Integer)value);
+                sudokuElementsArray[xStartIndex + i][yStartIndex + j].removePossibleValue(value);
             }
         }
     }
@@ -160,14 +160,12 @@ public class SimpleSudokuBoard {
 
         //row
         for(int i=0; i<9; i++) {
-            if(!sudokuElementsArray[i][yIndex].getPossibleValues().contains((Integer)oldValue))
-                sudokuElementsArray[i][yIndex].getPossibleValues().add((Integer)oldValue);
+            sudokuElementsArray[i][yIndex].addPossibleValue(oldValue);
         }
 
         //column
         for(int i=0; i<9; i++) {
-            if(!sudokuElementsArray[xIndex][i].getPossibleValues().contains((Integer)oldValue))
-                sudokuElementsArray[xIndex][i].getPossibleValues().add((Integer)oldValue);
+            sudokuElementsArray[xIndex][i].addPossibleValue(oldValue);
         }
 
         //3x3 section
@@ -175,8 +173,7 @@ public class SimpleSudokuBoard {
         int yStartIndex = yIndex - yIndex%3;
         for(int i=0; i<3; i++) {
             for(int j=0; j<3; j++) {
-                if(!sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().contains((Integer)oldValue))
-                    sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().add((Integer)oldValue);
+                sudokuElementsArray[xStartIndex + i][yStartIndex + j].addPossibleValue(oldValue);
             }
         }
     }
@@ -202,10 +199,10 @@ public class SimpleSudokuBoard {
         }
         int bestXIndex = coordinatePair.getX();
         int bestYIndex = coordinatePair.getY();
-        if(sudokuElementsArray[bestXIndex][bestYIndex].getPossibleValues().size() == 0) {
+        if(sudokuElementsArray[bestXIndex][bestYIndex].getPossibleValuesCopy().size() == 0) {
             throw new IllegalStateException("Can't guess value for given element, possible values = 0");
         }
-        int guessedNumber = sudokuElementsArray[bestXIndex][bestYIndex].getPossibleValues().get(0);
+        int guessedNumber = sudokuElementsArray[bestXIndex][bestYIndex].getPossibleValuesCopy().get(0);
         SudokuState savedState = new SudokuState(this.sudokuElementsArray, bestXIndex, bestYIndex, guessedNumber);
         SudokuStack.pushSudokuState(savedState);
         setElement(bestXIndex,bestYIndex,guessedNumber);
@@ -214,7 +211,7 @@ public class SimpleSudokuBoard {
     private void restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities() {
         SudokuState lastState = SudokuStack.popSudokuState();
         sudokuElementsArray = lastState.getSudokuElementsArray();
-        sudokuElementsArray[lastState.getXIndex()][lastState.getYIndex()].getPossibleValues().remove((Integer) lastState.getGuessedNumber());
+        sudokuElementsArray[lastState.getXIndex()][lastState.getYIndex()].removePossibleValue(lastState.getGuessedNumber());
     }
 
     private CoordinatePair findBestElementToGuess() {
@@ -225,10 +222,10 @@ public class SimpleSudokuBoard {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 current = sudokuElementsArray[i][j];
-                if(current.getValue() == 0 && current.getPossibleValues().size() < minPossibilities) {
+                if(current.getValue() == 0 && current.getPossibleValuesCopy().size() < minPossibilities) {
                     bestXIndex = i;
                     bestYIndex = j;
-                    minPossibilities = current.getPossibleValues().size();
+                    minPossibilities = current.getPossibleValuesCopy().size();
                 }
             }
         }
@@ -245,7 +242,7 @@ public class SimpleSudokuBoard {
             for (int j = 0; j < 9; j++) {
                 SudokuElement currentElement = sudokuElementsArray[i][j];
                 if(currentElement.getValue() == 0) {
-                    int currentPossibilities = currentElement.getPossibleValues().size();
+                    int currentPossibilities = currentElement.getPossibleValuesCopy().size();
                     if(currentPossibilities < minPossibilities) {
                         minPossibilities = currentPossibilities;
                     }

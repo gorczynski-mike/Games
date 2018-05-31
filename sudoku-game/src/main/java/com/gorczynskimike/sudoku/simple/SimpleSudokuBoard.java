@@ -24,16 +24,10 @@ public class SimpleSudokuBoard {
         boolean isSolved = false;
         boolean result = false;
         int counter = 0;
-        int filenameCounter = 2000;
-        try {
-            StateSaver.deleteOldFiles();
-        } catch (IOException e) {e.printStackTrace();}
+        int timesProgramGuessedValue = 0;
 
         mainLoop:
         while (!isSolved) {
-            try {
-                StateSaver.saveSudokuArrayToFile(this.elements, (char)filenameCounter++ + ".txt");
-            } catch (IOException e) {e.printStackTrace();}
             counter++;
             int unsetElements = 0;
             int modifiedElements = 0;
@@ -62,9 +56,6 @@ public class SimpleSudokuBoard {
                             setElement(i,j,current.getPossibleValues().get(0));
                             modifiedElements++;
                             unsetElements--;
-                            try {
-                                StateSaver.saveSudokuArrayToFile(this.elements, (char)filenameCounter++ + ".txt");
-                            } catch (IOException e) {e.printStackTrace();}
                         }
                     }
                 }
@@ -83,6 +74,7 @@ public class SimpleSudokuBoard {
             if(modifiedElements > 0) {
                 continue mainLoop;
             } else {
+                timesProgramGuessedValue++;
                 int bestXIndex = 0;
                 int bestYIndex = 0;
                 int minPossibilities = 10;
@@ -109,6 +101,7 @@ public class SimpleSudokuBoard {
         if(!silentMode) {
             System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds. " +
                     "( " + (endTimeNano - startTimeNano) + " nano seconds)");
+            System.out.println("Program had to guess " + timesProgramGuessedValue + " times.");
         }
         return result;
     }

@@ -5,30 +5,30 @@ import java.util.LinkedList;
 
 public class SudokuStack {
 
-    private static Deque<SudokuState> sudokuStack = new LinkedList<>();
+    private Deque<SudokuState> sudokuStack = new LinkedList<>();
 
-    private SudokuStack() {
+    public SudokuStack() {
         //do nothing
     }
 
-    public static void pushSudokuState(SudokuState sudokuState) {
-        sudokuStack.offerFirst(sudokuState);
+    public void pushSudokuState(SudokuState sudokuState) {
+        this.sudokuStack.offerFirst(sudokuState);
     }
 
-    public static SudokuState popSudokuState() {
-        return sudokuStack.pollFirst();
+    public SudokuState popSudokuState() {
+        return this.sudokuStack.pollFirst();
     }
 
-    public static int getStackSize() {
-        return sudokuStack.size();
+    public int getStackSize() {
+        return this.sudokuStack.size();
     }
 
-    public static void printStackSize() {
-        System.out.println("Stack size: " + sudokuStack.size());
+    public void printStackSize() {
+        System.out.println("Stack size: " + this.sudokuStack.size());
     }
 
-    public static void clearStack() {
-        sudokuStack.clear();
+    public void clearStack() {
+        this.sudokuStack.clear();
     }
 
 }

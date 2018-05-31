@@ -9,9 +9,11 @@ import java.util.Arrays;
 public class SimpleSudokuBoard {
 
     private SudokuElement[][] sudokuElementsArray;
+    private SudokuStack sudokuStack;
 
     public SimpleSudokuBoard() {
         this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
+        this.sudokuStack = new SudokuStack();
     }
 
     public boolean solveSudoku() {
@@ -35,7 +37,7 @@ public class SimpleSudokuBoard {
             int modifiedElements = 0;
             //if there is an element with 0 possible values it's impossible to solve the board
             if(checkIfAnyFieldWithNoPossibilities()) {
-                if(SudokuStack.getStackSize() == 0) {
+                if(this.sudokuStack.getStackSize() == 0) {
                     if(!silentModeOn) {
                         System.out.println("Sorry, it's impossible to solve this sudoku.");
                     }
@@ -68,9 +70,9 @@ public class SimpleSudokuBoard {
                     System.out.println("Solved");
                     printBoard();
                     System.out.println("Number of loops: " + mainLoopCounter);
-                    SudokuStack.printStackSize();
+                    this.sudokuStack.printStackSize();
                 }
-                SudokuStack.clearStack();
+                this.sudokuStack.clearStack();
                 result = true;
                 break mainLoop;
             }
@@ -208,12 +210,12 @@ public class SimpleSudokuBoard {
         }
         int guessedNumber = sudokuElementsArray[bestXIndex][bestYIndex].getPossibleValuesCopy().get(0);
         SudokuState savedState = new SudokuState(this.sudokuElementsArray, bestXIndex, bestYIndex, guessedNumber);
-        SudokuStack.pushSudokuState(savedState);
+        this.sudokuStack.pushSudokuState(savedState);
         setElement(bestXIndex,bestYIndex,guessedNumber);
     }
 
     private void restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities() {
-        SudokuState lastState = SudokuStack.popSudokuState();
+        SudokuState lastState = this.sudokuStack.popSudokuState();
         sudokuElementsArray = lastState.getSudokuElementsArray();
         sudokuElementsArray[lastState.getXIndex()][lastState.getYIndex()].removePossibleValue(lastState.getGuessedNumber());
     }

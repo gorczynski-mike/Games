@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/out/production/classes/com/gorczynskimike/sudoku/simple/SudokuGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -134,11 +127,21 @@
       <file leaf-file-name="SudokuGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="343">
+              <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
+                <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+                <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+                <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+                <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+                <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
+                <element signature="method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
+                <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
+                <element signature="method#generateSolvableRandomNumbers#0;class#SudokuGenerator#0" />
                 <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
+                <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
               </folding>
             </state>
           </provider>
@@ -1531,7 +1534,7 @@
       <workItem from="1527524844473" duration="2758000" />
       <workItem from="1527528318227" duration="5108000" />
       <workItem from="1527579590911" duration="3472000" />
-      <workItem from="1527752096180" duration="17007000" />
+      <workItem from="1527752096180" duration="17727000" />
     </task>
     <servers />
   </component>
@@ -1568,7 +1571,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157350000" />
+    <option name="totallyTimeSpent" value="158070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -1584,8 +1587,8 @@
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.15497382" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.24397905" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6439791" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29424083" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25297943" />
@@ -1616,7 +1619,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -2012,11 +2015,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="343">
+          <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+            <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+            <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
+            <element signature="method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
+            <element signature="method#generateSolvableRandomNumbers#0;class#SudokuGenerator#0" />
             <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
+            <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
           </folding>
         </state>
       </provider>

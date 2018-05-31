@@ -4,12 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SudokuGenerator {
+/**
+ * Utility class that can generate new numbers on sudoku board given as an argument to the methods.
+ */
+public final class SudokuGenerator {
 
+    /**
+     * This utility class cannot be instantiated, thus a single private constructor.
+     */
     private SudokuGenerator() {
         //do nothing
     }
 
+    /**
+     * Generate one random number on the board. New number won't violate sudoku rules but might create unsolvable board.
+     * @param simpleSudokuBoard Board to be modified
+     * @return information if it was possible to generate one random number
+     */
     public static boolean generateOneRandomNumber(SimpleSudokuBoard simpleSudokuBoard) {
         if(simpleSudokuBoard == null) {
             return false;
@@ -27,6 +38,11 @@ public class SudokuGenerator {
         return true;
     }
 
+    /**
+     * Generate N random numbers on the board. New numbers won't violate sudoku rules but might create unsolvable board.
+     * @param howManyNumbersToGenerate how many new numbers are going to be generated.
+     * @param simpleSudokuBoard board to be modified.
+     */
     public static void generateRandomNumbers(int howManyNumbersToGenerate, SimpleSudokuBoard simpleSudokuBoard) {
         //initial check of range
         if(howManyNumbersToGenerate < 1 || howManyNumbersToGenerate > 81) {
@@ -59,6 +75,12 @@ public class SudokuGenerator {
         System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
     }
 
+    /**
+     * Generate one random number on the board. This method guarantees that new number won't violate sudoku rules and
+     * created board will be solvable.
+     * @param simpleSudokuBoard board to be modified.
+     * @return information if it was possible to generate one number.
+     */
     public static boolean generateOneRandomNumberSolvable(SimpleSudokuBoard simpleSudokuBoard) {
         if(simpleSudokuBoard == null) {
             return false;
@@ -94,6 +116,12 @@ public class SudokuGenerator {
         return generatedNumberSuccessfully;
     }
 
+    /**
+     * Generate N random numbers on the board. This method guarantees that new numbers won't violate sudoku rules and
+     * created board will be solvable.
+     * @param simpleSudokuBoard board to be modified.
+     * @return information if it was possible to generate one number.
+     */
     public static void generateRandomNumbersSolvable(int howManyNumbersToGenerate, SimpleSudokuBoard simpleSudokuBoard) {
         //initial check of range
         if(howManyNumbersToGenerate < 0 || howManyNumbersToGenerate > 81) {
@@ -122,18 +150,18 @@ public class SudokuGenerator {
         }
     }
 
+    /**
+     * @param sudokuElementsArray array to be checked
+     * @return number of elements not set
+     */
     private static int getNumberOfEmptyElements(SudokuElement[][] sudokuElementsArray) {
-        int numberOfEmptyElements = 0;
-        for(int i = 0; i< sudokuElementsArray.length; i++) {
-            for(int j = 0; j< sudokuElementsArray.length; j++) {
-                if(sudokuElementsArray[i][j].getValue() == 0) {
-                    numberOfEmptyElements++;
-                }
-            }
-        }
-        return numberOfEmptyElements;
+        return getListOfEmptyFieldsCoordinates(sudokuElementsArray).size();
     }
 
+    /**
+     * @param sudokuElementsArray array to be checked
+     * @return list of coordinates of elements not set
+     */
     private static List<CoordinatePair> getListOfEmptyFieldsCoordinates(SudokuElement[][] sudokuElementsArray) {
         List<CoordinatePair> listOfEmptyFields = new ArrayList<>();
         for (int i = 0; i < 9; i++) {

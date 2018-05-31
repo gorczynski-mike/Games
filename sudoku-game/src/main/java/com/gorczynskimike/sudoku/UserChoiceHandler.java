@@ -23,7 +23,7 @@ public class UserChoiceHandler {
 
         } else if (userInput.equalsIgnoreCase(SOLVE_SUDOKU_PATTERN)) {
             finishGame = true;
-            simpleSudokuBoard.solveSudoku(false);
+            simpleSudokuBoard.solveSudoku();
 
         } else if (userInput.matches(UNSET_ELEMENT_PATTERN)) {
             String[] inputParts = userInput.split(",");

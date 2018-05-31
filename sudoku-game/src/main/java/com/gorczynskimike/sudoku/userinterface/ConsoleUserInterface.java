@@ -21,7 +21,7 @@ public class ConsoleUserInterface implements UserInterface {
         System.out.println("(IMPORTANT: valid range for <x>, <y>, <value>: 1-9, valid range for <z>: 1-81)");
         System.out.println("(IMPORTANT: 'sudoku', 'unset', 'solvable', 'clear' and 'random' are complete english words)");
         System.out.println("(IMPORTANT: generated random numbers won't violate sudoku rules, but might create unsolvable sudoku)");
-        System.out.println("(IMPORTANT: 'solvable' guarantees that created board will be solvable)");
+        System.out.println("(IMPORTANT: 'solvable' guarantees that created board will be solvable but is a slower algorithm)");
         String userInput = scanner.nextLine();
         userInput = userInput.toLowerCase();
         if(!userInput.matches(VALID_INPUT)) {

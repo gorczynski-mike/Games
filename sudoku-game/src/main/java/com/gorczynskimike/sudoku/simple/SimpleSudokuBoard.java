@@ -82,7 +82,7 @@ public class SimpleSudokuBoard {
                 //there were no elements with one possible value on the board, it's necessary to guess one element
                 CoordinatePair bestGuessCoordinates = findBestElementToGuess();
                 if(!(bestGuessCoordinates == null)) {
-                    guessNumber(bestGuessCoordinates);
+                    guessValueForElement(bestGuessCoordinates);
                     timesProgramGuessedValue++;
                 }
                 continue mainLoop;
@@ -100,7 +100,164 @@ public class SimpleSudokuBoard {
         return result;
     }
 
-    private void guessNumber(CoordinatePair coordinatePair) {
+    public void printBoard() {
+        for(int i=0; i<9; i++) {
+            System.out.println(Arrays.toString(sudokuElementsArray[i]));
+        }
+    }
+
+    public void setElement(int xIndex, int yIndex, int value) {
+
+        //range checks on arguments
+        if( (xIndex < 0 || xIndex > 8) || (yIndex < 0 || yIndex > 8)) {
+            throw new IllegalArgumentException("X or Y coordinate out of bounds.");
+        }
+        if ( value < 1 || value > 9) {
+            throw new IllegalArgumentException("Value out of bounds.");
+        }
+
+        //check if element is not set
+        int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
+        if(oldValue != 0) {
+            System.out.println("Sorry, can't set this element, the element had been already set.");
+            System.out.println("You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
+            return;
+        }
+        sudokuElementsArray[xIndex][yIndex].setValue(value);
+
+        //row
+        for(int i=0; i<9; i++) {
+            sudokuElementsArray[i][yIndex].getPossibleValues().remove((Integer)value);
+        }
+
+        //column
+        for(int i=0; i<9; i++) {
+            sudokuElementsArray[xIndex][i].getPossibleValues().remove((Integer)value);
+        }
+
+        //3x3 section
+        int xStartIndex = xIndex - xIndex%3;
+        int yStartIndex = yIndex - yIndex%3;
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().remove((Integer)value);
+            }
+        }
+    }
+
+    public void unsetElement(int xIndex, int yIndex) {
+
+        //initial checks on range
+        if(
+                (xIndex < 0 || xIndex > 8)
+                        || (yIndex < 0 || yIndex > 8)) {
+            throw new IllegalArgumentException("X or Y coordinate out of bounds.");
+        }
+        int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
+        if(oldValue == 0) {
+            System.out.println("Can't unset this element, the element had not been set.");
+            return;
+        }
+
+        sudokuElementsArray[xIndex][yIndex].clearValue();
+
+        //row
+        for(int i=0; i<9; i++) {
+            if(!sudokuElementsArray[i][yIndex].getPossibleValues().contains((Integer)oldValue))
+                sudokuElementsArray[i][yIndex].getPossibleValues().add((Integer)oldValue);
+        }
+
+        //column
+        for(int i=0; i<9; i++) {
+            if(!sudokuElementsArray[xIndex][i].getPossibleValues().contains((Integer)oldValue))
+                sudokuElementsArray[xIndex][i].getPossibleValues().add((Integer)oldValue);
+        }
+
+        //3x3 section
+        int xStartIndex = xIndex - xIndex%3;
+        int yStartIndex = yIndex - yIndex%3;
+        for(int i=0; i<3; i++) {
+            for(int j=0; j<3; j++) {
+                if(!sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().contains((Integer)oldValue))
+                    sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().add((Integer)oldValue);
+            }
+        }
+    }
+
+    public void generateRandomNumbers(int howManyNumbersToGenerate) {
+        //initial check of range
+        if(howManyNumbersToGenerate < 1 || howManyNumbersToGenerate > 81) {
+            System.out.println("Sorry, can't generate " + howManyNumbersToGenerate + " numbers, valid range is: 1 - 81");
+            return;
+        }
+
+        //check if there are enough not set sudokuElementsArray to fill
+        int numberOfEmptyElements = getNumberOfEmptyElements();
+        if(numberOfEmptyElements < howManyNumbersToGenerate) {
+            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
+                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
+            return;
+        }
+
+        //generate
+        int succesfullyGeneratedNumbers = 0;
+        while(howManyNumbersToGenerate > 0) {
+            boolean wasNumberGenerated = generateOneNumber();
+            if(!wasNumberGenerated) {
+                System.out.println("Sorry, it's impossible to generate more numbers without breaking sudoku rules.");
+                break;
+            } else {
+                succesfullyGeneratedNumbers++;
+            }
+            howManyNumbersToGenerate--;
+        }
+        System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
+    }
+
+    public void generateSolvableBoard(int howManyNumbersToGenerate) {
+        //initial check of range
+        if(howManyNumbersToGenerate < 0 || howManyNumbersToGenerate > 81) {
+            throw new IllegalArgumentException("Valid range is 0-81. Passed value: " + howManyNumbersToGenerate);
+        }
+
+        //check if the board is solvable before any modifications
+        SudokuElement[][] boardCopy = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
+        if(!solveSudoku(true)) {
+            System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
+                    "some numbers and try again.");
+            this.sudokuElementsArray = boardCopy;
+            return;
+        }
+        this.sudokuElementsArray = boardCopy;
+
+        //check if there are enough not set sudokuElementsArray to fill
+        int numberOfEmptyElements = getNumberOfEmptyElements();
+        if(numberOfEmptyElements < howManyNumbersToGenerate) {
+            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
+                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
+            return;
+        }
+
+        //generate numbers
+        while(howManyNumbersToGenerate > 0) {
+            SudokuElement[][] boardCopyBefore = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
+            generateOneNumber();
+            SudokuElement[][] boardCopyAfter = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
+            if(solveSudoku(true)) {
+                howManyNumbersToGenerate--;
+                this.sudokuElementsArray = boardCopyAfter;
+                continue;
+            } else {
+                this.sudokuElementsArray = boardCopyBefore;
+            }
+        }
+    }
+
+    public void clearTheBoard() {
+        this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
+    }
+
+    private void guessValueForElement(CoordinatePair coordinatePair) {
         if(coordinatePair == null) {
             throw new IllegalArgumentException("Argument to this method must not be null.");
         }
@@ -159,120 +316,6 @@ public class SimpleSudokuBoard {
         return minPossibilities > 0;
     }
 
-    public void printBoard() {
-        for(int i=0; i<9; i++) {
-            System.out.println(Arrays.toString(sudokuElementsArray[i]));
-        }
-    }
-
-    public void setElement(int xIndex, int yIndex, int value) {
-
-        //range checks on arguments
-        if( (xIndex < 0 || xIndex > 8) || (yIndex < 0 || yIndex > 8)) {
-            throw new IllegalArgumentException("X or Y coordinate out of bounds.");
-        }
-        if ( value < 1 || value > 9) {
-            throw new IllegalArgumentException("Value out of bounds.");
-        }
-
-        //check if element is not set
-        int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
-        if(oldValue != 0) {
-            System.out.println("Sorry, can't set this element, the element had been already set.");
-            System.out.println("You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
-            return;
-        }
-        sudokuElementsArray[xIndex][yIndex].setValue(value);
-
-        //row
-        for(int i=0; i<9; i++) {
-            sudokuElementsArray[i][yIndex].getPossibleValues().remove((Integer)value);
-        }
-
-        //column
-        for(int i=0; i<9; i++) {
-            sudokuElementsArray[xIndex][i].getPossibleValues().remove((Integer)value);
-        }
-
-        //3x3 section
-        int xStartIndex = xIndex - xIndex%3;
-        int yStartIndex = yIndex - yIndex%3;
-        for(int i=0; i<3; i++) {
-            for(int j=0; j<3; j++) {
-                sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().remove((Integer)value);
-            }
-        }
-    }
-
-    public void unsetElement(int xIndex, int yIndex) {
-
-        //initial checks on range
-        if(
-               (xIndex < 0 || xIndex > 8)
-            || (yIndex < 0 || yIndex > 8)) {
-        throw new IllegalArgumentException("X or Y coordinate out of bounds.");
-        }
-        int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
-        if(oldValue == 0) {
-            System.out.println("Can't unset this element, the element had not been set.");
-            return;
-        }
-
-        sudokuElementsArray[xIndex][yIndex].clearValue();
-
-        //row
-        for(int i=0; i<9; i++) {
-            if(!sudokuElementsArray[i][yIndex].getPossibleValues().contains((Integer)oldValue))
-            sudokuElementsArray[i][yIndex].getPossibleValues().add((Integer)oldValue);
-        }
-
-        //column
-        for(int i=0; i<9; i++) {
-            if(!sudokuElementsArray[xIndex][i].getPossibleValues().contains((Integer)oldValue))
-            sudokuElementsArray[xIndex][i].getPossibleValues().add((Integer)oldValue);
-        }
-
-        //3x3 section
-        int xStartIndex = xIndex - xIndex%3;
-        int yStartIndex = yIndex - yIndex%3;
-        for(int i=0; i<3; i++) {
-            for(int j=0; j<3; j++) {
-                if(!sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().contains((Integer)oldValue))
-                sudokuElementsArray[xStartIndex + i][yStartIndex + j].getPossibleValues().add((Integer)oldValue);
-            }
-        }
-    }
-
-    public void generateRandomNumbers(int howMany) {
-        //initial check of range
-        if(howMany < 1 || howMany > 81) {
-            System.out.println("Sorry, can't generate " + howMany + " numbers, valid range is: 1 - 81");
-            return;
-        }
-
-        //check if there are enough not set sudokuElementsArray to fill
-        int numberOfEmptyElements = getNumberOfEmptyElements();
-        if(numberOfEmptyElements < howMany) {
-            System.out.println("Sorry, can't generate that many numbers: " + howMany + " there is only: " +
-                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
-            return;
-        }
-
-        //generate
-        int succesfullyGeneratedNumbers = 0;
-        while(howMany > 0) {
-            boolean wasNumberGenerated = generateOneNumber();
-            if(!wasNumberGenerated) {
-                System.out.println("Sorry, it's impossible to generate more numbers without breaking sudoku rules.");
-                break;
-            } else {
-                succesfullyGeneratedNumbers++;
-            }
-            howMany--;
-        }
-        System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
-    }
-
     private boolean generateOneNumber() {
         int possibleNumbers = 0;
         List<CoordinatePair> listOfEmptyFields = new ArrayList<>();
@@ -305,49 +348,6 @@ public class SimpleSudokuBoard {
             }
         }
         return numberOfEmptyElements;
-    }
-
-    public void generateSolvableBoard(int howManyNumbers) {
-        //initial check of range
-        if(howManyNumbers < 0 || howManyNumbers > 81) {
-            throw new IllegalArgumentException("Valid range is 0-81. Passed value: " + howManyNumbers);
-        }
-
-        //check if the board is solvable before any modifications
-        SudokuElement[][] boardCopy = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
-        if(!solveSudoku(true)) {
-            System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
-                    "some numbers and try again.");
-            this.sudokuElementsArray = boardCopy;
-            return;
-        }
-        this.sudokuElementsArray = boardCopy;
-
-        //check if there are enough not set sudokuElementsArray to fill
-        int numberOfEmptyElements = getNumberOfEmptyElements();
-        if(numberOfEmptyElements < howManyNumbers) {
-            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbers + " there is only: " +
-                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
-            return;
-        }
-
-        //generate numbers
-        while(howManyNumbers > 0) {
-            SudokuElement[][] boardCopyBefore = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
-            generateOneNumber();
-            SudokuElement[][] boardCopyAfter = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
-            if(solveSudoku(true)) {
-                howManyNumbers--;
-                this.sudokuElementsArray = boardCopyAfter;
-                continue;
-            } else {
-                this.sudokuElementsArray = boardCopyBefore;
-            }
-        }
-    }
-
-    public void clearTheBoard() {
-        this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
     }
 
 }

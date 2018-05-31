@@ -2,10 +2,10 @@ package com.gorczynskimike.sudoku.simple;
 
 public class SudokuState {
 
-    private SudokuElement[][] sudokuElementsArray;
-    private int xIndex;
-    private int yIndex;
-    private int guessedNumber;
+    private final SudokuElement[][] sudokuElementsArray;
+    private final int xIndex;
+    private final int yIndex;
+    private final int guessedNumber;
 
     public SudokuState(SudokuElement[][] sudokuElementsArray, int xIndex, int yIndex, int guessedNumber) {
         this.sudokuElementsArray = SudokuArrayFactory.copySudokuArray(sudokuElementsArray);
@@ -14,19 +14,19 @@ public class SudokuState {
         this.guessedNumber = guessedNumber;
     }
 
-    public SudokuElement[][] getSudokuElementsArray() {
-        return sudokuElementsArray;
+    public final SudokuElement[][] getSudokuElementsArray() {
+        return this.sudokuElementsArray;
     }
 
-    public int getxIndex() {
-        return xIndex;
+    public final int getXIndex() {
+        return this.xIndex;
     }
 
-    public int getyIndex() {
-        return yIndex;
+    public final int getYIndex() {
+        return this.yIndex;
     }
 
-    public int getGuessedNumber() {
-        return guessedNumber;
+    public final int getGuessedNumber() {
+        return this.guessedNumber;
     }
 }

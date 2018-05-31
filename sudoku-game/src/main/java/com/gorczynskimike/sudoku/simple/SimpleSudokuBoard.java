@@ -214,7 +214,7 @@ public class SimpleSudokuBoard {
     private void restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities() {
         SudokuState lastState = SudokuStack.popSudokuState();
         sudokuElementsArray = lastState.getSudokuElementsArray();
-        sudokuElementsArray[lastState.getxIndex()][lastState.getyIndex()].getPossibleValues().remove((Integer) lastState.getGuessedNumber());
+        sudokuElementsArray[lastState.getXIndex()][lastState.getYIndex()].getPossibleValues().remove((Integer) lastState.getGuessedNumber());
     }
 
     private CoordinatePair findBestElementToGuess() {

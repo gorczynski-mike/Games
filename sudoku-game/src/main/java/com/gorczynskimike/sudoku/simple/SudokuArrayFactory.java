@@ -6,6 +6,10 @@ public final class SudokuArrayFactory {
         //do nothing
     }
 
+    /**
+     * Create new 9x9 array of SudokuElements
+     * @return 9x9 array of not set SudokuElements
+     */
     public static final SudokuElement[][] getEmptySudokuArray() {
         SudokuElement[][] emptyArray = new SudokuElement[9][9];
         for(int i=0; i<9; i++) {
@@ -17,9 +21,9 @@ public final class SudokuArrayFactory {
     }
 
     /**
-     * Method assumes that original board is a square, eg. 9x9
-     * @param original
-     * @return
+     * Method that clones passed array of SudokuElements
+     * @param original Array of SudokuElements that will be copied, must be a square.
+     * @return Copy of array passed as an argument.
      */
     public static final SudokuElement[][] copySudokuArray(SudokuElement[][] original) {
 

@@ -5,7 +5,7 @@ import java.util.*;
 public class SudokuElement {
 
     private int value = 0;
-    private List<Integer> possibleValues = new ArrayList<>();
+    private final List<Integer> possibleValues = new ArrayList<>();
 
     public SudokuElement() {
         possibleValues.addAll(Arrays.asList(1,2,3,4,5,6,7,8,9));
@@ -23,7 +23,7 @@ public class SudokuElement {
     }
 
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(int value) {

@@ -52,6 +52,6 @@ public class SudokuElement {
 
     @Override
     public String toString() {
-        return String.valueOf(value);
+        return this.value == 0 ? " " : String.valueOf(value);
     }
 }

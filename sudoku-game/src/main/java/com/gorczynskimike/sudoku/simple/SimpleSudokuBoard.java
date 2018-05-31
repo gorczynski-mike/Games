@@ -105,7 +105,20 @@ public class SimpleSudokuBoard {
 
     public void printBoard() {
         for(int i=0; i<9; i++) {
-            System.out.println(Arrays.toString(sudokuElementsArray[i]));
+            StringBuilder sb = new StringBuilder();
+            for(int j=0; j<9; j++) {
+                sb.append(sudokuElementsArray[i][j]);
+                if(j == 2 || j == 5) {
+                    sb.append("| ");
+                } else {
+                    if(j != 8)
+                    sb.append(", ");
+                }
+            }
+            System.out.println(sb.toString());
+            if(i == 2 || i == 5) {
+                System.out.println(sb.toString().replaceAll(".", "-"));
+            }
         }
     }
 

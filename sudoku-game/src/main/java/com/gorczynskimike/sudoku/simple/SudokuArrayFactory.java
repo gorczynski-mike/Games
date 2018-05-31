@@ -38,6 +38,7 @@ public final class SudokuArrayFactory {
                 copy[i][j] = original[i][j].getCopy();
             }
         }
+
         return copy;
     }
 

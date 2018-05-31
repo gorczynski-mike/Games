@@ -2,6 +2,7 @@ package com.gorczynskimike.sudoku;
 
 import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.userinterface.ConsoleUserInterface;
+import com.gorczynskimike.sudoku.userinterface.UserChoiceHandler;
 import com.gorczynskimike.sudoku.userinterface.UserInterface;
 
 public class App {

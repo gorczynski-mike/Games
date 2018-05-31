@@ -2,11 +2,14 @@ package com.gorczynskimike.sudoku.simple;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class SudokuStack {
 
     private static Deque<SudokuState> sudokuStack = new LinkedList<>();
+
+    private SudokuStack() {
+        //do nothing
+    }
 
     public static void pushSudokuState(SudokuState sudokuState) {
         sudokuStack.offerFirst(sudokuState);

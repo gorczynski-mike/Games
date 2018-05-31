@@ -1,9 +1,6 @@
 package com.gorczynskimike.sudoku.simple;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class SimpleSudokuBoard {
 
@@ -33,7 +30,7 @@ public class SimpleSudokuBoard {
             int unsetElements = 0;
             int modifiedElements = 0;
             //if there is an element with 0 possible values it's impossible to solve the board
-            if(!isSolvable()) {
+            if(checkIfAnyFieldWithNoPossibilities()) {
                 if(SudokuStack.getStackSize() == 0) {
                     if(!silentModeOn) {
                         System.out.println("Sorry, it's impossible to solve this sudoku.");
@@ -184,77 +181,19 @@ public class SimpleSudokuBoard {
         }
     }
 
-    public void generateRandomNumbers(int howManyNumbersToGenerate) {
-        //initial check of range
-        if(howManyNumbersToGenerate < 1 || howManyNumbersToGenerate > 81) {
-            System.out.println("Sorry, can't generate " + howManyNumbersToGenerate + " numbers, valid range is: 1 - 81");
-            return;
-        }
-
-        //check if there are enough not set sudokuElementsArray to fill
-        int numberOfEmptyElements = getNumberOfEmptyElements();
-        if(numberOfEmptyElements < howManyNumbersToGenerate) {
-            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
-                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
-            return;
-        }
-
-        //generate
-        int succesfullyGeneratedNumbers = 0;
-        while(howManyNumbersToGenerate > 0) {
-            boolean wasNumberGenerated = generateOneNumber();
-            if(!wasNumberGenerated) {
-                System.out.println("Sorry, it's impossible to generate more numbers without breaking sudoku rules.");
-                break;
-            } else {
-                succesfullyGeneratedNumbers++;
-            }
-            howManyNumbersToGenerate--;
-        }
-        System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
-    }
-
-    public void generateSolvableBoard(int howManyNumbersToGenerate) {
-        //initial check of range
-        if(howManyNumbersToGenerate < 0 || howManyNumbersToGenerate > 81) {
-            throw new IllegalArgumentException("Valid range is 0-81. Passed value: " + howManyNumbersToGenerate);
-        }
-
-        //check if the board is solvable before any modifications
-        SudokuElement[][] boardCopy = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
-        if(!solveSudoku(true)) {
-            System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
-                    "some numbers and try again.");
-            this.sudokuElementsArray = boardCopy;
-            return;
-        }
-        this.sudokuElementsArray = boardCopy;
-
-        //check if there are enough not set sudokuElementsArray to fill
-        int numberOfEmptyElements = getNumberOfEmptyElements();
-        if(numberOfEmptyElements < howManyNumbersToGenerate) {
-            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
-                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
-            return;
-        }
-
-        //generate numbers
-        while(howManyNumbersToGenerate > 0) {
-            SudokuElement[][] boardCopyBefore = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
-            generateOneNumber();
-            SudokuElement[][] boardCopyAfter = SudokuArrayFactory.copySudokuBoard(this.sudokuElementsArray);
-            if(solveSudoku(true)) {
-                howManyNumbersToGenerate--;
-                this.sudokuElementsArray = boardCopyAfter;
-                continue;
-            } else {
-                this.sudokuElementsArray = boardCopyBefore;
-            }
-        }
-    }
-
     public void clearTheBoard() {
         this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
+    }
+
+    public SudokuElement[][] getSudokuElementsArrayCopy() {
+        return SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
+    }
+
+    public boolean checkIfSolvable() {
+        SudokuElement[][] copy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
+        boolean isSolvable = this.solveSudoku(true);
+        this.sudokuElementsArray = copy;
+        return isSolvable;
     }
 
     private void guessValueForElement(CoordinatePair coordinatePair) {
@@ -300,7 +239,7 @@ public class SimpleSudokuBoard {
         }
     }
 
-    private boolean isSolvable() {
+    private boolean checkIfAnyFieldWithNoPossibilities() {
         int minPossibilities = 10;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -313,41 +252,7 @@ public class SimpleSudokuBoard {
                 }
             }
         }
-        return minPossibilities > 0;
-    }
-
-    private boolean generateOneNumber() {
-        int possibleNumbers = 0;
-        List<CoordinatePair> listOfEmptyFields = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if(sudokuElementsArray[i][j].getValue() == 0 && sudokuElementsArray[i][j].getPossibleValues().size() > 0) {
-                    possibleNumbers++;
-                    listOfEmptyFields.add(new CoordinatePair(i,j));
-                }
-            }
-        }
-        if(possibleNumbers == 0) {
-            return false;
-        }
-        Random random = new Random();
-        CoordinatePair chosenFieldCoordinates = listOfEmptyFields.get(random.nextInt(listOfEmptyFields.size()));
-        SudokuElement chosenElement = sudokuElementsArray[chosenFieldCoordinates.getX()][chosenFieldCoordinates.getY()];
-        int chosenValue = chosenElement.getPossibleValues().get(random.nextInt(chosenElement.getPossibleValues().size()));
-        setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
-        return true;
-    }
-
-    private int getNumberOfEmptyElements() {
-        int numberOfEmptyElements = 0;
-        for(int i = 0; i< sudokuElementsArray.length; i++) {
-            for(int j = 0; j< sudokuElementsArray.length; j++) {
-                if(sudokuElementsArray[i][j].getValue() == 0) {
-                    numberOfEmptyElements++;
-                }
-            }
-        }
-        return numberOfEmptyElements;
+        return minPossibilities == 0;
     }
 
 }

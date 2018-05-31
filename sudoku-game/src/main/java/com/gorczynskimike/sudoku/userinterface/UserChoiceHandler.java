@@ -1,6 +1,7 @@
 package com.gorczynskimike.sudoku.userinterface;
 
 import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
+import com.gorczynskimike.sudoku.simple.SudokuGenerator;
 
 public class UserChoiceHandler {
 
@@ -39,7 +40,8 @@ public class UserChoiceHandler {
             }
 
         } else if (userInput.matches(GENERATE_ONE_RANDOM_NUMBER_PATTERN)) {
-            simpleSudokuBoard.generateRandomNumbers(1);
+//            simpleSudokuBoard.generateRandomNumbers(1);
+            SudokuGenerator.generateOneRandomNumber(simpleSudokuBoard);
 
         } else if (userInput.matches(CLEAR_BOARD_PATTERN)) {
             simpleSudokuBoard.clearTheBoard();
@@ -47,12 +49,13 @@ public class UserChoiceHandler {
         } else if (userInput.matches(GENERATE_N_RANDOM_NUMBERS_PATTERN)) {
             String[] inputParts = userInput.split(",");
             int howManyToGenerate = Integer.parseInt(inputParts[1]);
-            simpleSudokuBoard.generateRandomNumbers(howManyToGenerate);
+//            simpleSudokuBoard.generateRandomNumbers(howManyToGenerate);
+            SudokuGenerator.generateRandomNumbers(howManyToGenerate, simpleSudokuBoard);
 
         } else if (userInput.matches(GENERATE_N_NUMBERS_SOLVABLE_PATTERN)) {
             String[] inputParts = userInput.split(",");
             int howManyToGenerate = Integer.parseInt(inputParts[1]);
-            simpleSudokuBoard.generateSolvableBoard(howManyToGenerate);
+            SudokuGenerator.generateRandomNumbersSolvable(howManyToGenerate, simpleSudokuBoard);
 
         } else if(userInput.matches(SET_ELEMENT_PATTERN)) {
             String[] inputParts = userInput.split(",");

@@ -8,7 +8,7 @@ public class SudokuState {
     private int guessedNumber;
 
     public SudokuState(SudokuElement[][] sudokuElementsArray, int xIndex, int yIndex, int guessedNumber) {
-        this.sudokuElementsArray = SudokuArrayFactory.copySudokuBoard(sudokuElementsArray);
+        this.sudokuElementsArray = SudokuArrayFactory.copySudokuArray(sudokuElementsArray);
         this.xIndex = xIndex;
         this.yIndex = yIndex;
         this.guessedNumber = guessedNumber;

@@ -15,9 +15,9 @@ public class App {
         boolean keepPlaying = true;
         while (keepPlaying) {
             SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
-            simpleSudokuBoard.printBoard();
             boolean endThisGame = false;
             while (!endThisGame) {
+                simpleSudokuBoard.printBoard();
                 String userInput = userInterface.getUserInput();
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);
             }

@@ -1,6 +1,7 @@
-package com.gorczynskimike.sudoku.simple;
+package com.gorczynskimike.sudoku.visualisation;
 
-import java.io.File;
+import com.gorczynskimike.sudoku.simple.SudokuElement;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;

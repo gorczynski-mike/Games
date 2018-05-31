@@ -271,7 +271,6 @@ public class SimpleSudokuBoard {
             howMany--;
         }
         System.out.println(succesfullyGeneratedNumbers + " numbers were generated successfully.");
-        this.printBoard();
     }
 
     private boolean generateOneNumber() {
@@ -345,8 +344,6 @@ public class SimpleSudokuBoard {
                 this.sudokuElementsArray = boardCopyBefore;
             }
         }
-
-        printBoard();
     }
 
     public void clearTheBoard() {

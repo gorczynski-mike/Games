@@ -36,8 +36,6 @@ public class UserChoiceHandler {
             } catch (IllegalArgumentException e) {
                 System.out.println("Unsetting element failed: ");
                 System.out.println(e.getMessage());
-            } finally {
-                simpleSudokuBoard.printBoard();
             }
 
         } else if (userInput.matches(GENERATE_ONE_RANDOM_NUMBER_PATTERN)) {
@@ -45,12 +43,11 @@ public class UserChoiceHandler {
 
         } else if (userInput.matches(CLEAR_BOARD_PATTERN)) {
             simpleSudokuBoard.clearTheBoard();
-            simpleSudokuBoard.printBoard();
 
         } else if (userInput.matches(GENERATE_N_RANDOM_NUMBERS_PATTERN)) {
             String[] inputParts = userInput.split(",");
-            int howManyToGuess = Integer.parseInt(inputParts[1]);
-            simpleSudokuBoard.generateRandomNumbers(howManyToGuess);
+            int howManyToGenerate = Integer.parseInt(inputParts[1]);
+            simpleSudokuBoard.generateRandomNumbers(howManyToGenerate);
 
         } else if (userInput.matches(GENERATE_N_NUMBERS_SOLVABLE_PATTERN)) {
             String[] inputParts = userInput.split(",");
@@ -69,8 +66,6 @@ public class UserChoiceHandler {
             } catch (IllegalArgumentException e) {
                 System.out.println("Setting element failed: ");
                 System.out.println(e.getMessage());
-                } finally {
-                simpleSudokuBoard.printBoard();
             }
 
         } else {

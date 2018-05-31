@@ -167,17 +167,10 @@ public class SimpleSudokuBoard {
         }
     }
 
-    //
-    //THIS METHOD IS BROKEN !!!
-    //THIS METHOD IS BROKEN !!!
-    //THIS METHOD IS BROKEN !!!
-    //
     public void unsetElement(int xIndex, int yIndex) {
 
         //initial checks on range
-        if(
-                (xIndex < 0 || xIndex > 8)
-                        || (yIndex < 0 || yIndex > 8)) {
+        if((xIndex < 0 || xIndex > 8) || (yIndex < 0 || yIndex > 8)) {
             throw new IllegalArgumentException("X or Y coordinate out of bounds.");
         }
         int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
@@ -186,6 +179,7 @@ public class SimpleSudokuBoard {
             return;
         }
 
+        SudokuElement theElement = sudokuElementsArray[xIndex][yIndex];
         sudokuElementsArray[xIndex][yIndex].clearValue();
 
         //row
@@ -206,6 +200,8 @@ public class SimpleSudokuBoard {
                 sudokuElementsArray[xStartIndex + i][yStartIndex + j].addPossibleValue(oldValue);
             }
         }
+
+        removeAllSetValuesFromPossibleOnes();
     }
 
     public void clearTheBoard() {
@@ -290,6 +286,35 @@ public class SimpleSudokuBoard {
             }
         }
         return minPossibilities == 0;
+    }
+
+    private void removeAllSetValuesFromPossibleOnes() {
+        for(int xIndex=0; xIndex<9; xIndex++) {
+            for(int yIndex=0; yIndex<9; yIndex++) {
+
+                SudokuElement theElement = this.sudokuElementsArray[xIndex][yIndex];
+
+                //row
+                for(int i=0; i<9; i++) {
+                    theElement.removePossibleValue(sudokuElementsArray[i][yIndex].getValue());
+                }
+
+                //column
+                for(int i=0; i<9; i++) {
+                    theElement.removePossibleValue(sudokuElementsArray[xIndex][i].getValue());
+                }
+
+                //3x3 section
+                int xStartIndex = xIndex - xIndex%3;
+                int yStartIndex = yIndex - yIndex%3;
+                for(int i=0; i<3; i++) {
+                    for(int j=0; j<3; j++) {
+                        theElement.removePossibleValue(sudokuElementsArray[xStartIndex + i][yStartIndex + j].getValue());
+                    }
+                }
+
+            }
+        }
     }
 
 }

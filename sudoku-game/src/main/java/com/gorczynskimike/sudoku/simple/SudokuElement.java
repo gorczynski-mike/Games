@@ -28,15 +28,9 @@ public class SudokuElement {
 
     public boolean addPossibleValue(Integer value) {
         if(this.possibleValues.contains(value)) {
-            System.out.println("not set");
-            printPossibleValues();
             return false;
         } else {
-            printPossibleValues();
-            System.out.println(value);
-            boolean result = this.possibleValues.add(value);
-            printPossibleValues();
-            return result;
+            return this.possibleValues.add(value);
         }
     }
 
@@ -54,10 +48,6 @@ public class SudokuElement {
 
     public void clearValue(){
         this.value = 0;
-    }
-
-    public void printPossibleValues() {
-        System.out.println(this.possibleValues);
     }
 
     @Override

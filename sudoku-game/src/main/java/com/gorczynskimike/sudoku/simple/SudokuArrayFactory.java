@@ -21,7 +21,7 @@ public final class SudokuArrayFactory {
      * @param original
      * @return
      */
-    public static SudokuElement[][] copySudokuBoard(SudokuElement[][] original) {
+    public static final SudokuElement[][] copySudokuBoard(SudokuElement[][] original) {
 
         //check if original is a square
         int originalSide = original.length;

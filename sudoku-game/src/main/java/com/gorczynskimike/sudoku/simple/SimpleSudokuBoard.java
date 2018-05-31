@@ -7,10 +7,6 @@ import java.util.Random;
 
 public class SimpleSudokuBoard {
 
-    public static void main(String[] args) {
-        //do nothing, for testing purposes
-    }
-
     private SudokuElement[][] sudokuElementsArray;
 
     public SimpleSudokuBoard() {
@@ -36,6 +32,7 @@ public class SimpleSudokuBoard {
             mainLoopCounter++;
             int unsetElements = 0;
             int modifiedElements = 0;
+            //if there is an element with 0 possible values it's impossible to solve the board
             if(!isSolvable()) {
                 if(SudokuStack.getStackSize() == 0) {
                     if(!silentModeOn) {
@@ -43,12 +40,11 @@ public class SimpleSudokuBoard {
                     }
                     break mainLoop;
                 }
-                SudokuState lastState = SudokuStack.popSudokuState();
-                sudokuElementsArray = lastState.getSudokuElementsArray();
-                sudokuElementsArray[lastState.getxIndex()][lastState.getyIndex()].getPossibleValues().remove((Integer) lastState.getGuessedNumber());
+                restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities();
                 continue mainLoop;
             }
-            allElementsLoop:
+
+            //check how many elements are not set and set every element with only one possible value
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
                     SudokuElement current = sudokuElementsArray[i][j];
@@ -65,6 +61,7 @@ public class SimpleSudokuBoard {
                     }
                 }
             }
+
             if(unsetElements == 0) {
                 if(!silentModeOn) {
                     System.out.println("Solved");
@@ -76,17 +73,23 @@ public class SimpleSudokuBoard {
                 result = true;
                 break mainLoop;
             }
+
             if(modifiedElements > 0) {
+                //modifying at least one element on the board could change the situation on the board, it's necessary to
+                //check the board again
                 continue mainLoop;
             } else {
-                timesProgramGuessedValue++;
+                //there were no elements with one possible value on the board, it's necessary to guess one element
                 CoordinatePair bestGuessCoordinates = findBestElementToGuess();
                 if(!(bestGuessCoordinates == null)) {
                     guessNumber(bestGuessCoordinates);
+                    timesProgramGuessedValue++;
                 }
                 continue mainLoop;
             }
         }
+
+        //end of algorithm, print info
         long endTime = System.currentTimeMillis();
         long endTimeNano = System.nanoTime();
         if(!silentModeOn) {
@@ -110,6 +113,12 @@ public class SimpleSudokuBoard {
         SudokuState savedState = new SudokuState(this.sudokuElementsArray, bestXIndex, bestYIndex, guessedNumber);
         SudokuStack.pushSudokuState(savedState);
         setElement(bestXIndex,bestYIndex,guessedNumber);
+    }
+
+    private void restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities() {
+        SudokuState lastState = SudokuStack.popSudokuState();
+        sudokuElementsArray = lastState.getSudokuElementsArray();
+        sudokuElementsArray[lastState.getxIndex()][lastState.getyIndex()].getPossibleValues().remove((Integer) lastState.getGuessedNumber());
     }
 
     private CoordinatePair findBestElementToGuess() {

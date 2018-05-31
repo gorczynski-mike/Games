@@ -104,12 +104,14 @@ public final class SudokuGenerator {
                 continue;
             }
             int chosenValue = chosenElement.getPossibleValuesCopy().get(random.nextInt(chosenElement.getPossibleValuesCopy().size()));
-            simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
-            if(!simpleSudokuBoard.checkIfSolvable()) {
-                simpleSudokuBoard.unsetElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY());
-                chosenElement.getPossibleValuesCopy().remove((Integer) chosenValue);
+            SimpleSudokuBoard simpleSudokuBoardCopy = new SimpleSudokuBoard(simpleSudokuBoard);
+            simpleSudokuBoardCopy.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
+            if(!simpleSudokuBoardCopy.checkIfSolvable()) {
+//                simpleSudokuBoard.unsetElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY());
+//                chosenElement.removePossibleValue(chosenValue);
                 continue;
             } else {
+                simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
                 generatedNumberSuccessfully = true;
             }
         }
@@ -147,6 +149,34 @@ public final class SudokuGenerator {
         while(howManyNumbersToGenerate > 0) {
             generateOneRandomNumberSolvable(simpleSudokuBoard);
             howManyNumbersToGenerate--;
+        }
+    }
+
+    public static void generateEasySudoku(SimpleSudokuBoard simpleSudokuBoard) {
+        generateSudokuNGuesses(0, simpleSudokuBoard);
+    }
+
+    public static void generateMediumSudoku(SimpleSudokuBoard simpleSudokuBoard) {
+        generateSudokuNGuesses(2, simpleSudokuBoard);
+    }
+
+    public static void generateHardSudoku(SimpleSudokuBoard simpleSudokuBoard) {
+        generateSudokuNGuesses(5, simpleSudokuBoard);
+    }
+
+    private static void generateSudokuNGuesses(int howManyGuesses, SimpleSudokuBoard simpleSudokuBoard) {
+        int howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+        if(howManyGuessesToSolve == -1) {
+            System.out.println("Sorry, the board is not solvable at the moment. Remove some elements first and try again.");
+            return;
+        }
+        if(howManyGuessesToSolve == 0) {
+            System.out.println("Sudoku board is already easy, no numbers generated.");
+            return;
+        }
+        while(howManyGuessesToSolve > howManyGuesses) {
+            generateOneRandomNumberSolvable(simpleSudokuBoard);
+            howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
         }
     }
 

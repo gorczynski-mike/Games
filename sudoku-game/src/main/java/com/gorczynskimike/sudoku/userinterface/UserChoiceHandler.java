@@ -1,6 +1,7 @@
 package com.gorczynskimike.sudoku.userinterface;
 
 import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
+import com.gorczynskimike.sudoku.simple.SudokuArrayFactory;
 import com.gorczynskimike.sudoku.simple.SudokuGenerator;
 
 public class UserChoiceHandler {
@@ -12,6 +13,9 @@ public class UserChoiceHandler {
     private static final String GENERATE_ONE_RANDOM_NUMBER_PATTERN = "random";
     private static final String GENERATE_N_RANDOM_NUMBERS_PATTERN = "random,\\d+";
     private static final String GENERATE_N_NUMBERS_SOLVABLE_PATTERN = "solvable,\\d+";
+    private static final String GENERATE_EASY_SUDOKU_PATTERN = "easy";
+    private static final String GENERATE_MEDIUM_SUDOKU_PATTERN = "medium";
+    private static final String GENERATE_HARD_SUDOKU_PATTERN = "hard";
     private static final String CLEAR_BOARD_PATTERN = "clear";
 
     public boolean handleUserInput(String userInput, SimpleSudokuBoard simpleSudokuBoard) {
@@ -56,6 +60,15 @@ public class UserChoiceHandler {
             String[] inputParts = userInput.split(",");
             int howManyToGenerate = Integer.parseInt(inputParts[1]);
             SudokuGenerator.generateRandomNumbersSolvable(howManyToGenerate, simpleSudokuBoard);
+
+        } else if (userInput.matches(GENERATE_EASY_SUDOKU_PATTERN)) {
+            SudokuGenerator.generateEasySudoku(simpleSudokuBoard);
+
+        } else if (userInput.matches(GENERATE_MEDIUM_SUDOKU_PATTERN)) {
+            SudokuGenerator.generateMediumSudoku(simpleSudokuBoard);
+
+        } else if (userInput.matches(GENERATE_HARD_SUDOKU_PATTERN)) {
+            SudokuGenerator.generateHardSudoku(simpleSudokuBoard);
 
         } else if(userInput.matches(SET_ELEMENT_PATTERN)) {
             String[] inputParts = userInput.split(",");

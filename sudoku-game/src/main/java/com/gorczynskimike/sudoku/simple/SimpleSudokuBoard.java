@@ -1,7 +1,5 @@
 package com.gorczynskimike.sudoku.simple;
 
-import java.util.Arrays;
-
 /**
  * Sudoku main class. It holds an array of SudokuElements. It provides the interface to manipulate the board, makes
  * sure that the board is in valid state and it can solve the board.
@@ -11,8 +9,15 @@ public class SimpleSudokuBoard {
     private SudokuElement[][] sudokuElementsArray;
     private SudokuStack sudokuStack;
 
+    private int howManyGuesses = 0;
+
     public SimpleSudokuBoard() {
         this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
+        this.sudokuStack = new SudokuStack();
+    }
+
+    public SimpleSudokuBoard(SimpleSudokuBoard other) {
+        this.sudokuElementsArray = other.getSudokuElementsArrayCopy();
         this.sudokuStack = new SudokuStack();
     }
 
@@ -28,7 +33,8 @@ public class SimpleSudokuBoard {
         boolean isSolved = false;
         boolean result = false;
         int mainLoopCounter = 0;
-        int timesProgramGuessedValue = 0;
+        this.howManyGuesses = 0;
+        this.sudokuStack.clearStack();
 
         mainLoop:
         while (!isSolved) {
@@ -86,7 +92,7 @@ public class SimpleSudokuBoard {
                 CoordinatePair bestGuessCoordinates = findBestElementToGuess();
                 if(!(bestGuessCoordinates == null)) {
                     guessValueForElement(bestGuessCoordinates);
-                    timesProgramGuessedValue++;
+                    howManyGuesses++;
                 }
                 continue mainLoop;
             }
@@ -98,7 +104,7 @@ public class SimpleSudokuBoard {
         if(!silentModeOn) {
             System.out.println("Solving sudoku procedure took " + (endTime - startTime) + " milliseconds. " +
                     "( " + (endTimeNano - startTimeNano) + " nano seconds)");
-            System.out.println("Program had to guess " + timesProgramGuessedValue + " times.");
+            System.out.println("Program had to guess " + howManyGuesses + " times.");
         }
         return result;
     }
@@ -161,6 +167,11 @@ public class SimpleSudokuBoard {
         }
     }
 
+    //
+    //THIS METHOD IS BROKEN !!!
+    //THIS METHOD IS BROKEN !!!
+    //THIS METHOD IS BROKEN !!!
+    //
     public void unsetElement(int xIndex, int yIndex) {
 
         //initial checks on range
@@ -210,6 +221,16 @@ public class SimpleSudokuBoard {
         boolean isSolvable = this.solveSudoku(true);
         this.sudokuElementsArray = copy;
         return isSolvable;
+    }
+
+    public int howManyGuessesNeededToSolve() {
+        SudokuElement[][] arrayCopy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
+        int result = -1;
+        if(solveSudoku(true)) {
+            result = this.howManyGuesses;
+        }
+        this.sudokuElementsArray = arrayCopy;
+        return result;
     }
 
     private void guessValueForElement(CoordinatePair coordinatePair) {

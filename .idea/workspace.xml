@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -47,8 +45,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="-42">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -56,8 +54,8 @@
       <file leaf-file-name="UserChoiceHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1407">
-              <caret line="69" column="69" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="69" />
+            <state relative-caret-position="-857">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsoleUserInterface.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConsoleUserInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+            <state relative-caret-position="108">
+              <caret line="22" column="111" lean-forward="true" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
             </state>
           </provider>
         </entry>
@@ -109,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuGenerator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SudokuGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="155" column="45" lean-forward="true" selection-start-line="155" selection-start-column="45" selection-end-line="155" selection-end-column="45" />
+            <state relative-caret-position="509">
+              <caret line="112" column="51" lean-forward="true" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
               <folding>
                 <element signature="docComment;class#SudokuGenerator#0" />
                 <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
@@ -123,11 +121,8 @@
                 <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
                 <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
                 <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
-                <element signature="e#5031#5128#0" />
                 <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
                 <element signature="method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
-                <element signature="method#generateMediumSudoku#0;class#SudokuGenerator#0" />
-                <element signature="method#generateHardSudoku#0;class#SudokuGenerator#0" />
                 <element signature="method#generateSudokuNGuesses#0;class#SudokuGenerator#0" />
                 <element signature="docComment;method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
                 <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
@@ -1166,12 +1161,12 @@
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/CoordinatePair.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuArrayFactory.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuStack.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuElement.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" />
       </list>
     </option>
   </component>
@@ -1528,7 +1523,7 @@
       <workItem from="1527528318227" duration="5108000" />
       <workItem from="1527579590911" duration="3472000" />
       <workItem from="1527752096180" duration="25528000" />
-      <workItem from="1527790026843" duration="8174000" />
+      <workItem from="1527790026843" duration="10309000" />
     </task>
     <servers />
   </component>
@@ -1565,7 +1560,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174045000" />
+    <option name="totallyTimeSpent" value="176180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -1581,14 +1576,14 @@
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.15706806" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.39685863" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25340313" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.1748691" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.684472" visible="true" weight="0.25297943" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68443197" visible="true" weight="0.25297943" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" sideWeight="0.31552795" side_tool="true" visible="true" weight="0.25297943" />
+      <window_info id="Structure" order="1" sideWeight="0.31556803" side_tool="true" visible="true" weight="0.25297943" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -1881,16 +1876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1407">
-          <caret line="69" column="69" selection-start-line="69" selection-start-column="69" selection-end-line="69" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Java_installation/jdk1.8.0_131/src.zip!/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -1937,40 +1922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="155" column="45" lean-forward="true" selection-start-line="155" selection-start-column="45" selection-end-line="155" selection-end-column="45" />
-          <folding>
-            <element signature="docComment;class#SudokuGenerator#0" />
-            <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
-            <element signature="method#SudokuGenerator#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
-            <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
-            <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
-            <element signature="e#5031#5128#0" />
-            <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
-            <element signature="method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
-            <element signature="method#generateMediumSudoku#0;class#SudokuGenerator#0" />
-            <element signature="method#generateHardSudoku#0;class#SudokuGenerator#0" />
-            <element signature="method#generateSudokuNGuesses#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
-            <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
-            <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1995,10 +1946,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-857">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        <state relative-caret-position="108">
+          <caret line="22" column="111" lean-forward="true" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="112" column="51" lean-forward="true" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
+          <folding>
+            <element signature="docComment;class#SudokuGenerator#0" />
+            <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
+            <element signature="method#SudokuGenerator#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+            <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+            <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
+            <element signature="method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
+            <element signature="method#generateSudokuNGuesses#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
+            <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
+            <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
+          </folding>
         </state>
       </provider>
     </entry>

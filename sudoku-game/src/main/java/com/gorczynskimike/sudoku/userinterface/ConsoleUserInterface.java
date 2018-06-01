@@ -18,9 +18,9 @@ public class ConsoleUserInterface implements UserInterface {
         System.out.println("- 'random,z' to generate <z> new numbers on the board");
         System.out.println("- 'solvable,z' to generate <z> new numbers on the board");
         System.out.println("- 'clear' to clear the board");
-        System.out.println("- 'easy' to generate easy sudoku");
-        System.out.println("- 'medium' to generate medium sudoku");
-        System.out.println("- 'hard' to generate hard sudoku");
+        System.out.println("- 'easy' to generate new easy sudoku (possible to solve without guessing)");
+        System.out.println("- 'medium' to generate new medium sudoku (necessary to guess less than 2 times to solve)");
+        System.out.println("- 'hard' to generate hard sudoku (necessary to guess less than 5 times to solve)");
         System.out.println("(IMPORTANT: valid range for <x>, <y>, <value>: 1-9, valid range for <z>: 1-81)");
         System.out.println("(IMPORTANT: 'sudoku', 'unset', 'solvable', 'clear', 'easy' and 'random' are complete english words)");
         System.out.println("(IMPORTANT: generated random numbers won't violate sudoku rules, but might create unsolvable sudoku)");

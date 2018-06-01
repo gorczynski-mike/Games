@@ -104,15 +104,12 @@ public final class SudokuGenerator {
                 continue;
             }
             int chosenValue = chosenElement.getPossibleValuesCopy().get(random.nextInt(chosenElement.getPossibleValuesCopy().size()));
-//            SimpleSudokuBoard simpleSudokuBoardCopy = new SimpleSudokuBoard(simpleSudokuBoard);
-//            simpleSudokuBoardCopy.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
-            simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
-            if(!simpleSudokuBoard.checkIfSolvable()) {
-                simpleSudokuBoard.unsetElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY());
+            SimpleSudokuBoard simpleSudokuBoardCopy = new SimpleSudokuBoard(simpleSudokuBoard);
+            simpleSudokuBoardCopy.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
+            if(!simpleSudokuBoardCopy.checkIfSolvable()) {
                 chosenElement.removePossibleValue(chosenValue);
-                continue;
             } else {
-//                simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
+                simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
                 generatedNumberSuccessfully = true;
             }
         }
@@ -155,32 +152,45 @@ public final class SudokuGenerator {
 
     //te metody mogłyby generować nowy obiekt
 
-    public static void generateEasySudoku(SimpleSudokuBoard simpleSudokuBoard) {
-        generateSudokuNGuesses(0, simpleSudokuBoard);
+    public static SimpleSudokuBoard generateEasySudoku(SimpleSudokuBoard simpleSudokuBoard) {
+        return generateSudokuNGuesses(0, simpleSudokuBoard);
     }
 
-    public static void generateMediumSudoku(SimpleSudokuBoard simpleSudokuBoard) {
-        generateSudokuNGuesses(2, simpleSudokuBoard);
+    public static SimpleSudokuBoard generateMediumSudoku(SimpleSudokuBoard simpleSudokuBoard) {
+        return generateSudokuNGuesses(2, simpleSudokuBoard);
     }
 
-    public static void generateHardSudoku(SimpleSudokuBoard simpleSudokuBoard) {
-        generateSudokuNGuesses(5, simpleSudokuBoard);
+    public static SimpleSudokuBoard generateHardSudoku(SimpleSudokuBoard simpleSudokuBoard) {
+        return generateSudokuNGuesses(5, simpleSudokuBoard);
     }
 
-    private static void generateSudokuNGuesses(int howManyGuesses, SimpleSudokuBoard simpleSudokuBoard) {
+    private static SimpleSudokuBoard generateSudokuNGuesses(int goalGuesses, SimpleSudokuBoard simpleSudokuBoard) {
+        simpleSudokuBoard.clearTheBoard();
         int howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
-        if(howManyGuessesToSolve == -1) {
-            System.out.println("Sorry, the board is not solvable at the moment. Remove some elements first and try again.");
-            return;
-        }
-        if(howManyGuessesToSolve == 0) {
-            System.out.println("Sudoku board is already easy, no numbers generated.");
-            return;
-        }
-        while(howManyGuessesToSolve > howManyGuesses) {
+        int howManyGuessesToSolveOld;
+        int counter = 0;
+        int totalCounter = 0;
+        while(howManyGuessesToSolve > goalGuesses) {
+            counter++;
+            totalCounter++;
+            System.out.println(howManyGuessesToSolve);
+            howManyGuessesToSolveOld = howManyGuessesToSolve;
+            SimpleSudokuBoard copy = new SimpleSudokuBoard(simpleSudokuBoard);
             generateOneRandomNumberSolvable(simpleSudokuBoard);
             howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+            if(howManyGuessesToSolve < goalGuesses) {
+                simpleSudokuBoard = copy;
+                howManyGuessesToSolve = howManyGuessesToSolveOld;
+                System.out.println("restored: " + howManyGuessesToSolve);
+            }
+            if(counter == 300) {
+                simpleSudokuBoard.clearTheBoard();
+                howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+                counter = 0;
+            }
         }
+        System.out.println("Total counter: " + totalCounter);
+        return simpleSudokuBoard;
     }
 
     /**

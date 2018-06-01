@@ -153,6 +153,8 @@ public final class SudokuGenerator {
         }
     }
 
+    //te metody mogłyby generować nowy obiekt
+
     public static void generateEasySudoku(SimpleSudokuBoard simpleSudokuBoard) {
         generateSudokuNGuesses(0, simpleSudokuBoard);
     }

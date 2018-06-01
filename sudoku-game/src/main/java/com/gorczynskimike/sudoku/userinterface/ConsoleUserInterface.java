@@ -14,9 +14,9 @@ public class ConsoleUserInterface implements UserInterface {
         System.out.println("- new value for the board in format 'x,y,value' (<value> is a single digit number)");
         System.out.println("- 'sudoku' to solve the board");
         System.out.println("- 'x,y,unset' to unset given element");
-        System.out.println("- 'random' to generate one number on the board");
-        System.out.println("- 'random,z' to generate <z> numbers on the board");
-        System.out.println("- 'solvable,z' to generate <z> numbers on the board");
+        System.out.println("- 'random' to generate one new number on the board");
+        System.out.println("- 'random,z' to generate <z> new numbers on the board");
+        System.out.println("- 'solvable,z' to generate <z> new numbers on the board");
         System.out.println("- 'clear' to clear the board");
         System.out.println("- 'easy' to generate easy sudoku");
         System.out.println("- 'medium' to generate medium sudoku");

@@ -12,6 +12,8 @@ public class App {
         UserInterface userInterface = new ConsoleUserInterface();
         UserChoiceHandler userChoiceHandler = new UserChoiceHandler();
 
+        initialize();
+
         boolean keepPlaying = true;
         while (keepPlaying) {
             SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
@@ -22,6 +24,12 @@ public class App {
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);
             }
             keepPlaying = userInterface.getNewGameDecision();
+        }
+    }
+
+    private static void initialize() {
+        for(int i=0; i<5; i++) {
+            new SimpleSudokuBoard().solveSudoku(true);
         }
     }
 }

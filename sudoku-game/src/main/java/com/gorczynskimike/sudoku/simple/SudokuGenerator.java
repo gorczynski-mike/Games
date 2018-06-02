@@ -93,7 +93,9 @@ public final class SudokuGenerator {
 
         boolean generatedNumberSuccessfully = false;
         Random random = new Random();
+        int counter = 0;
         while(!generatedNumberSuccessfully) {
+            counter++;
             if(listOfEmptyFields.size() == 0) {
                 break;
             }
@@ -112,6 +114,12 @@ public final class SudokuGenerator {
                 simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
                 generatedNumberSuccessfully = true;
             }
+
+            if(counter == 20) {
+                System.out.println("One number generator limit met.");
+                return false;
+            }
+
         }
         return generatedNumberSuccessfully;
     }
@@ -168,28 +176,28 @@ public final class SudokuGenerator {
         simpleSudokuBoard.clearTheBoard();
         int howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
         int howManyGuessesToSolveOld;
-        int counter = 0;
-        int totalCounter = 0;
+        outerLoop:
         while(howManyGuessesToSolve > goalGuesses) {
-            counter++;
-            totalCounter++;
             System.out.println(howManyGuessesToSolve);
             howManyGuessesToSolveOld = howManyGuessesToSolve;
             SimpleSudokuBoard copy = new SimpleSudokuBoard(simpleSudokuBoard);
-            generateOneRandomNumberSolvable(simpleSudokuBoard);
+            int triesCounter = 0;
+            while(!generateOneRandomNumberSolvable(simpleSudokuBoard)) {
+                triesCounter++;
+                if(triesCounter > 5) {
+                    System.out.println("Tries counter limit met.");
+                    simpleSudokuBoard.clearTheBoard();
+                    howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+                    continue outerLoop;
+                }
+            }
             howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
-            if(howManyGuessesToSolve < goalGuesses) {
+            if(howManyGuessesToSolve == -1 || howManyGuessesToSolve < goalGuesses) {
                 simpleSudokuBoard = copy;
                 howManyGuessesToSolve = howManyGuessesToSolveOld;
                 System.out.println("restored: " + howManyGuessesToSolve);
             }
-            if(counter == 300) {
-                simpleSudokuBoard.clearTheBoard();
-                howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
-                counter = 0;
-            }
         }
-        System.out.println("Total counter: " + totalCounter);
         return simpleSudokuBoard;
     }
 

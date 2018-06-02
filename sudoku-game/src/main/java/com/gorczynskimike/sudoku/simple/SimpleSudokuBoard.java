@@ -34,10 +34,14 @@ public class SimpleSudokuBoard {
     }
 
     public boolean solveSudoku() {
-        return solveSudoku(false);
+        return solveSudoku(false, Integer.MAX_VALUE);
     }
 
     public boolean solveSudoku(boolean silentModeOn) {
+        return solveSudoku(silentModeOn, Integer.MAX_VALUE);
+    }
+
+    public boolean solveSudoku(boolean silentModeOn, int guessesLimit) {
 
         //setup
         long startTimeNano = System.nanoTime();
@@ -47,6 +51,10 @@ public class SimpleSudokuBoard {
 
         mainLoop:
         while (true) {
+            if(this.howManyGuesses > guessesLimit) {
+                System.out.println("Guesses limit reached");
+                return false;
+            }
             mainLoopCounter++;
             int unsetElements = 0;
             int modifiedElements = 0;
@@ -104,6 +112,10 @@ public class SimpleSudokuBoard {
                 howManyGuesses++;
             }
         }
+    }
+
+    public boolean solveSudokuGuessesLimit(int guessesLimit) {
+        return solveSudoku(true, guessesLimit);
     }
 
     public void printBoard() {
@@ -219,7 +231,7 @@ public class SimpleSudokuBoard {
     public int howManyGuessesNeededToSolve() {
         SudokuElement[][] arrayCopy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
         int result = -1;
-        if(solveSudoku(true)) {
+        if(solveSudoku(true, 200)) {
             result = this.howManyGuesses;
         }
         this.sudokuElementsArray = arrayCopy;

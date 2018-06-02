@@ -8,41 +8,67 @@ public class ConsoleUserInterface implements UserInterface {
     private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+|solvable,\\d+|clear|easy|medium|hard";
     private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
+    private MessageService messageService = (text) -> {
+        System.out.println(text);
+    };
+
+    private UserInputService userInputService = () -> {
+        return scanner.nextLine();
+    };
+
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
+    public void setUserInputService(UserInputService userInputService) {
+        this.userInputService = userInputService;
+    }
+
     @Override
     public String getUserInput() {
-        System.out.println("Please type: ");
-        System.out.println("- new value for the board in format 'x,y,value' (<value> is a single digit number)");
-        System.out.println("- 'sudoku' to solve the board");
-        System.out.println("- 'x,y,unset' to unset given element");
-        System.out.println("- 'random' to generate one new number on the board");
-        System.out.println("- 'random,z' to generate <z> new numbers on the board");
-        System.out.println("- 'solvable,z' to generate <z> new numbers on the board");
-        System.out.println("- 'clear' to clear the board");
-        System.out.println("- 'easy' to generate new easy sudoku (possible to solve without guessing)");
-        System.out.println("- 'medium' to generate new medium sudoku (necessary to guess less than 2 times to solve)");
-        System.out.println("- 'hard' to generate hard sudoku (necessary to guess less than 5 times to solve)");
-        System.out.println("(IMPORTANT: valid range for <x>, <y>, <value>: 1-9, valid range for <z>: 1-81)");
-        System.out.println("(IMPORTANT: 'sudoku', 'unset', 'solvable', 'clear', 'easy' and 'random' are complete english words)");
-        System.out.println("(IMPORTANT: generated random numbers won't violate sudoku rules, but might create unsolvable sudoku)");
-        System.out.println("(IMPORTANT: 'solvable' guarantees that created board will be solvable but is a slower algorithm)");
-        String userInput = scanner.nextLine();
+        printInstructions();
+        String userInput = null;
+        try {
+            userInput = userInputService.getUserInput();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         userInput = userInput.toLowerCase();
         if(!userInput.matches(VALID_INPUT)) {
-            System.out.println("Invalid format.");
+            messageService.acceptMessage("Invalid format.");
             return "error";
         } else {
             return userInput;
         }
     }
 
+    public void printInstructions() {
+        messageService.acceptMessage("Please type: ");
+        messageService.acceptMessage("- new value for the board in format 'x,y,value' (<value> is a single digit number)");
+        messageService.acceptMessage("- 'sudoku' to solve the board");
+        messageService.acceptMessage("- 'x,y,unset' to unset given element");
+        messageService.acceptMessage("- 'random' to generate one new number on the board");
+        messageService.acceptMessage("- 'random,z' to generate <z> new numbers on the board");
+        messageService.acceptMessage("- 'solvable,z' to generate <z> new numbers on the board");
+        messageService.acceptMessage("- 'clear' to clear the board");
+        messageService.acceptMessage("- 'easy' to generate new easy sudoku (possible to solve without guessing)");
+        messageService.acceptMessage("- 'medium' to generate new medium sudoku (necessary to guess less than 2 times to solve)");
+        messageService.acceptMessage("- 'hard' to generate hard sudoku (necessary to guess less than 5 times to solve)");
+        messageService.acceptMessage("(IMPORTANT: valid range for <x>, <y>, <value>: 1-9, valid range for <z>: 1-81)");
+        messageService.acceptMessage("(IMPORTANT: 'sudoku', 'unset', 'solvable', 'clear', 'easy' and 'random' are complete english words)");
+        messageService.acceptMessage("(IMPORTANT: generated random numbers won't violate sudoku rules, but might create unsolvable sudoku)");
+        messageService.acceptMessage("(IMPORTANT: 'solvable' guarantees that created board will be solvable but is a slower algorithm)");
+    }
+
     @Override
-    public boolean getNewGameDecision() {
-        System.out.println("Do you want to start new game? Y - yes, N - exit application");
-        String userInput = scanner.nextLine();
+    public boolean getNewGameDecision() throws InterruptedException {
+        messageService.acceptMessage("Do you want to start new game? Y - yes, N - exit application");
+        String userInput = null;
+        userInput = userInputService.getUserInput();
         userInput = userInput.toLowerCase();
         while(!userInput.matches(VALID_NEW_GAME_CHOICE)) {
-            System.out.println("Sorry, invalid format, type either 'y' or 'n'.");
-            userInput = scanner.nextLine();
+            messageService.acceptMessage("Sorry, invalid format, type either 'y' or 'n'.");
+            userInput = userInputService.getUserInput();
             userInput = userInput.toLowerCase();
         }
         return userInput.matches("y") ? true : false;

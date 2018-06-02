@@ -1,5 +1,7 @@
 package com.gorczynskimike.sudoku.simple;
 
+import com.gorczynskimike.sudoku.userinterface.MessageService;
+
 import java.util.Random;
 
 /**
@@ -12,6 +14,14 @@ public class SimpleSudokuBoard {
     private SudokuStack sudokuStack;
 
     private int howManyGuesses = 0;
+
+    private MessageService messageService = (text) -> {
+        System.out.println(text);
+    };
+
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     public SimpleSudokuBoard() {
         this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
@@ -47,7 +57,7 @@ public class SimpleSudokuBoard {
             if(checkIfAnyFieldWithNoPossibilities()) {
                 if(this.sudokuStack.getStackSize() == 0) {
                     if(!silentModeOn) {
-                        System.out.println("Sorry, it's impossible to solve this sudoku.");
+                        messageService.acceptMessage("Sorry, it's impossible to solve this sudoku.");
                         printBoard();
                         printSolvingSummaryInfo(startTimeNano, mainLoopCounter);
                     }
@@ -76,7 +86,7 @@ public class SimpleSudokuBoard {
             //no empty fields on the board = board is solved
             if(unsetElements == 0) {
                 if(!silentModeOn) {
-                    System.out.println("Solved");
+                    messageService.acceptMessage("Solved");
                     printBoard();
                     printSolvingSummaryInfo(startTimeNano, mainLoopCounter);
                 }
@@ -108,9 +118,9 @@ public class SimpleSudokuBoard {
                     sb.append(", ");
                 }
             }
-            System.out.println(sb.toString());
+            messageService.acceptMessage(sb.toString());
             if(i == 2 || i == 5) {
-                System.out.println(sb.toString().replaceAll(".", "-"));
+                messageService.acceptMessage(sb.toString().replaceAll(".", "-"));
             }
         }
     }
@@ -128,8 +138,8 @@ public class SimpleSudokuBoard {
         //check if element is not set
         int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
         if(oldValue != 0) {
-            System.out.println("Sorry, can't set this element, the element had been already set.");
-            System.out.println("You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
+            messageService.acceptMessage("Sorry, can't set this element, the element had been already set.");
+            messageService.acceptMessage("You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
             return;
         }
         sudokuElementsArray[xIndex][yIndex].setValue(value);
@@ -219,9 +229,9 @@ public class SimpleSudokuBoard {
     private void printSolvingSummaryInfo(long startTimeNano, int mainLoopCounter) {
         long endTimeNano = System.nanoTime();
         this.sudokuStack.printStackSize();
-        System.out.println("Number of loops: " + mainLoopCounter);
-        System.out.println("Solving sudoku procedure took " + ((double)(endTimeNano - startTimeNano)) / 1000000 + " milliseconds. ");
-        System.out.println("Program had to guess " + howManyGuesses + " times.");
+        messageService.acceptMessage("Number of loops: " + mainLoopCounter);
+        messageService.acceptMessage("Solving sudoku procedure took " + ((double)(endTimeNano - startTimeNano)) / 1000000 + " milliseconds. ");
+        messageService.acceptMessage("Program had to guess " + howManyGuesses + " times.");
     }
 
     private int getGuessedValueForElement(CoordinatePair coordinatePair) {

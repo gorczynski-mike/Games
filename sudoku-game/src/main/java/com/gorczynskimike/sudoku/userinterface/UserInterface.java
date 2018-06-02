@@ -4,6 +4,8 @@ public interface UserInterface {
 
     String getUserInput();
 
-    boolean getNewGameDecision();
+    boolean getNewGameDecision() throws InterruptedException;
+
+    void printInstructions();
 
 }

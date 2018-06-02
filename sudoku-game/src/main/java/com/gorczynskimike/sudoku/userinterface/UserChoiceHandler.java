@@ -17,13 +17,21 @@ public class UserChoiceHandler {
     private static final String GENERATE_HARD_SUDOKU_PATTERN = "hard";
     private static final String CLEAR_BOARD_PATTERN = "clear";
 
+    private MessageService messageService = (text) -> {
+        System.out.println(text);
+    };
+
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
     public boolean handleUserInput(String userInput, SimpleSudokuBoard simpleSudokuBoard) {
 
         userInput = userInput.toLowerCase();
         boolean finishGame = false;
 
         if (userInput.equalsIgnoreCase(ERROR_PATTERN)) {
-                System.out.println("Invalid format, try again.");
+                messageService.acceptMessage("Invalid format, try again.");
 
         } else if (userInput.equalsIgnoreCase(SOLVE_SUDOKU_PATTERN)) {
             finishGame = true;
@@ -38,8 +46,8 @@ public class UserChoiceHandler {
                         Integer.parseInt(inputParts[0])-1
                 );
             } catch (IllegalArgumentException e) {
-                System.out.println("Unsetting element failed: ");
-                System.out.println(e.getMessage());
+                messageService.acceptMessage("Unsetting element failed: ");
+                messageService.acceptMessage(e.getMessage());
             }
 
         } else if (userInput.matches(GENERATE_ONE_RANDOM_NUMBER_PATTERN)) {
@@ -79,12 +87,12 @@ public class UserChoiceHandler {
                         Integer.parseInt(inputParts[2])
                 );
             } catch (IllegalArgumentException e) {
-                System.out.println("Setting element failed: ");
-                System.out.println(e.getMessage());
+                messageService.acceptMessage("Setting element failed: ");
+                messageService.acceptMessage(e.getMessage());
             }
 
         } else {
-            System.out.println("Sorry, choice not recognized, try again.");
+            messageService.acceptMessage("Sorry, choice not recognized, try again.");
         }
 
         return finishGame;

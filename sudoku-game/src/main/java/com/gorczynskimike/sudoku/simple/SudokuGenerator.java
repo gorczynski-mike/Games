@@ -81,7 +81,8 @@ public final class SudokuGenerator {
      * @param simpleSudokuBoard board to be modified.
      * @return information if it was possible to generate one number.
      */
-    public static boolean generateOneRandomNumberSolvable(SimpleSudokuBoard simpleSudokuBoard) {
+    public static boolean generateOneRandomNumberSolvable(SimpleSudokuBoard simpleSudokuBoard, int mainLoopLimit) {
+        System.out.println("In function: generateOneRandomNumberSolvable");
         if(simpleSudokuBoard == null) {
             return false;
         }
@@ -108,19 +109,20 @@ public final class SudokuGenerator {
             int chosenValue = chosenElement.getPossibleValuesCopy().get(random.nextInt(chosenElement.getPossibleValuesCopy().size()));
             SimpleSudokuBoard simpleSudokuBoardCopy = new SimpleSudokuBoard(simpleSudokuBoard);
             simpleSudokuBoardCopy.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
-            if(!simpleSudokuBoardCopy.checkIfSolvable()) {
+            if(!simpleSudokuBoardCopy.checkIfSolvableWithLimit(mainLoopLimit)) {
                 chosenElement.removePossibleValue(chosenValue);
             } else {
                 simpleSudokuBoard.setElement(chosenFieldCoordinates.getX(), chosenFieldCoordinates.getY(), chosenValue);
                 generatedNumberSuccessfully = true;
             }
 
-            if(counter == 20) {
-                System.out.println("One number generator limit met.");
+            if(counter == 10) {
+                System.out.println("One number generator limit met. Out of function generateOneRandomNumberSolvable");
                 return false;
             }
 
         }
+        System.out.println("Out of function: generateOneRandomNumberSolvable");
         return generatedNumberSuccessfully;
     }
 
@@ -153,7 +155,7 @@ public final class SudokuGenerator {
 
         //generate numbers
         while(howManyNumbersToGenerate > 0) {
-            generateOneRandomNumberSolvable(simpleSudokuBoard);
+            generateOneRandomNumberSolvable(simpleSudokuBoard, Integer.MAX_VALUE);
             howManyNumbersToGenerate--;
         }
     }
@@ -173,32 +175,52 @@ public final class SudokuGenerator {
     }
 
     private static SimpleSudokuBoard generateSudokuNGuesses(int goalGuesses, SimpleSudokuBoard simpleSudokuBoard) {
+        System.out.println("In function: generateSudokuNGuesses");
         simpleSudokuBoard.clearTheBoard();
         int howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
-        int howManyGuessesToSolveOld;
+//        int howManyGuessesToSolveOld;
         outerLoop:
         while(howManyGuessesToSolve > goalGuesses) {
             System.out.println(howManyGuessesToSolve);
-            howManyGuessesToSolveOld = howManyGuessesToSolve;
-            SimpleSudokuBoard copy = new SimpleSudokuBoard(simpleSudokuBoard);
+//            howManyGuessesToSolveOld = howManyGuessesToSolve;
+//            SimpleSudokuBoard copy = new SimpleSudokuBoard(simpleSudokuBoard);
+
             int triesCounter = 0;
-            while(!generateOneRandomNumberSolvable(simpleSudokuBoard)) {
+            while(!generateOneRandomNumberSolvable(simpleSudokuBoard, 2000)) {
                 triesCounter++;
                 if(triesCounter > 5) {
                     System.out.println("Tries counter limit met.");
                     simpleSudokuBoard.clearTheBoard();
-                    howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+                    howManyGuessesToSolve = Integer.MAX_VALUE;
                     continue outerLoop;
                 }
             }
             howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
-            if(howManyGuessesToSolve == -1 || howManyGuessesToSolve < goalGuesses) {
-                simpleSudokuBoard = copy;
-                howManyGuessesToSolve = howManyGuessesToSolveOld;
-                System.out.println("restored: " + howManyGuessesToSolve);
+            if(howManyGuessesToSolve == -1) {
+                simpleSudokuBoard.clearTheBoard();
+                howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+            }
+            while(howManyGuessesToSolve < goalGuesses) {
+                System.out.println("too little guesses, removing one number");
+                removeOneRandomNumberFromTheBoard(simpleSudokuBoard);
+                howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
+                System.out.println("new guesses: " + howManyGuessesToSolve);
             }
         }
+        System.out.println("how many guesses: " + howManyGuessesToSolve);
+        System.out.println("Final number of guesses: " + simpleSudokuBoard.howManyGuessesNeededToSolve());
+        System.out.println("Out of function: generateSudokuNGuesses");
         return simpleSudokuBoard;
+    }
+
+    private static void removeOneRandomNumberFromTheBoard(SimpleSudokuBoard simpleSudokuBoard) {
+        List<CoordinatePair> listOfNotEmptyFields = getListOfNotEmptyFieldsCoordinates(simpleSudokuBoard.getSudokuElementsArrayCopy());
+        if(listOfNotEmptyFields.size() == 0) {
+            throw new IllegalStateException("Cannot remove element, all elements are empty.");
+        }
+        Random random = new Random();
+        CoordinatePair removedCoordinates = listOfNotEmptyFields.get(random.nextInt(listOfNotEmptyFields.size()));
+        simpleSudokuBoard.unsetElement(removedCoordinates.getX(), removedCoordinates.getY());
     }
 
     /**
@@ -225,4 +247,15 @@ public final class SudokuGenerator {
         return listOfEmptyFields;
     }
 
+    private static List<CoordinatePair> getListOfNotEmptyFieldsCoordinates(SudokuElement[][] sudokuElementsArray) {
+        List<CoordinatePair> listOfNotEmptyFields = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if(sudokuElementsArray[i][j].getValue() != 0) {
+                    listOfNotEmptyFields.add(new CoordinatePair(i,j));
+                }
+            }
+        }
+        return listOfNotEmptyFields;
+    }
 }

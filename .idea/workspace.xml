@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -44,8 +45,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="378">
+              <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -100,8 +101,8 @@
       <file leaf-file-name="SimpleSudokuBoard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="54" column="57" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+            <state relative-caret-position="383">
+              <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#589#590#0" expanded="true" />
@@ -129,8 +130,8 @@
       <file leaf-file-name="SudokuGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="192" column="62" selection-start-line="192" selection-start-column="62" selection-end-line="192" selection-end-column="62" />
+            <state relative-caret-position="431">
+              <caret line="193" column="65" selection-start-line="193" selection-start-column="65" selection-end-line="193" selection-end-column="65" />
               <folding>
                 <element signature="docComment;class#SudokuGenerator#0" />
                 <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
@@ -162,12 +163,14 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+            <state relative-caret-position="182">
+              <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1578#1579#0" expanded="true" />
                 <element signature="e#1608#1609#0" expanded="true" />
+                <element signature="e#2052#2053#0" expanded="true" />
+                <element signature="e#2086#2087#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1156,9 +1159,9 @@
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInterface.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputService.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java" />
       </list>
     </option>
@@ -1527,7 +1530,7 @@
       <workItem from="1527579590911" duration="3472000" />
       <workItem from="1527752096180" duration="25528000" />
       <workItem from="1527790026843" duration="10698000" />
-      <workItem from="1527943190836" duration="5907000" />
+      <workItem from="1527943190836" duration="8042000" />
     </task>
     <servers />
   </component>
@@ -1564,7 +1567,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182476000" />
+    <option name="totallyTimeSpent" value="184611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="-9" width="1857" height="1098" extended-state="6" />
@@ -1580,14 +1583,14 @@
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24502617" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24502617" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.19057591" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.27877948" visible="true" weight="0.3094073" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.71289873" visible="true" weight="0.3094073" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" sideWeight="0.72122055" side_tool="true" visible="true" weight="0.3094073" />
+      <window_info id="Structure" order="1" sideWeight="0.28710124" side_tool="true" visible="true" weight="0.3094073" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -1904,25 +1907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1578#1579#0" expanded="true" />
-            <element signature="e#1608#1609#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1971,8 +1955,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="192" column="62" selection-start-line="192" selection-start-column="62" selection-end-line="192" selection-end-column="62" />
+        <state relative-caret-position="431">
+          <caret line="193" column="65" selection-start-line="193" selection-start-column="65" selection-end-line="193" selection-end-column="65" />
           <folding>
             <element signature="docComment;class#SudokuGenerator#0" />
             <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
@@ -1991,10 +1975,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="25" column="87" selection-start-line="25" selection-start-column="87" selection-end-line="25" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1578#1579#0" expanded="true" />
+            <element signature="e#1608#1609#0" expanded="true" />
+            <element signature="e#2052#2053#0" expanded="true" />
+            <element signature="e#2086#2087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SimpleSudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="54" column="57" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+        <state relative-caret-position="383">
+          <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#589#590#0" expanded="true" />

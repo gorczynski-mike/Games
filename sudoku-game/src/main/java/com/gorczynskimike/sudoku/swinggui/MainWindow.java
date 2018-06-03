@@ -8,6 +8,8 @@ import java.awt.*;
 
 public class MainWindow extends JFrame implements MessageService, UserInputService {
 
+    private JTextArea sudokuTextArea = new JTextArea();
+    private JPanel sudokuTextAreaPanel = new JPanel();
     private JTextArea textArea = new JTextArea();
     private JTextField textField = new JTextField(20);
     private JLabel textFieldLabel = new JLabel("Your input: ");
@@ -24,6 +26,11 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
+
+        sudokuTextArea.setPreferredSize(new Dimension(320,320));
+        sudokuTextArea.setFont(new Font("monospaced", Font.PLAIN, 20));
+        sudokuTextAreaPanel.add(sudokuTextArea);
+        this.add(sudokuTextAreaPanel, BorderLayout.NORTH);
 
         textArea.setFont(new Font("monospaced", Font.PLAIN, 20));
         this.add(new JScrollPane(textArea), BorderLayout.CENTER);
@@ -45,6 +52,10 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     public void closeMainWindow() {
         this.dispose();
+    }
+
+    public void setSudoku(String sudokuTextRepresentation) {
+        this.sudokuTextArea.setText(sudokuTextRepresentation);
     }
 
     @Override

@@ -23,9 +23,11 @@ public class App {
         while (keepPlaying) {
             SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
             simpleSudokuBoard.setMessageService(mainWindow);
+            simpleSudokuBoard.setSudokuMessageService(text -> mainWindow.setSudoku(text));
             boolean endThisGame = false;
             while (!endThisGame) {
-                simpleSudokuBoard.printBoard();
+                String sudokuText = simpleSudokuBoard.printBoard();
+                mainWindow.setSudoku(sudokuText);
                 String userInput = userInterface.getUserInput();
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);
             }

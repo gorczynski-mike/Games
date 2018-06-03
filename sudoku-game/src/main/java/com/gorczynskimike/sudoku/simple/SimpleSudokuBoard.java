@@ -18,9 +18,16 @@ public class SimpleSudokuBoard {
     private MessageService messageService = (text) -> {
         System.out.println(text);
     };
+    private MessageService sudokuMessageService = (text) -> {
+        System.out.println(text);
+    };
 
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
+    }
+
+    public void setSudokuMessageService(MessageService sudokuMessageService) {
+        this.sudokuMessageService = sudokuMessageService;
     }
 
     public SimpleSudokuBoard() {
@@ -118,23 +125,26 @@ public class SimpleSudokuBoard {
         return solveSudoku(true, guessesLimit);
     }
 
-    public void printBoard() {
+    public String printBoard() {
+        StringBuilder resultBuilder = new StringBuilder();
         for(int i=0; i<9; i++) {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder lineBuilder = new StringBuilder();
             for(int j=0; j<9; j++) {
-                sb.append(sudokuElementsArray[i][j]);
+                lineBuilder.append(sudokuElementsArray[i][j]);
                 if(j == 2 || j == 5) {
-                    sb.append("| ");
+                    lineBuilder.append("| ");
                 } else {
                     if(j != 8)
-                    sb.append(", ");
+                    lineBuilder.append(", ");
                 }
             }
-            messageService.acceptMessage(sb.toString());
+            resultBuilder.append(" " + lineBuilder.toString() + System.lineSeparator());
             if(i == 2 || i == 5) {
-                messageService.acceptMessage(sb.toString().replaceAll(".", "-"));
+                resultBuilder.append(" " + lineBuilder.toString().replaceAll(".", "-") + System.lineSeparator());
             }
         }
+        sudokuMessageService.acceptMessage(resultBuilder.toString());
+        return resultBuilder.toString();
     }
 
     public void setElement(int xIndex, int yIndex, int value) {

@@ -22,6 +22,7 @@ public class ControlPanel extends JPanel {
         this.mainWindow = mainWindow;
 
         this.setPreferredSize(new Dimension(300,0));
+        this.setBorder(AppBorderFactory.getStandardBorder("Control Panel"));
         this.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
@@ -77,7 +78,7 @@ public class ControlPanel extends JPanel {
         this.add(endGameButton,gc);
 
         gc.gridx = 0;
-        gc.gridy = 5;
+        gc.gridy = 7;
         gc.weighty = 10.0;
         this.add(new Component() {}, gc);
     }

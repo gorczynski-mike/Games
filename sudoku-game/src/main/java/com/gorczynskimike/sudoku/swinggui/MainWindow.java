@@ -14,6 +14,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     private JTextField textField = new JTextField(20);
     private JLabel textFieldLabel = new JLabel("Your input: ");
     private JPanel textFieldPanel = new JPanel();
+    private JPanel centralPanel = new JPanel();
     private ControlPanel controlPanel = new ControlPanel(this);
 
     private String userInput = "";
@@ -22,25 +23,26 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     public MainWindow() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int)screenSize.getWidth();
-        int height = (int)screenSize.getHeight();
+        int width = (int)screenSize.getWidth() - 100;
+        int height = (int)screenSize.getHeight() - 100;
         this.setSize(width,height);
+        this.setMinimumSize(new Dimension(800,600));
+        this.setTitle("Sudoku");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
+
+        centralPanel.setLayout(new BorderLayout());
 
         sudokuTextArea.setPreferredSize(new Dimension(320,320));
         sudokuTextArea.setEditable(false);
         sudokuTextArea.setFont(new Font("monospaced", Font.BOLD, 20));
         sudokuTextArea.setForeground(Color.black);
         sudokuTextAreaPanel.add(sudokuTextArea);
-        this.add(sudokuTextAreaPanel, BorderLayout.NORTH);
-
-
-        this.add(controlPanel, BorderLayout.WEST);
+        centralPanel.add(sudokuTextAreaPanel, BorderLayout.NORTH);
 
         textArea.setFont(new Font("monospaced", Font.PLAIN, 20));
-        this.add(new JScrollPane(textArea), BorderLayout.CENTER);
+        centralPanel.add(new JScrollPane(textArea), BorderLayout.CENTER);
 
         textField.addActionListener(e -> {
             synchronized (MainWindow.class) {
@@ -58,8 +60,10 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         textFieldPanel.add(textFieldLabel);
         textField.setPreferredSize(textFieldPanelDimension);
         textFieldPanel.add(textField);
-        this.add(textFieldPanel, BorderLayout.SOUTH);
+        centralPanel.add(textFieldPanel, BorderLayout.SOUTH);
 
+        this.add(controlPanel, BorderLayout.WEST);
+        this.add(centralPanel, BorderLayout.CENTER);
         this.setVisible(true);
     }
 
@@ -91,6 +95,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     @Override
     public String getNewGameDecision() throws InterruptedException{
+        System.out.println("in new game decision");
         this.controlPanel.setNewGameDecisionActive(true);
         synchronized (MainWindow.class) {
             while(!userInputReady) {

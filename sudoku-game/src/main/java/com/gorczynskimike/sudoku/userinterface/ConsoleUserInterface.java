@@ -63,11 +63,11 @@ public class ConsoleUserInterface implements UserInterface {
     public boolean getNewGameDecision() throws InterruptedException {
         messageService.acceptMessage("Do you want to start new game? Y - yes, N - exit application");
         String userInput = null;
-        userInput = userInputService.getUserInput();
+        userInput = userInputService.getNewGameDecision();
         userInput = userInput.toLowerCase();
         while(!userInput.matches(VALID_NEW_GAME_CHOICE)) {
             messageService.acceptMessage("Sorry, invalid format, type either 'y' or 'n'.");
-            userInput = userInputService.getUserInput();
+            userInput = userInputService.getNewGameDecision();
             userInput = userInput.toLowerCase();
         }
         return userInput.matches("y");

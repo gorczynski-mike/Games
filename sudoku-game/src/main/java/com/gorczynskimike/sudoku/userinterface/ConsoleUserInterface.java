@@ -12,9 +12,7 @@ public class ConsoleUserInterface implements UserInterface {
         System.out.println(text);
     };
 
-    private UserInputService userInputService = () -> {
-        return scanner.nextLine();
-    };
+    private UserInputService userInputService;
 
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
@@ -72,6 +70,6 @@ public class ConsoleUserInterface implements UserInterface {
             userInput = userInputService.getUserInput();
             userInput = userInput.toLowerCase();
         }
-        return userInput.matches("y") ? true : false;
+        return userInput.matches("y");
     }
 }

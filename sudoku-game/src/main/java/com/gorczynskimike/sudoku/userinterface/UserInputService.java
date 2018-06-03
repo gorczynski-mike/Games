@@ -4,4 +4,6 @@ public interface UserInputService {
 
     String getUserInput() throws InterruptedException;
 
+    String getNewGameDecision() throws InterruptedException;
+
 }

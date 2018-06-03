@@ -14,6 +14,8 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     private JTextField textField = new JTextField(20);
     private JLabel textFieldLabel = new JLabel("Your input: ");
     private JPanel textFieldPanel = new JPanel();
+    private ControlPanel controlPanel = new ControlPanel(this);
+
     private String userInput = "";
 
     private boolean userInputReady = false;
@@ -28,9 +30,14 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         this.setLayout(new BorderLayout());
 
         sudokuTextArea.setPreferredSize(new Dimension(320,320));
-        sudokuTextArea.setFont(new Font("monospaced", Font.PLAIN, 20));
+        sudokuTextArea.setEditable(false);
+        sudokuTextArea.setFont(new Font("monospaced", Font.BOLD, 20));
+        sudokuTextArea.setForeground(Color.black);
         sudokuTextAreaPanel.add(sudokuTextArea);
         this.add(sudokuTextAreaPanel, BorderLayout.NORTH);
+
+
+        this.add(controlPanel, BorderLayout.WEST);
 
         textArea.setFont(new Font("monospaced", Font.PLAIN, 20));
         this.add(new JScrollPane(textArea), BorderLayout.CENTER);
@@ -43,7 +50,13 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
                 MainWindow.class.notifyAll();
             }
         });
+
+        Dimension textFieldPanelDimension = new Dimension(120,30);
+        Font textFiledPanelFont = new Font("Default", Font.BOLD, 20);
+        textFieldLabel.setPreferredSize(textFieldPanelDimension);
+        textFieldLabel.setFont(textFiledPanelFont);
         textFieldPanel.add(textFieldLabel);
+        textField.setPreferredSize(textFieldPanelDimension);
         textFieldPanel.add(textField);
         this.add(textFieldPanel, BorderLayout.SOUTH);
 
@@ -74,5 +87,27 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         userInputReady = false;
         System.out.println("returning user input: " + userInput);
         return this.userInput;
+    }
+
+    @Override
+    public String getNewGameDecision() throws InterruptedException{
+        this.controlPanel.setNewGameDecisionActive(true);
+        synchronized (MainWindow.class) {
+            while(!userInputReady) {
+                MainWindow.class.wait();
+            }
+        }
+        userInputReady = false;
+        System.out.println("returning user input: " + userInput);
+        this.controlPanel.setNewGameDecisionActive(false);
+        return this.userInput;
+    }
+
+    public void sendUserInput(String text) {
+        synchronized (MainWindow.class) {
+            userInputReady = true;
+            this.userInput = text;
+            MainWindow.class.notifyAll();
+        }
     }
 }

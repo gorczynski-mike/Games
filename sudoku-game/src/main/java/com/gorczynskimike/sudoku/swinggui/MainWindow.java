@@ -137,29 +137,11 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     public void showHelpWindow() {
         if(this.helpWindow == null) {
             this.helpWindow = new HelpWindow(screenWidth, screenHeight);
-            this.helpWindow.setWindowListener(new WindowListener() {
+            this.helpWindow.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
-                public void windowOpened(WindowEvent e) { }
-
-                @Override
-                public void windowClosing(WindowEvent e) { }
-
-                @Override
-                public void windowClosed(WindowEvent e) {
-                    MainWindow.this.aboutWindow = null;
+                public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                    MainWindow.this.helpWindow = null;
                 }
-
-                @Override
-                public void windowIconified(WindowEvent e) { }
-
-                @Override
-                public void windowDeiconified(WindowEvent e) { }
-
-                @Override
-                public void windowActivated(WindowEvent e) { }
-
-                @Override
-                public void windowDeactivated(WindowEvent e) { }
             });
         }
     }
@@ -167,29 +149,11 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     public void showAboutWindow() {
         if(this.aboutWindow == null) {
             this.aboutWindow = new AboutWindow(screenWidth, screenHeight);
-            this.aboutWindow.setWindowListener(new WindowListener() {
+            this.aboutWindow.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
-                public void windowOpened(WindowEvent e) { }
-
-                @Override
-                public void windowClosing(WindowEvent e) { }
-
-                @Override
-                public void windowClosed(WindowEvent e) {
+                public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                     MainWindow.this.aboutWindow = null;
                 }
-
-                @Override
-                public void windowIconified(WindowEvent e) { }
-
-                @Override
-                public void windowDeiconified(WindowEvent e) { }
-
-                @Override
-                public void windowActivated(WindowEvent e) { }
-
-                @Override
-                public void windowDeactivated(WindowEvent e) { }
             });
         }
     }

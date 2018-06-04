@@ -2,18 +2,18 @@ package com.gorczynskimike.sudoku;
 
 import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.swinggui.MainWindow;
-import com.gorczynskimike.sudoku.userinterface.ConsoleUserInterface;
+import com.gorczynskimike.sudoku.userinterface.UserInputValidator;
 import com.gorczynskimike.sudoku.userinterface.UserChoiceHandler;
 
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface();
+        UserInputValidator userInputValidator = new UserInputValidator();
         UserChoiceHandler userChoiceHandler = new UserChoiceHandler();
         MainWindow mainWindow = new MainWindow();
-        consoleUserInterface.setMessageService(mainWindow);
-        consoleUserInterface.setUserInputService(mainWindow);
+        userInputValidator.setMessageService(mainWindow);
+        userInputValidator.setUserInputService(mainWindow);
         userChoiceHandler.setMessageService(mainWindow);
 
         initialize();
@@ -27,10 +27,10 @@ public class App {
             while (!endThisGame) {
                 String sudokuText = simpleSudokuBoard.printBoard();
                 mainWindow.updateSudoku(sudokuText);
-                String userInput = consoleUserInterface.getUserInput();
+                String userInput = userInputValidator.getUserInput();
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);
             }
-            keepPlaying = consoleUserInterface.getNewGameDecision();
+            keepPlaying = userInputValidator.getNewGameDecision();
         }
 
         mainWindow.closeMainWindow();

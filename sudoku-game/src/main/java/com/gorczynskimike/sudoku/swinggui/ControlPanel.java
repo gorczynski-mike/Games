@@ -3,6 +3,7 @@ package com.gorczynskimike.sudoku.swinggui;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
 import java.util.Collections;
 
@@ -29,6 +30,11 @@ public class ControlPanel extends JPanel {
     private JPanel setClearButtonsPanel = new JPanel();
 
     private JPanel mainValueControlPanel = new JPanel();
+
+    private JSlider randomValuesSlider = new JSlider(JSlider.HORIZONTAL, 1, 81, 1);
+    private JPanel randomValuesPanel = new JPanel();
+    private JButton randomValuesButton = new JButton("Random");
+    private JButton solvableValuesButton = new JButton("Solvable");
 
     private JButton showHelpWindowButton = new JButton("Show Help");
     private JButton printCommandsButton = new JButton("Print commands");
@@ -132,20 +138,38 @@ public class ControlPanel extends JPanel {
         gc.weighty = 1.0;
         this.add(mainValueControlPanel, gc);
 
+        randomValuesSlider.setMajorTickSpacing(20);
+        randomValuesSlider.setMinorTickSpacing(5);
+        randomValuesSlider.setPaintTicks(true);
+        randomValuesSlider.setPaintLabels(true);
+        randomValuesPanel.setLayout(new BorderLayout());
+        randomValuesPanel.add(randomValuesSlider, BorderLayout.NORTH);
+        JPanel randomButtonsPanel = new JPanel();
+        randomButtonsPanel.setLayout(new FlowLayout());
+        randomValuesButton.addActionListener(e -> {mainWindow.sendUserInput("random," + randomValuesSlider.getValue());});
+        randomButtonsPanel.add(randomValuesButton);
+        solvableValuesButton.addActionListener(e -> {mainWindow.sendUserInput("solvable," + randomValuesSlider.getValue());});
+        randomButtonsPanel.add(solvableValuesButton);
+        randomValuesPanel.add(randomButtonsPanel, BorderLayout.SOUTH);
         gc.gridx = 0;
         gc.gridy = 8;
+        gc.weighty = 1.0;
+        this.add(randomValuesPanel, gc);
+
+        gc.gridx = 0;
+        gc.gridy = 9;
         gc.weighty = 10.0;
         this.add(new Component() {}, gc);
 
         gc.gridx = 0;
-        gc.gridy = 9;
+        gc.gridy = 10;
         gc.weighty = 1.0;
         printCommandsButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         printCommandsButton.addActionListener(e -> {mainWindow.printCommands();});
         this.add(printCommandsButton, gc);
 
         gc.gridx = 0;
-        gc.gridy = 10;
+        gc.gridy = 11;
         gc.weighty = 1.0;
         showHelpWindowButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         showHelpWindowButton.addActionListener(e -> {mainWindow.showHelpWindow();});
@@ -154,6 +178,8 @@ public class ControlPanel extends JPanel {
 
     public void setNewGameDecisionActive(boolean isNewGameDecision) {
         System.out.println("new game decision active");
+
+        //These buttons are disabled in "new game decision" state
         this.solveButton.setEnabled(!isNewGameDecision);
         this.clearButton.setEnabled(!isNewGameDecision);
         this.easyButton.setEnabled(!isNewGameDecision);
@@ -161,6 +187,10 @@ public class ControlPanel extends JPanel {
         this.hardButton.setEnabled(!isNewGameDecision);
         this.setElementButton.setEnabled(!isNewGameDecision);
         this.clearElementButton.setEnabled(!isNewGameDecision);
+        this.randomValuesButton.setEnabled(!isNewGameDecision);
+        this.solvableValuesButton.setEnabled(!isNewGameDecision);
+
+        //These buttons are enabled in "new game decision" state
         this.startNewGameButton.setEnabled(isNewGameDecision);
         this.exitButton.setEnabled(isNewGameDecision);
     }

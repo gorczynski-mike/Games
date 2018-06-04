@@ -66,8 +66,8 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
             }
         });
 
-        Dimension textFieldPanelDimension = new Dimension(120,30);
-        Font textFiledPanelFont = new Font("Default", Font.BOLD, 20);
+        Dimension textFieldPanelDimension = new Dimension(100,30);
+        Font textFiledPanelFont = new Font("Default", Font.BOLD, 16);
         textFieldLabel.setPreferredSize(textFieldPanelDimension);
         textFieldLabel.setFont(textFiledPanelFont);
         textFieldPanel.add(textFieldLabel);

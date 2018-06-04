@@ -5,9 +5,8 @@ import com.gorczynskimike.sudoku.userinterface.MessageService;
 import com.gorczynskimike.sudoku.userinterface.UserInputService;
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 public class MainWindow extends JFrame implements MessageService, UserInputService {
 
@@ -31,6 +30,14 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     private boolean userInputReady = false;
 
     public MainWindow() {
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         this.setSize(screenWidth,screenHeight);
         this.setMinimumSize(new Dimension(800,600));
         this.setTitle("Sudoku");
@@ -91,7 +98,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     @Override
     public void sendMessage(String message) {
-        this.console.append(message + System.lineSeparator());
+        this.console.append(" " + message + System.lineSeparator());
         this.console.setCaretPosition(console.getText().length());
     }
 

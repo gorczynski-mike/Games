@@ -3,7 +3,6 @@ package com.gorczynskimike.sudoku.swinggui;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
-import java.util.Dictionary;
 import java.util.List;
 import java.util.Collections;
 
@@ -35,6 +34,7 @@ public class ControlPanel extends JPanel {
     private JLabel selectedRandomValue = new JLabel("1");
     private JButton randomValuesButton = new JButton("Random");
     private JButton solvableValuesButton = new JButton("Solvable");
+    private JButton removeFieldsButton = new JButton("Remove");
     private JPanel randomValuesPanel = new JPanel();
 
     private JButton showHelpWindowButton = new JButton("Show Help");
@@ -47,7 +47,7 @@ public class ControlPanel extends JPanel {
     public ControlPanel(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
 
-        this.setPreferredSize(new Dimension(300,0));
+        this.setPreferredSize(new Dimension(320,0));
         this.setBorder(AppBorderFactory.getStandardBorder("Control Panel"));
         this.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -158,6 +158,8 @@ public class ControlPanel extends JPanel {
         randomButtonsPanel.add(randomValuesButton);
         solvableValuesButton.addActionListener(e -> {mainWindow.sendUserInput("solvable," + randomValuesSlider.getValue());});
         randomButtonsPanel.add(solvableValuesButton);
+        removeFieldsButton.addActionListener(e -> {mainWindow.sendUserInput("remove," + randomValuesSlider.getValue());});
+        randomButtonsPanel.add(removeFieldsButton);
         randomValuesPanel.add(randomButtonsPanel, BorderLayout.SOUTH);
         gc.gridx = 0;
         gc.gridy = 8;
@@ -204,6 +206,7 @@ public class ControlPanel extends JPanel {
         this.clearElementButton.setEnabled(!isNewGameDecision);
         this.randomValuesButton.setEnabled(!isNewGameDecision);
         this.solvableValuesButton.setEnabled(!isNewGameDecision);
+        this.removeFieldsButton.setEnabled(!isNewGameDecision);
 
         //These buttons are enabled in "new game decision" state
         this.startNewGameButton.setEnabled(isNewGameDecision);

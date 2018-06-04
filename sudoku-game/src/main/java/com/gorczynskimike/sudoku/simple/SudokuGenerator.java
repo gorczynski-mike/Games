@@ -168,7 +168,18 @@ public final class SudokuGenerator {
         }
     }
 
-    //te metody mogłyby generować nowy obiekt
+    public static void removeRandomNumbers(int howManyNumbersToRemove, SimpleSudokuBoard simpleSudokuBoard) {
+        List<CoordinatePair> notEmptyFields = getListOfNotEmptyFieldsCoordinates(simpleSudokuBoard.getSudokuElementsArrayCopy());
+        if(howManyNumbersToRemove > notEmptyFields.size()) {
+            throw new IllegalStateException("Cannot remove " + howManyNumbersToRemove + " numbers. There are only " +
+            notEmptyFields.size() + " set elements.");
+        }
+
+        while(howManyNumbersToRemove > 0) {
+            removeOneRandomNumberFromTheBoard(simpleSudokuBoard);
+            howManyNumbersToRemove--;
+        }
+    }
 
     public static SimpleSudokuBoard generateEasySudoku(SimpleSudokuBoard simpleSudokuBoard) {
         return generateSudokuNGuesses(0, simpleSudokuBoard);

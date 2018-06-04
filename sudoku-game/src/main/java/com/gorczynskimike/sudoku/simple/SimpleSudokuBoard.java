@@ -130,10 +130,6 @@ public class SimpleSudokuBoard {
         }
     }
 
-//    public boolean solveSudokuGuessesLimit(int guessesLimit) {
-//        return solveSudoku(true, guessesLimit);
-//    }
-
     public String printBoard() {
         StringBuilder resultBuilder = new StringBuilder();
         for(int i=0; i<9; i++) {
@@ -273,6 +269,7 @@ public class SimpleSudokuBoard {
     private void printSolvingSummaryInfo(long startTimeNano, int mainLoopCounter) {
         long endTimeNano = System.nanoTime();
         this.sudokuStack.printStackSize();
+        messageService.sendMessage("Sudoku states stack: " + this.sudokuStack.getStackSize());
         messageService.sendMessage("Number of loops: " + mainLoopCounter);
         messageService.sendMessage("Solving sudoku procedure took " + ((double)(endTimeNano - startTimeNano)) / 1000000 + " milliseconds. ");
         messageService.sendMessage("Program had to guess " + howManyGuesses + " times.");

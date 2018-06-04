@@ -12,6 +12,7 @@ public class UserChoiceHandler {
     private static final String GENERATE_ONE_RANDOM_NUMBER_PATTERN = "random";
     private static final String GENERATE_N_RANDOM_NUMBERS_PATTERN = "random,\\d+";
     private static final String GENERATE_N_NUMBERS_SOLVABLE_PATTERN = "solvable,\\d+";
+    private static final String REMOVE_N_NUMBERS = "remove,\\d+";
     private static final String GENERATE_EASY_SUDOKU_PATTERN = "easy";
     private static final String GENERATE_MEDIUM_SUDOKU_PATTERN = "medium";
     private static final String GENERATE_HARD_SUDOKU_PATTERN = "hard";
@@ -87,6 +88,19 @@ public class UserChoiceHandler {
                 return finishGame;
             }
             messageService.sendMessage("Numbers were generated successfully.");
+
+        } else if (userInput.matches(REMOVE_N_NUMBERS)) {
+            String[] inputParts = userInput.split(",");
+            int howManyToRemove = Integer.parseInt(inputParts[1]);
+            messageService.sendMessage("Trying to remove " + howManyToRemove + " random numbers.");
+            try {
+                SudokuGenerator.removeRandomNumbers(howManyToRemove, simpleSudokuBoard);
+            } catch (IllegalStateException | IllegalArgumentException e) {
+                messageService.sendMessage("Impossible to remove numbers: ");
+                messageService.sendMessage(e.getMessage());
+                return finishGame;
+            }
+            messageService.sendMessage("Numbers were removed successfully.");
 
         } else if (userInput.matches(GENERATE_EASY_SUDOKU_PATTERN)) {
             messageService.sendMessage("Generating easy sudoku board");

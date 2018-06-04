@@ -2,7 +2,7 @@ package com.gorczynskimike.sudoku.userinterface;
 
 public class UserInputValidator {
 
-    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+|solvable,\\d+|clear|easy|medium|hard";
+    private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+|solvable,\\d+|clear|easy|medium|hard|remove,\\d+";
     private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
     private MessageService messageService = (text) -> {

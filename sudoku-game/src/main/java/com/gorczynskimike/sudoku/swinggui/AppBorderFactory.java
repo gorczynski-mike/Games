@@ -10,6 +10,15 @@ public class AppBorderFactory {
         //do nothing
     }
 
+    public static Border getInnerIndentBorder(String title, int spaceSize) {
+        if(spaceSize < 0) {
+            throw new IllegalArgumentException("Space size cannot be negative");
+        }
+        Border inside = BorderFactory.createEmptyBorder(spaceSize, spaceSize, spaceSize, spaceSize);
+        Border outside = getStandardBorder(title);
+        return BorderFactory.createCompoundBorder(outside, inside);
+    }
+
     public static Border getStandardBorder(String title) {
         Border inside = BorderFactory.createTitledBorder(title);
         Border outside = BorderFactory.createEmptyBorder(15,15,15,15);
@@ -21,11 +30,4 @@ public class AppBorderFactory {
         Border outside = getStandardBorder(title);
         return BorderFactory.createCompoundBorder(outside, inside);
     }
-
-    public static Border getSudokuBoardBorder() {
-        Border inside = BorderFactory.createEmptyBorder(5,5,5,5);
-        Border outside = BorderFactory.createTitledBorder("Sudoku board");
-        return BorderFactory.createCompoundBorder(outside, inside);
-    }
-
 }

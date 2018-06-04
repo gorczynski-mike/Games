@@ -15,7 +15,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     private JTextArea sudokuTextArea = new JTextArea();
     private JPanel sudokuTextAreaPanel = new JPanel();
-    private JTextArea textArea = new JTextArea();
+    private JTextArea console = new JTextArea();
     private JTextField textField = new JTextField(20);
     private JLabel textFieldLabel = new JLabel("Your input: ");
     private JPanel textFieldPanel = new JPanel();
@@ -46,12 +46,16 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         sudokuTextAreaPanel.setLayout(new FlowLayout());
         JPanel sudokuInnerPanel = new JPanel();
         sudokuInnerPanel.add(sudokuTextArea);
-        sudokuInnerPanel.setBorder(AppBorderFactory.getSudokuBoardBorder());
+        sudokuInnerPanel.setBorder(AppBorderFactory.getInnerIndentBorder("Sudoku Board", 5));
         sudokuTextAreaPanel.add(sudokuInnerPanel);
         centralPanel.add(sudokuTextAreaPanel, BorderLayout.NORTH);
 
-        textArea.setFont(new Font("monospaced", Font.PLAIN, 20));
-        centralPanel.add(new JScrollPane(textArea), BorderLayout.CENTER);
+        console.setFont(new Font("monospaced", Font.PLAIN, 20));
+        JPanel consolePanel = new JPanel();
+        consolePanel.setLayout(new BorderLayout());
+        consolePanel.setBorder(AppBorderFactory.getInnerIndentBorder("Console", 5));
+        consolePanel.add(new JScrollPane(console), BorderLayout.CENTER);
+        centralPanel.add(consolePanel, BorderLayout.CENTER);
 
         textField.addActionListener(e -> {
             synchronized (MainWindow.class) {
@@ -86,8 +90,8 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     @Override
     public void sendMessage(String message) {
-        this.textArea.append(message + System.lineSeparator());
-        this.textArea.setCaretPosition(textArea.getText().length());
+        this.console.append(message + System.lineSeparator());
+        this.console.setCaretPosition(console.getText().length());
     }
 
     @Override

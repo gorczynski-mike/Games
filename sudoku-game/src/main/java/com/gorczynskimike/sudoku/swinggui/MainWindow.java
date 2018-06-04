@@ -5,7 +5,6 @@ import com.gorczynskimike.sudoku.userinterface.MessageService;
 import com.gorczynskimike.sudoku.userinterface.UserInputService;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 
 public class MainWindow extends JFrame implements MessageService, UserInputService {
@@ -39,7 +38,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         }
 
         this.setSize(screenWidth,screenHeight);
-        this.setMinimumSize(new Dimension(800,600));
+        this.setMinimumSize(new Dimension(800,650));
         this.setTitle("Sudoku");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,12 +46,13 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
         centralPanel.setLayout(new BorderLayout());
 
-        sudokuTextArea.setPreferredSize(new Dimension(320,320));
+        sudokuTextArea.setPreferredSize(new Dimension(340,320));
         sudokuTextArea.setEditable(false);
         sudokuTextArea.setFont(new Font("monospaced", Font.BOLD, 20));
-        sudokuTextArea.setForeground(Color.black);
+//        sudokuTextArea.setForeground(Color.black);
         sudokuTextAreaPanel.setLayout(new FlowLayout());
         JPanel sudokuInnerPanel = new JPanel();
+//        sudokuInnerPanel.setBackground(new Color(0xeeeeee));
         sudokuInnerPanel.add(sudokuTextArea);
         sudokuInnerPanel.setBorder(AppBorderFactory.getInnerIndentBorder("Sudoku Board", 5));
         sudokuTextAreaPanel.add(sudokuInnerPanel);
@@ -63,6 +63,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         consolePanel.setLayout(new BorderLayout());
         consolePanel.setBorder(AppBorderFactory.getInnerIndentBorder("Console", 5));
         consolePanel.add(new JScrollPane(console), BorderLayout.CENTER);
+//        consolePanel.setBackground(new Color(0xeeeeee));
         centralPanel.add(consolePanel, BorderLayout.CENTER);
 
         textField.addActionListener(e -> {
@@ -85,6 +86,10 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
         this.add(controlPanel, BorderLayout.WEST);
         this.add(centralPanel, BorderLayout.CENTER);
+
+        controlPanel.updateButtonsSize();
+        SwingUtilities.updateComponentTreeUI(this);
+
         this.setVisible(true);
     }
 

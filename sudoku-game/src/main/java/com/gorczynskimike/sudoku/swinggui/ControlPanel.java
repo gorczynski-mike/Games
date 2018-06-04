@@ -2,6 +2,7 @@ package com.gorczynskimike.sudoku.swinggui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
@@ -41,6 +42,8 @@ public class ControlPanel extends JPanel {
     private JButton showAboutWindowButton = new JButton("About");
     private JButton printCommandsButton = new JButton("Print commands");
 
+    private List<JButton> wideButtons = new ArrayList<>();
+
     private static final int buttonWidth = 150;
     private static final int buttonHeight = 30;
 
@@ -56,6 +59,7 @@ public class ControlPanel extends JPanel {
         gc.gridy = 0;
         gc.weighty = 1.0;
         solveButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
+        solveButton.setSize(new Dimension(buttonWidth,buttonHeight));
         solveButton.addActionListener(e -> {mainWindow.sendUserInput("sudoku");});
         this.add(solveButton, gc);
 
@@ -191,6 +195,9 @@ public class ControlPanel extends JPanel {
         showAboutWindowButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         showAboutWindowButton.addActionListener(e -> {mainWindow.showAboutWindow();});
         this.add(showAboutWindowButton, gc);
+
+        wideButtons.addAll(Arrays.asList(new JButton[]{solveButton, clearButton, easyButton, mediumButton, hardButton,
+                            startNewGameButton, exitButton, showHelpWindowButton, showAboutWindowButton, printCommandsButton}));
     }
 
     public void setNewGameDecisionActive(boolean isNewGameDecision) {
@@ -211,6 +218,13 @@ public class ControlPanel extends JPanel {
         //These buttons are enabled in "new game decision" state
         this.startNewGameButton.setEnabled(isNewGameDecision);
         this.exitButton.setEnabled(isNewGameDecision);
+    }
+
+    public void updateButtonsSize() {
+        UIDefaults def = new UIDefaults();
+        def.put("Button.preferredSize", new Dimension(buttonWidth, buttonHeight));
+        wideButtons.forEach(button -> button.setOpaque(true));
+//        wideButtons.forEach(button -> button.putClientProperty("Nimbus.Overrides", def));
     }
 
 }

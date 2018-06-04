@@ -2,6 +2,7 @@ package com.gorczynskimike.sudoku.simple;
 
 import com.gorczynskimike.sudoku.userinterface.MessageService;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -83,7 +84,7 @@ public class SimpleSudokuBoard {
                         printSolvingSummaryInfo(startTimeNano, mainLoopCounter);
                     }
                     this.sudokuStack.clearStack();
-                    System.out.println("Out of function: solveSudoku");
+                    System.out.println("Out of function: solveSudoku - can't solve sudoku");
                     return false;
                 }
                 restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities();
@@ -113,7 +114,7 @@ public class SimpleSudokuBoard {
                     printSolvingSummaryInfo(startTimeNano, mainLoopCounter);
                 }
                 sudokuStack.clearStack();
-                System.out.println("Out of function: solveSudoku");
+                System.out.println("Out of function: solveSudoku - sudoku solved");
                 return true;
             }
 
@@ -263,6 +264,15 @@ public class SimpleSudokuBoard {
         this.sudokuElementsArray = arrayCopy;
         System.out.println("Out of function: howManyGuessesNeededToSolve");
         return result;
+    }
+
+    public void recalculateBoard() {
+        for(int i=0; i<9; i++) {
+            for(int j=0; j<9; j++) {
+                sudokuElementsArray[i][j].addPossibleValues(Arrays.asList(new Integer[]{1,2,3,4,5,6,7,8,9}));
+            }
+        }
+        removeAllSetValuesFromPossibleOnes();
     }
 
     private void printSolvingSummaryInfo(long startTimeNano, int mainLoopCounter) {

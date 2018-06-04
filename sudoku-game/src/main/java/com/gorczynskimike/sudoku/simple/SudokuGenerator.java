@@ -210,6 +210,7 @@ public final class SudokuGenerator {
         System.out.println("how many guesses: " + howManyGuessesToSolve);
         System.out.println("Final number of guesses: " + simpleSudokuBoard.howManyGuessesNeededToSolve());
         System.out.println("Out of function: generateSudokuNGuesses");
+        simpleSudokuBoard.recalculateBoard();
         return simpleSudokuBoard;
     }
 

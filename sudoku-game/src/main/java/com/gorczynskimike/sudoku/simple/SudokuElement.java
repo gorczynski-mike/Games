@@ -34,6 +34,16 @@ public class SudokuElement {
         }
     }
 
+    public void addPossibleValues(Collection<Integer> inputValues) {
+        List<Integer> validValues = new ArrayList<>(Arrays.asList(new Integer[]{1,2,3,4,5,6,7,8,9}));
+        if(!validValues.containsAll(inputValues)) {
+            throw new IllegalArgumentException("Illegal input values. Valid values are integers in range 1-9");
+        }
+        for(Integer value : inputValues) {
+            addPossibleValue(value);
+        }
+    }
+
     public int getValue() {
         return this.value;
     }

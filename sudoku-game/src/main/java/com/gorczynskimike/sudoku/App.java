@@ -2,7 +2,6 @@ package com.gorczynskimike.sudoku;
 
 import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.swinggui.MainWindow;
-import com.gorczynskimike.sudoku.userinterface.InstructionsPrinter;
 import com.gorczynskimike.sudoku.userinterface.UserInputService;
 import com.gorczynskimike.sudoku.userinterface.UserInputValidator;
 import com.gorczynskimike.sudoku.userinterface.UserChoiceHandler;
@@ -14,6 +13,7 @@ public class App {
         UserInputValidator userInputValidator = new UserInputValidator();
         UserChoiceHandler userChoiceHandler = new UserChoiceHandler();
         MainWindow mainWindow = new MainWindow();
+
         UserInputService userInputService = mainWindow;
         userInputValidator.setMessageService(mainWindow);
         userChoiceHandler.setMessageService(mainWindow);

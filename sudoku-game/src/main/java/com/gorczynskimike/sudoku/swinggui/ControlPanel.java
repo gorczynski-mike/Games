@@ -101,8 +101,14 @@ public class ControlPanel extends JPanel {
             value.addItem(i);
         }
         xIndex.setSelectedIndex(0);
+        xIndex.setMaximumRowCount(9);
+        xIndex.setPreferredSize(new Dimension(40,30));
         yIndex.setSelectedIndex(0);
+        yIndex.setMaximumRowCount(9);
+        yIndex.setPreferredSize(new Dimension(40,30));
         value.setSelectedIndex(0);
+        value.setMaximumRowCount(9);
+        value.setPreferredSize(new Dimension(40,30));
         comboBoxesPanel.setLayout(new FlowLayout());
         comboBoxesPanel.add(new JLabel(" X: "));
         comboBoxesPanel.add(xIndex);

@@ -50,8 +50,8 @@ public class SudokuElement {
 
     public void setValue(int value) {
         if(!possibleValues.contains(value)) {
-            throw new IllegalArgumentException("Can't set value, value is not possible here. Value: " + value +
-            "Possible values: " + possibleValues);
+            throw new IllegalArgumentException("Can't set value, value is not possible here (already present in row/column/section). Value: " + value +
+            " Number of possible values: " + possibleValues.size());
         }
         this.value = value;
     }

@@ -169,10 +169,10 @@ public class SimpleSudokuBoard {
         //check if element is not set
         int oldValue = sudokuElementsArray[xIndex][yIndex].getValue();
         if(oldValue != 0) {
-            messageService.sendMessage("Sorry, can't set this element, the element had been already set.");
-            messageService.sendMessage("You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
-            return;
+            throw new IllegalStateException("Sorry, can't set this element, the element had been already set." +
+            System.lineSeparator() + "You can use command 'x,y,unset' to unset this element first and then you can assign new value.");
         }
+
         sudokuElementsArray[xIndex][yIndex].setValue(value);
 
         //row

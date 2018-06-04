@@ -34,11 +34,13 @@ public class UserChoiceHandler {
                 messageService.sendMessage("Invalid format, try again.");
 
         } else if (userInput.equalsIgnoreCase(SOLVE_SUDOKU_PATTERN)) {
+            messageService.sendMessage("Trying to solve sudoku");
             finishGame = true;
             simpleSudokuBoard.solveSudoku();
 
         } else if (userInput.matches(UNSET_ELEMENT_PATTERN)) {
             String[] inputParts = userInput.split(",");
+            messageService.sendMessage("Trying to clear element.");
             try {
                 //minus 1 to coordinates so the user can select row/column in range 1-9, not 0-8
                 simpleSudokuBoard.unsetElement(
@@ -46,12 +48,13 @@ public class UserChoiceHandler {
                         Integer.parseInt(inputParts[0])-1
                 );
             } catch (IllegalArgumentException e) {
-                messageService.sendMessage("Unsetting element failed: ");
+                messageService.sendMessage("Clearing element failed: ");
                 messageService.sendMessage(e.getMessage());
+                return finishGame;
             }
+            messageService.sendMessage("Element cleared successfully.");
 
         } else if (userInput.matches(GENERATE_ONE_RANDOM_NUMBER_PATTERN)) {
-//            simpleSudokuBoard.generateRandomNumbers(1);
             SudokuGenerator.generateOneRandomNumber(simpleSudokuBoard);
 
         } else if (userInput.matches(CLEAR_BOARD_PATTERN)) {
@@ -60,7 +63,6 @@ public class UserChoiceHandler {
         } else if (userInput.matches(GENERATE_N_RANDOM_NUMBERS_PATTERN)) {
             String[] inputParts = userInput.split(",");
             int howManyToGenerate = Integer.parseInt(inputParts[1]);
-//            simpleSudokuBoard.generateRandomNumbers(howManyToGenerate);
             SudokuGenerator.generateRandomNumbers(howManyToGenerate, simpleSudokuBoard);
 
         } else if (userInput.matches(GENERATE_N_NUMBERS_SOLVABLE_PATTERN)) {
@@ -79,6 +81,7 @@ public class UserChoiceHandler {
 
         } else if(userInput.matches(SET_ELEMENT_PATTERN)) {
             String[] inputParts = userInput.split(",");
+            messageService.sendMessage("Trying to set element.");
             try {
                 //minus 1 to coordinates, so the user can select row/column in range 1-9, not 0-8
                 simpleSudokuBoard.setElement(
@@ -86,10 +89,12 @@ public class UserChoiceHandler {
                         Integer.parseInt(inputParts[0])-1,
                         Integer.parseInt(inputParts[2])
                 );
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | IllegalStateException e) {
                 messageService.sendMessage("Setting element failed: ");
                 messageService.sendMessage(e.getMessage());
+                return finishGame;
             }
+            messageService.sendMessage("Element set successfully.");
 
         } else {
             messageService.sendMessage("Sorry, choice not recognized, try again.");

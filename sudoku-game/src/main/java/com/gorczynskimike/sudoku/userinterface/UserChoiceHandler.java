@@ -31,7 +31,7 @@ public class UserChoiceHandler {
         boolean finishGame = false;
 
         if (userInput.equalsIgnoreCase(ERROR_PATTERN)) {
-                messageService.acceptMessage("Invalid format, try again.");
+                messageService.sendMessage("Invalid format, try again.");
 
         } else if (userInput.equalsIgnoreCase(SOLVE_SUDOKU_PATTERN)) {
             finishGame = true;
@@ -46,8 +46,8 @@ public class UserChoiceHandler {
                         Integer.parseInt(inputParts[0])-1
                 );
             } catch (IllegalArgumentException e) {
-                messageService.acceptMessage("Unsetting element failed: ");
-                messageService.acceptMessage(e.getMessage());
+                messageService.sendMessage("Unsetting element failed: ");
+                messageService.sendMessage(e.getMessage());
             }
 
         } else if (userInput.matches(GENERATE_ONE_RANDOM_NUMBER_PATTERN)) {
@@ -87,12 +87,12 @@ public class UserChoiceHandler {
                         Integer.parseInt(inputParts[2])
                 );
             } catch (IllegalArgumentException e) {
-                messageService.acceptMessage("Setting element failed: ");
-                messageService.acceptMessage(e.getMessage());
+                messageService.sendMessage("Setting element failed: ");
+                messageService.sendMessage(e.getMessage());
             }
 
         } else {
-            messageService.acceptMessage("Sorry, choice not recognized, try again.");
+            messageService.sendMessage("Sorry, choice not recognized, try again.");
         }
 
         return finishGame;

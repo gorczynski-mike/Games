@@ -80,7 +80,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     }
 
     @Override
-    public void acceptMessage(String message) {
+    public void sendMessage(String message) {
         this.textArea.append(message + System.lineSeparator());
         this.textArea.setCaretPosition(textArea.getText().length());
     }

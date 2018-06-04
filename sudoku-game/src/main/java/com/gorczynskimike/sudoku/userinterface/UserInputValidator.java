@@ -9,42 +9,26 @@ public class UserInputValidator {
         System.out.println(text);
     };
 
-    private UserInputService userInputService;
-
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
     }
 
-    public void setUserInputService(UserInputService userInputService) {
-        this.userInputService = userInputService;
-    }
-
-    public String getUserInput() {
-        InstructionsPrinter.printInstructions(this.messageService);
-        String userInput = null;
-        try {
-            userInput = userInputService.getUserInput();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public String validateUserInput(String userInput) {
         userInput = userInput.toLowerCase();
         if(!userInput.matches(VALID_INPUT)) {
-            messageService.acceptMessage("Invalid format.");
+            messageService.sendMessage("Invalid format.");
             return "error";
         } else {
             return userInput;
         }
     }
 
-    public boolean getNewGameDecision() throws InterruptedException {
-        messageService.acceptMessage("Do you want to start new game? Y - yes, N - exit application");
-        String userInput = userInputService.getNewGameDecision();
-        userInput = userInput.toLowerCase();
-        while(!userInput.matches(VALID_NEW_GAME_CHOICE)) {
-            messageService.acceptMessage("Sorry, invalid format, type either 'y' or 'n'.");
-            userInput = userInputService.getNewGameDecision();
-            userInput = userInput.toLowerCase();
+    public boolean validateNewGameDecision(String newGameDecision) {
+        newGameDecision = newGameDecision.toLowerCase();
+        while(!newGameDecision.matches(VALID_NEW_GAME_CHOICE)) {
+            messageService.sendMessage("Sorry, invalid format, type either 'y' or 'n'.");
+            return false;
         }
-        return userInput.matches("y");
+        return true;
     }
 }

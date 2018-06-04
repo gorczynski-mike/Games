@@ -220,11 +220,4 @@ public class ControlPanel extends JPanel {
         this.exitButton.setEnabled(isNewGameDecision);
     }
 
-    public void updateButtonsSize() {
-        UIDefaults def = new UIDefaults();
-        def.put("Button.preferredSize", new Dimension(buttonWidth, buttonHeight));
-        wideButtons.forEach(button -> button.setOpaque(true));
-//        wideButtons.forEach(button -> button.putClientProperty("Nimbus.Overrides", def));
-    }
-
 }

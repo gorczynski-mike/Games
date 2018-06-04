@@ -49,10 +49,8 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         sudokuTextArea.setPreferredSize(new Dimension(340,320));
         sudokuTextArea.setEditable(false);
         sudokuTextArea.setFont(new Font("monospaced", Font.BOLD, 20));
-//        sudokuTextArea.setForeground(Color.black);
         sudokuTextAreaPanel.setLayout(new FlowLayout());
         JPanel sudokuInnerPanel = new JPanel();
-//        sudokuInnerPanel.setBackground(new Color(0xeeeeee));
         sudokuInnerPanel.add(sudokuTextArea);
         sudokuInnerPanel.setBorder(AppBorderFactory.getInnerIndentBorder("Sudoku Board", 5));
         sudokuTextAreaPanel.add(sudokuInnerPanel);
@@ -63,7 +61,6 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         consolePanel.setLayout(new BorderLayout());
         consolePanel.setBorder(AppBorderFactory.getInnerIndentBorder("Console", 5));
         consolePanel.add(new JScrollPane(console), BorderLayout.CENTER);
-//        consolePanel.setBackground(new Color(0xeeeeee));
         centralPanel.add(consolePanel, BorderLayout.CENTER);
 
         textField.addActionListener(e -> {
@@ -87,7 +84,6 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         this.add(controlPanel, BorderLayout.WEST);
         this.add(centralPanel, BorderLayout.CENTER);
 
-        controlPanel.updateButtonsSize();
         SwingUtilities.updateComponentTreeUI(this);
 
         this.setVisible(true);

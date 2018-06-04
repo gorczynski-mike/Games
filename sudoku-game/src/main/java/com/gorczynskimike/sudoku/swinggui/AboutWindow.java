@@ -4,13 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowListener;
 
-public class HelpWindow extends JFrame {
+public class AboutWindow extends JFrame{
 
     private JTextArea textArea = new JTextArea();
 
-    public HelpWindow(int screenWidth, int screenHeight) {
+    public AboutWindow(int screenWidth, int screenHeight) {
         this.setLocation(screenWidth/3, screenHeight/3);
-        this.setTitle("Help");
+        this.setTitle("About");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.setResizable(false);
@@ -21,14 +21,15 @@ public class HelpWindow extends JFrame {
         textArea.setFont(textArea.getFont().deriveFont(Font.BOLD, 20.0f));
         textArea.setBorder(AppBorderFactory.getStandardBorderExtraInnerIndent(null));
 
-        textArea.append("There is a number of valid commands you can use." + System.lineSeparator());
-        textArea.append("You can send commands using the buttons on the control panel or by typing them into the " +
-                "input text field below the console." + System.lineSeparator());
-        textArea.append(System.lineSeparator());
-        textArea.append("To see the list of valid commands please press 'Print Commands' button.");
+        textArea.append("App: Sudoku app" + System.lineSeparator());
+        textArea.append("Made by: Michal Gorczynski" + System.lineSeparator());
+        textArea.append("GitHub: https://github.com/gorczynski-mike" + System.lineSeparator());
+        textArea.append("Mail: michalgorczynski89@gmail.com" + System.lineSeparator());
+        textArea.append("" + System.lineSeparator());
+        textArea.append("Feel free to contact me if you find any bugs / have any suggestions.");
         this.add(textArea, BorderLayout.CENTER);
 
-        this.setSize(screenWidth/2, textArea.getLineCount()*60 + 20);
+        this.setSize(screenWidth/2, textArea.getLineCount()*50 + 20);
         this.setVisible(true);
     }
 

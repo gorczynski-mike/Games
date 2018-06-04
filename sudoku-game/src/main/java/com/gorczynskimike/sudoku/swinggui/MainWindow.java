@@ -12,6 +12,7 @@ import java.awt.event.WindowListener;
 public class MainWindow extends JFrame implements MessageService, UserInputService {
 
     private HelpWindow helpWindow = null;
+    private AboutWindow aboutWindow = null;
 
     private JTextArea sudokuTextArea = new JTextArea();
     private JPanel sudokuTextAreaPanel = new JPanel();
@@ -145,7 +146,37 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
                 @Override
                 public void windowClosed(WindowEvent e) {
-                    MainWindow.this.helpWindow = null;
+                    MainWindow.this.aboutWindow = null;
+                }
+
+                @Override
+                public void windowIconified(WindowEvent e) { }
+
+                @Override
+                public void windowDeiconified(WindowEvent e) { }
+
+                @Override
+                public void windowActivated(WindowEvent e) { }
+
+                @Override
+                public void windowDeactivated(WindowEvent e) { }
+            });
+        }
+    }
+
+    public void showAboutWindow() {
+        if(this.aboutWindow == null) {
+            this.aboutWindow = new AboutWindow(screenWidth, screenHeight);
+            this.aboutWindow.setWindowListener(new WindowListener() {
+                @Override
+                public void windowOpened(WindowEvent e) { }
+
+                @Override
+                public void windowClosing(WindowEvent e) { }
+
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    MainWindow.this.aboutWindow = null;
                 }
 
                 @Override

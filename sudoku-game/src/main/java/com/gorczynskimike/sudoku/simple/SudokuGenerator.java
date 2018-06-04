@@ -46,8 +46,9 @@ public final class SudokuGenerator {
     public static void generateRandomNumbers(int howManyNumbersToGenerate, SimpleSudokuBoard simpleSudokuBoard) {
         //initial check of range
         if(howManyNumbersToGenerate < 1 || howManyNumbersToGenerate > 81) {
-            System.out.println("Sorry, can't generate " + howManyNumbersToGenerate + " numbers, valid range is: 1 - 81");
-            return;
+            throw new IllegalArgumentException("Sorry, can't generate " + howManyNumbersToGenerate + " numbers, valid range is: 1 - 81");
+//            System.out.println("Sorry, can't generate " + howManyNumbersToGenerate + " numbers, valid range is: 1 - 81");
+//            return;
         }
 
         SudokuElement[][] sudokuElementsArray = simpleSudokuBoard.getSudokuElementsArrayCopy();
@@ -55,9 +56,11 @@ public final class SudokuGenerator {
         //check if there are enough not set sudokuElementsArray to fill
         int numberOfEmptyElements = getNumberOfEmptyElements(sudokuElementsArray);
         if(numberOfEmptyElements < howManyNumbersToGenerate) {
-            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
-                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
-            return;
+            throw new IllegalStateException("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
+                    + numberOfEmptyElements + " empty fields left.");
+//            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
+//                    + numberOfEmptyElements + " empty sudokuElementsArray left.");
+//            return;
         }
 
         //generate
@@ -65,8 +68,11 @@ public final class SudokuGenerator {
         while(howManyNumbersToGenerate > 0) {
             boolean wasNumberGenerated = SudokuGenerator.generateOneRandomNumber(simpleSudokuBoard);
             if(!wasNumberGenerated) {
-                System.out.println("Sorry, it's impossible to generate more numbers without breaking sudoku rules.");
-                break;
+                throw new IllegalStateException("Sorry, it's impossible to generate more numbers without breaking sudoku rules. " +
+                        succesfullyGeneratedNumbers + " numbers were generated successfully");
+//                System.out.println("Sorry, it's impossible to generate more numbers without breaking sudoku rules. " +
+//                succesfullyGeneratedNumbers + " numbers were generated successfully");
+//                break;
             } else {
                 succesfullyGeneratedNumbers++;
             }
@@ -138,17 +144,21 @@ public final class SudokuGenerator {
 
         //check if the board is solvable before any modifications
         if(!simpleSudokuBoard.checkIfSolvable()) {
-            System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
+            throw new IllegalStateException("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
                     "some numbers and try again.");
-            return;
+//            System.out.println("Sorry but the board is not solvable at the moment, no numbers generated. You can remove " +
+//                    "some numbers and try again.");
+//            return;
         }
 
         //check if there are enough not set sudokuElementsArray to fill
         int numberOfEmptyElements = getNumberOfEmptyElements(simpleSudokuBoard.getSudokuElementsArrayCopy());
         if(numberOfEmptyElements < howManyNumbersToGenerate) {
-            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
+            throw new IllegalStateException("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
                     + numberOfEmptyElements + " empty sudoku elements left.");
-            return;
+//            System.out.println("Sorry, can't generate that many numbers: " + howManyNumbersToGenerate + " there is only: " +
+//                    + numberOfEmptyElements + " empty sudoku elements left.");
+//            return;
         }
 
         //generate numbers

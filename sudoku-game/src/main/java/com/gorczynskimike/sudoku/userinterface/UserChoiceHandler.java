@@ -58,26 +58,50 @@ public class UserChoiceHandler {
             SudokuGenerator.generateOneRandomNumber(simpleSudokuBoard);
 
         } else if (userInput.matches(CLEAR_BOARD_PATTERN)) {
+            messageService.sendMessage("Clearing sudoku board.");
             simpleSudokuBoard.clearTheBoard();
+            messageService.sendMessage("Sudoku board cleared.");
 
         } else if (userInput.matches(GENERATE_N_RANDOM_NUMBERS_PATTERN)) {
             String[] inputParts = userInput.split(",");
             int howManyToGenerate = Integer.parseInt(inputParts[1]);
-            SudokuGenerator.generateRandomNumbers(howManyToGenerate, simpleSudokuBoard);
+            messageService.sendMessage("Trying to generate " + howManyToGenerate + " random numbers.");
+            try {
+                SudokuGenerator.generateRandomNumbers(howManyToGenerate, simpleSudokuBoard);
+            } catch (IllegalArgumentException | IllegalStateException e) {
+                messageService.sendMessage("Impossible to generate numbers: ");
+                messageService.sendMessage(e.getMessage());
+                return finishGame;
+            }
+            messageService.sendMessage("Numbers were generated successfully.");
 
         } else if (userInput.matches(GENERATE_N_NUMBERS_SOLVABLE_PATTERN)) {
             String[] inputParts = userInput.split(",");
             int howManyToGenerate = Integer.parseInt(inputParts[1]);
-            SudokuGenerator.generateRandomNumbersSolvable(howManyToGenerate, simpleSudokuBoard);
+            messageService.sendMessage("Trying to generate " + howManyToGenerate + " random numbers (solvable).");
+            try {
+                SudokuGenerator.generateRandomNumbersSolvable(howManyToGenerate, simpleSudokuBoard);
+            } catch (IllegalStateException | IllegalArgumentException e) {
+                messageService.sendMessage("Impossible to generate numbers: ");
+                messageService.sendMessage(e.getMessage());
+                return finishGame;
+            }
+            messageService.sendMessage("Numbers were generated successfully.");
 
         } else if (userInput.matches(GENERATE_EASY_SUDOKU_PATTERN)) {
+            messageService.sendMessage("Generating easy sudoku board");
             SudokuGenerator.generateEasySudoku(simpleSudokuBoard);
+            messageService.sendMessage("Easy sudoku board generated");
 
         } else if (userInput.matches(GENERATE_MEDIUM_SUDOKU_PATTERN)) {
+            messageService.sendMessage("Generating medium sudoku board");
             SudokuGenerator.generateMediumSudoku(simpleSudokuBoard);
+            messageService.sendMessage("Medium sudoku board generated");
 
         } else if (userInput.matches(GENERATE_HARD_SUDOKU_PATTERN)) {
+            messageService.sendMessage("Generating hard sudoku board");
             SudokuGenerator.generateHardSudoku(simpleSudokuBoard);
+            messageService.sendMessage("Hard sudoku board generated");
 
         } else if(userInput.matches(SET_ELEMENT_PATTERN)) {
             String[] inputParts = userInput.split(",");

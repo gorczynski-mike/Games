@@ -32,9 +32,10 @@ public class ControlPanel extends JPanel {
     private JPanel mainValueControlPanel = new JPanel();
 
     private JSlider randomValuesSlider = new JSlider(JSlider.HORIZONTAL, 1, 81, 1);
-    private JPanel randomValuesPanel = new JPanel();
+    private JLabel selectedRandomValue = new JLabel("1");
     private JButton randomValuesButton = new JButton("Random");
     private JButton solvableValuesButton = new JButton("Solvable");
+    private JPanel randomValuesPanel = new JPanel();
 
     private JButton showHelpWindowButton = new JButton("Show Help");
     private JButton printCommandsButton = new JButton("Print commands");
@@ -142,8 +143,14 @@ public class ControlPanel extends JPanel {
         randomValuesSlider.setMinorTickSpacing(5);
         randomValuesSlider.setPaintTicks(true);
         randomValuesSlider.setPaintLabels(true);
+        randomValuesSlider.addChangeListener(e -> {selectedRandomValue.setText(String.valueOf(randomValuesSlider.getValue()));});
         randomValuesPanel.setLayout(new BorderLayout());
         randomValuesPanel.add(randomValuesSlider, BorderLayout.NORTH);
+        JPanel selectedValuePanel = new JPanel();
+        selectedValuePanel.setLayout(new FlowLayout());
+        selectedValuePanel.add(new JLabel("Selected: "));
+        selectedValuePanel.add(selectedRandomValue);
+        randomValuesPanel.add(selectedValuePanel, BorderLayout.CENTER);
         JPanel randomButtonsPanel = new JPanel();
         randomButtonsPanel.setLayout(new FlowLayout());
         randomValuesButton.addActionListener(e -> {mainWindow.sendUserInput("random," + randomValuesSlider.getValue());});

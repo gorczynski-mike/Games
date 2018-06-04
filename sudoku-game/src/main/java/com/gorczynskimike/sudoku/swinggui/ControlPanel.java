@@ -2,6 +2,9 @@ package com.gorczynskimike.sudoku.swinggui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Collections;
 
 public class ControlPanel extends JPanel {
 
@@ -13,7 +16,20 @@ public class ControlPanel extends JPanel {
     private JButton mediumButton = new JButton("Medium");
     private JButton hardButton = new JButton("Hard");
     private JButton startNewGameButton = new JButton("New Game");
-    private JButton endGameButton = new JButton("End Game");
+    private JButton exitButton = new JButton("Exit");
+
+    private JComboBox<Integer> xIndex = new JComboBox<>();
+    private JComboBox<Integer> yIndex = new JComboBox<>();
+    private JComboBox<Integer> value = new JComboBox<>();
+    private List<Integer> validValues = Collections.unmodifiableList(Arrays.asList(new Integer[]{1,2,3,4,5,6,7,8,9}));
+    private JPanel comboBoxesPanel = new JPanel();
+
+    private JButton setElementButton = new JButton("Set element");
+    private JButton clearElementButton = new JButton("Clear element");
+    private JPanel setClearButtonsPanel = new JPanel();
+
+    private JPanel mainValueControlPanel = new JPanel();
+
     private JButton showHelpWindowButton = new JButton("Show Help");
     private JButton printCommandsButton = new JButton("Print commands");
 
@@ -74,25 +90,56 @@ public class ControlPanel extends JPanel {
         gc.gridx = 0;
         gc.gridy = 6;
         gc.weighty = 1.0;
-        endGameButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
-        endGameButton.addActionListener(e -> {mainWindow.sendUserInput("n");});
-        endGameButton.setEnabled(false);
-        this.add(endGameButton,gc);
+        exitButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
+        exitButton.addActionListener(e -> {mainWindow.sendUserInput("n");});
+        exitButton.setEnabled(false);
+        this.add(exitButton,gc);
 
+        for(Integer i : validValues) {
+            xIndex.addItem(i);
+            yIndex.addItem(i);
+            value.addItem(i);
+        }
+        xIndex.setSelectedIndex(0);
+        yIndex.setSelectedIndex(0);
+        value.setSelectedIndex(0);
+        comboBoxesPanel.setLayout(new FlowLayout());
+        comboBoxesPanel.add(new JLabel(" X: "));
+        comboBoxesPanel.add(xIndex);
+        comboBoxesPanel.add(new JLabel(" Y: "));
+        comboBoxesPanel.add(yIndex);
+        comboBoxesPanel.add(new JLabel(" Value: "));
+        comboBoxesPanel.add(value);
+
+        setElementButton.addActionListener(e -> {mainWindow.sendUserInput(xIndex.getSelectedItem() + "," +
+                                                yIndex.getSelectedItem() + "," + value.getSelectedItem());});
+        setClearButtonsPanel.add(setElementButton);
+        clearElementButton.addActionListener(e -> {mainWindow.sendUserInput(xIndex.getSelectedItem() + "," +
+                                                    yIndex.getSelectedItem() + ",unset");});
+        setClearButtonsPanel.add(clearElementButton);
+
+        mainValueControlPanel.setLayout(new BorderLayout());
+        mainValueControlPanel.add(comboBoxesPanel, BorderLayout.NORTH);
+        mainValueControlPanel.add(setClearButtonsPanel, BorderLayout.SOUTH);
         gc.gridx = 0;
         gc.gridy = 7;
+        gc.weighty = 1.0;
+        this.add(mainValueControlPanel, gc);
+
+        gc.gridx = 0;
+        gc.gridy = 8;
         gc.weighty = 10.0;
         this.add(new Component() {}, gc);
 
         gc.gridx = 0;
-        gc.gridy = 8;
+        gc.gridy = 9;
         gc.weighty = 1.0;
         printCommandsButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         printCommandsButton.addActionListener(e -> {mainWindow.printCommands();});
         this.add(printCommandsButton, gc);
 
         gc.gridx = 0;
-        gc.gridy = 9;
+        gc.gridy = 10;
         gc.weighty = 1.0;
         showHelpWindowButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
         showHelpWindowButton.addActionListener(e -> {mainWindow.showHelpWindow();});
@@ -106,8 +153,10 @@ public class ControlPanel extends JPanel {
         this.easyButton.setEnabled(!isNewGameDecision);
         this.mediumButton.setEnabled(!isNewGameDecision);
         this.hardButton.setEnabled(!isNewGameDecision);
+        this.setElementButton.setEnabled(!isNewGameDecision);
+        this.clearElementButton.setEnabled(!isNewGameDecision);
         this.startNewGameButton.setEnabled(isNewGameDecision);
-        this.endGameButton.setEnabled(isNewGameDecision);
+        this.exitButton.setEnabled(isNewGameDecision);
     }
 
 }

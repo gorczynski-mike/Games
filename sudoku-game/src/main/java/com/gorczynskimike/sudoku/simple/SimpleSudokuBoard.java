@@ -50,7 +50,6 @@ public class SimpleSudokuBoard {
     }
 
     public boolean solveSudoku(boolean silentModeOn, int guessesLimit, int mainLoopLimit) {
-        System.out.println("In function: solveSudoku");
 
         //setup
         long startTimeNano = System.nanoTime();
@@ -69,7 +68,6 @@ public class SimpleSudokuBoard {
                 return false;
             }
             mainLoopCounter++;
-            System.out.println("main loop: " + mainLoopCounter);
             int unsetElements = 0;
             int modifiedElements = 0;
 
@@ -79,12 +77,13 @@ public class SimpleSudokuBoard {
             if(checkIfAnyFieldWithNoPossibilities()) {
                 if(this.sudokuStack.getStackSize() == 0) {
                     if(!silentModeOn) {
-                        messageService.sendMessage("Sorry, it's impossible to solve this sudoku.");
+                        messageService.sendMessage("");
+                        messageService.sendMessage("*** Sorry, it's impossible to solve this sudoku. ***");
+                        messageService.sendMessage("");
                         printBoard();
                         printSolvingSummaryInfo(startTimeNano, mainLoopCounter);
                     }
                     this.sudokuStack.clearStack();
-                    System.out.println("Out of function: solveSudoku - can't solve sudoku");
                     return false;
                 }
                 restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities();
@@ -109,12 +108,13 @@ public class SimpleSudokuBoard {
             //no empty fields on the board = board is solved
             if(unsetElements == 0) {
                 if(!silentModeOn) {
-                    messageService.sendMessage("Solved");
+                    messageService.sendMessage("");
+                    messageService.sendMessage("*** Solved ***");
+                    messageService.sendMessage("");
                     printBoard();
                     printSolvingSummaryInfo(startTimeNano, mainLoopCounter);
                 }
                 sudokuStack.clearStack();
-                System.out.println("Out of function: solveSudoku - sudoku solved");
                 return true;
             }
 
@@ -241,10 +241,7 @@ public class SimpleSudokuBoard {
     }
 
     public boolean checkIfSolvable() {
-        SudokuElement[][] copy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
-        boolean isSolvable = this.solveSudoku(true);
-        this.sudokuElementsArray = copy;
-        return isSolvable;
+        return checkIfSolvableWithLimit(Integer.MAX_VALUE);
     }
 
     public boolean checkIfSolvableWithLimit(int mainLoopLimit) {
@@ -255,14 +252,12 @@ public class SimpleSudokuBoard {
     }
 
     public int howManyGuessesNeededToSolve() {
-        System.out.println("In function: howManyGussesNeededToSolve");
         SudokuElement[][] arrayCopy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
         int result = -1;
         if(solveSudoku(true, 500, 100)) {
             result = this.howManyGuesses;
         }
         this.sudokuElementsArray = arrayCopy;
-        System.out.println("Out of function: howManyGuessesNeededToSolve");
         return result;
     }
 

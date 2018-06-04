@@ -82,7 +82,6 @@ public final class SudokuGenerator {
      * @return information if it was possible to generate one number.
      */
     public static boolean generateOneRandomNumberSolvable(SimpleSudokuBoard simpleSudokuBoard, int mainLoopLimit) {
-        System.out.println("In function: generateOneRandomNumberSolvable");
         if(simpleSudokuBoard == null) {
             return false;
         }
@@ -117,12 +116,11 @@ public final class SudokuGenerator {
             }
 
             if(counter == 10) {
-                System.out.println("One number generator limit met. Out of function generateOneRandomNumberSolvable");
+                System.out.println("One number generator limit reached. Out of function generateOneRandomNumberSolvable");
                 return false;
             }
 
         }
-        System.out.println("Out of function: generateOneRandomNumberSolvable");
         return generatedNumberSuccessfully;
     }
 
@@ -175,13 +173,10 @@ public final class SudokuGenerator {
     }
 
     private static SimpleSudokuBoard generateSudokuNGuesses(int goalGuesses, SimpleSudokuBoard simpleSudokuBoard) {
-        System.out.println("In function: generateSudokuNGuesses");
         simpleSudokuBoard.clearTheBoard();
         int howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
-//        int howManyGuessesToSolveOld;
         outerLoop:
         while(howManyGuessesToSolve > goalGuesses) {
-            System.out.println(howManyGuessesToSolve);
 //            howManyGuessesToSolveOld = howManyGuessesToSolve;
 //            SimpleSudokuBoard copy = new SimpleSudokuBoard(simpleSudokuBoard);
 
@@ -189,7 +184,7 @@ public final class SudokuGenerator {
             while(!generateOneRandomNumberSolvable(simpleSudokuBoard, 2000)) {
                 triesCounter++;
                 if(triesCounter > 5) {
-                    System.out.println("Tries counter limit met.");
+                    System.out.println("Tries counter limit reached.");
                     simpleSudokuBoard.clearTheBoard();
                     howManyGuessesToSolve = Integer.MAX_VALUE;
                     continue outerLoop;
@@ -209,7 +204,6 @@ public final class SudokuGenerator {
         }
         System.out.println("how many guesses: " + howManyGuessesToSolve);
         System.out.println("Final number of guesses: " + simpleSudokuBoard.howManyGuessesNeededToSolve());
-        System.out.println("Out of function: generateSudokuNGuesses");
         simpleSudokuBoard.recalculateBoard();
         return simpleSudokuBoard;
     }

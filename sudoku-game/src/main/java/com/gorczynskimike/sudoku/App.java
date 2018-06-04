@@ -4,17 +4,16 @@ import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.swinggui.MainWindow;
 import com.gorczynskimike.sudoku.userinterface.ConsoleUserInterface;
 import com.gorczynskimike.sudoku.userinterface.UserChoiceHandler;
-import com.gorczynskimike.sudoku.userinterface.UserInterface;
 
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
 
-        UserInterface userInterface = new ConsoleUserInterface();
+        ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface();
         UserChoiceHandler userChoiceHandler = new UserChoiceHandler();
         MainWindow mainWindow = new MainWindow();
-        ((ConsoleUserInterface) userInterface).setMessageService(mainWindow);
-        ((ConsoleUserInterface) userInterface).setUserInputService(mainWindow);
+        consoleUserInterface.setMessageService(mainWindow);
+        consoleUserInterface.setUserInputService(mainWindow);
         userChoiceHandler.setMessageService(mainWindow);
 
         initialize();
@@ -23,15 +22,15 @@ public class App {
         while (keepPlaying) {
             SimpleSudokuBoard simpleSudokuBoard = new SimpleSudokuBoard();
             simpleSudokuBoard.setMessageService(mainWindow);
-            simpleSudokuBoard.setSudokuMessageService(text -> mainWindow.setSudoku(text));
+            simpleSudokuBoard.setSudokuMessageService(text -> mainWindow.updateSudoku(text));
             boolean endThisGame = false;
             while (!endThisGame) {
                 String sudokuText = simpleSudokuBoard.printBoard();
-                mainWindow.setSudoku(sudokuText);
-                String userInput = userInterface.getUserInput();
+                mainWindow.updateSudoku(sudokuText);
+                String userInput = consoleUserInterface.getUserInput();
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);
             }
-            keepPlaying = userInterface.getNewGameDecision();
+            keepPlaying = consoleUserInterface.getNewGameDecision();
         }
 
         mainWindow.closeMainWindow();

@@ -1,10 +1,7 @@
 package com.gorczynskimike.sudoku.userinterface;
 
-import java.util.Scanner;
+public class ConsoleUserInterface {
 
-public class ConsoleUserInterface implements UserInterface {
-
-    private static Scanner scanner = new Scanner(System.in);
     private static final String VALID_INPUT = "\\d,\\d,\\d|sudoku|\\d,\\d,unset|random|random,\\d+|solvable,\\d+|clear|easy|medium|hard";
     private static final String VALID_NEW_GAME_CHOICE = "[yn]";
 
@@ -22,25 +19,9 @@ public class ConsoleUserInterface implements UserInterface {
         this.userInputService = userInputService;
     }
 
-    @Override
-    public String getUserInput() {
-        printInstructions();
-        String userInput = null;
-        try {
-            userInput = userInputService.getUserInput();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        userInput = userInput.toLowerCase();
-        if(!userInput.matches(VALID_INPUT)) {
-            messageService.acceptMessage("Invalid format.");
-            return "error";
-        } else {
-            return userInput;
-        }
-    }
 
     public void printInstructions() {
+        messageService.acceptMessage("");
         messageService.acceptMessage("Please type: ");
         messageService.acceptMessage("- new value for the board in format 'x,y,value' (<value> is a single digit number)");
         messageService.acceptMessage("- 'sudoku' to solve the board");
@@ -59,11 +40,26 @@ public class ConsoleUserInterface implements UserInterface {
         messageService.acceptMessage("(IMPORTANT: 'solvable' guarantees that created board will be solvable but is a slower algorithm)");
     }
 
-    @Override
+    public String getUserInput() {
+        printInstructions();
+        String userInput = null;
+        try {
+            userInput = userInputService.getUserInput();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        userInput = userInput.toLowerCase();
+        if(!userInput.matches(VALID_INPUT)) {
+            messageService.acceptMessage("Invalid format.");
+            return "error";
+        } else {
+            return userInput;
+        }
+    }
+
     public boolean getNewGameDecision() throws InterruptedException {
         messageService.acceptMessage("Do you want to start new game? Y - yes, N - exit application");
-        String userInput = null;
-        userInput = userInputService.getNewGameDecision();
+        String userInput = userInputService.getNewGameDecision();
         userInput = userInput.toLowerCase();
         while(!userInput.matches(VALID_NEW_GAME_CHOICE)) {
             messageService.acceptMessage("Sorry, invalid format, type either 'y' or 'n'.");

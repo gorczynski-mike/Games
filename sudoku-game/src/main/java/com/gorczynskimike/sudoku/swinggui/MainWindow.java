@@ -71,7 +71,7 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         this.dispose();
     }
 
-    public void setSudoku(String sudokuTextRepresentation) {
+    public void updateSudoku(String sudokuTextRepresentation) {
         this.sudokuTextArea.setText(sudokuTextRepresentation);
     }
 

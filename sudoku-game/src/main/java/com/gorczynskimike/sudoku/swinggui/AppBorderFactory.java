@@ -22,4 +22,10 @@ public class AppBorderFactory {
         return BorderFactory.createCompoundBorder(outside, inside);
     }
 
+    public static Border getSudokuBoardBorder() {
+        Border inside = BorderFactory.createEmptyBorder(5,5,5,5);
+        Border outside = BorderFactory.createTitledBorder("Sudoku board");
+        return BorderFactory.createCompoundBorder(outside, inside);
+    }
+
 }

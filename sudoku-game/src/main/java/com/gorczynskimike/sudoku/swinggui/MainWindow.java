@@ -43,7 +43,11 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         sudokuTextArea.setEditable(false);
         sudokuTextArea.setFont(new Font("monospaced", Font.BOLD, 20));
         sudokuTextArea.setForeground(Color.black);
-        sudokuTextAreaPanel.add(sudokuTextArea);
+        sudokuTextAreaPanel.setLayout(new FlowLayout());
+        JPanel sudokuInnerPanel = new JPanel();
+        sudokuInnerPanel.add(sudokuTextArea);
+        sudokuInnerPanel.setBorder(AppBorderFactory.getSudokuBoardBorder());
+        sudokuTextAreaPanel.add(sudokuInnerPanel);
         centralPanel.add(sudokuTextAreaPanel, BorderLayout.NORTH);
 
         textArea.setFont(new Font("monospaced", Font.PLAIN, 20));

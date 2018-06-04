@@ -14,6 +14,7 @@ public class ControlPanel extends JPanel {
     private JButton hardButton = new JButton("Hard");
     private JButton startNewGameButton = new JButton("New Game");
     private JButton endGameButton = new JButton("End Game");
+    private JButton showHelpWindowButton = new JButton("Show Help");
 
     private static final int buttonWidth = 150;
     private static final int buttonHeight = 30;
@@ -81,6 +82,13 @@ public class ControlPanel extends JPanel {
         gc.gridy = 7;
         gc.weighty = 10.0;
         this.add(new Component() {}, gc);
+
+        gc.gridx = 0;
+        gc.gridy = 8;
+        gc.weighty = 1.0;
+        showHelpWindowButton.setPreferredSize(new Dimension(buttonWidth,buttonHeight));
+        showHelpWindowButton.addActionListener(e -> {mainWindow.showHelpWindow();});
+        this.add(showHelpWindowButton, gc);
     }
 
     public void setNewGameDecisionActive(boolean isNewGameDecision) {

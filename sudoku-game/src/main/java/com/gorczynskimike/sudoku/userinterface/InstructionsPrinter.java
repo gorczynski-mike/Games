@@ -1,6 +1,10 @@
 package com.gorczynskimike.sudoku.userinterface;
 
-public class InstructionsPrinter {
+public final class InstructionsPrinter {
+
+    private InstructionsPrinter() {
+        //do nothing
+    }
 
     public static void printInstructions(MessageService messageService) {
         messageService.acceptMessage("");

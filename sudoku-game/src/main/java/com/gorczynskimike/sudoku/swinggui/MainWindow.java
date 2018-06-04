@@ -5,8 +5,12 @@ import com.gorczynskimike.sudoku.userinterface.UserInputService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class MainWindow extends JFrame implements MessageService, UserInputService {
+
+    private HelpWindow helpWindow = null;
 
     private JTextArea sudokuTextArea = new JTextArea();
     private JPanel sudokuTextAreaPanel = new JPanel();
@@ -17,15 +21,15 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
     private JPanel centralPanel = new JPanel();
     private ControlPanel controlPanel = new ControlPanel(this);
 
+    private int screenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth() - 100;
+    private int screenHeight = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight() - 100;
+
     private String userInput = "";
 
     private boolean userInputReady = false;
 
     public MainWindow() {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int)screenSize.getWidth() - 100;
-        int height = (int)screenSize.getHeight() - 100;
-        this.setSize(width,height);
+        this.setSize(screenWidth,screenHeight);
         this.setMinimumSize(new Dimension(800,600));
         this.setTitle("Sudoku");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -113,6 +117,36 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
             userInputReady = true;
             this.userInput = text;
             MainWindow.class.notifyAll();
+        }
+    }
+
+    public void showHelpWindow() {
+        if(this.helpWindow == null) {
+            this.helpWindow = new HelpWindow(screenWidth, screenHeight);
+            this.helpWindow.setWindowListener(new WindowListener() {
+                @Override
+                public void windowOpened(WindowEvent e) { }
+
+                @Override
+                public void windowClosing(WindowEvent e) { }
+
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    MainWindow.this.helpWindow = null;
+                }
+
+                @Override
+                public void windowIconified(WindowEvent e) { }
+
+                @Override
+                public void windowDeiconified(WindowEvent e) { }
+
+                @Override
+                public void windowActivated(WindowEvent e) { }
+
+                @Override
+                public void windowDeactivated(WindowEvent e) { }
+            });
         }
     }
 }

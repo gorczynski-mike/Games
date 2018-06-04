@@ -2,6 +2,7 @@ package com.gorczynskimike.sudoku;
 
 import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.swinggui.MainWindow;
+import com.gorczynskimike.sudoku.userinterface.InstructionsPrinter;
 import com.gorczynskimike.sudoku.userinterface.UserInputService;
 import com.gorczynskimike.sudoku.userinterface.UserInputValidator;
 import com.gorczynskimike.sudoku.userinterface.UserChoiceHandler;
@@ -28,10 +29,12 @@ public class App {
             while (!endThisGame) {
                 String sudokuText = simpleSudokuBoard.printBoard();
                 mainWindow.updateSudoku(sudokuText);
+                InstructionsPrinter.printInstructions(mainWindow);
                 String userInput = userInputService.getUserInput();
                 userInput = userInputValidator.validateUserInput(userInput);
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);
             }
+            mainWindow.sendMessage("Do you want to start new game? Y - yes, N - exit application");
             String newGameDecision = userInputService.getNewGameDecision();
             while(!userInputValidator.validateNewGameDecision(newGameDecision)) {
                 newGameDecision = userInputService.getNewGameDecision();

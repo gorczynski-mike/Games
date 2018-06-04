@@ -16,4 +16,10 @@ public class AppBorderFactory {
         return BorderFactory.createCompoundBorder(outside, inside);
     }
 
+    public static Border getStandardBorderExtraInnerIndent(String title) {
+        Border inside = BorderFactory.createEmptyBorder(15,15,15,15);
+        Border outside = getStandardBorder(title);
+        return BorderFactory.createCompoundBorder(outside, inside);
+    }
+
 }

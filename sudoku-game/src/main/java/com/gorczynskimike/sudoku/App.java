@@ -29,7 +29,6 @@ public class App {
             while (!endThisGame) {
                 String sudokuText = simpleSudokuBoard.printBoard();
                 mainWindow.updateSudoku(sudokuText);
-                InstructionsPrinter.printInstructions(mainWindow);
                 String userInput = userInputService.getUserInput();
                 userInput = userInputValidator.validateUserInput(userInput);
                 endThisGame = userChoiceHandler.handleUserInput(userInput, simpleSudokuBoard);

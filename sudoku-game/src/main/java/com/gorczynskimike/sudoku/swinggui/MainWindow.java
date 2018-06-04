@@ -1,5 +1,6 @@
 package com.gorczynskimike.sudoku.swinggui;
 
+import com.gorczynskimike.sudoku.userinterface.InstructionsPrinter;
 import com.gorczynskimike.sudoku.userinterface.MessageService;
 import com.gorczynskimike.sudoku.userinterface.UserInputService;
 
@@ -95,6 +96,10 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         userInputReady = false;
         System.out.println("returning user input: " + userInput);
         return this.userInput;
+    }
+
+    public void printCommands() {
+        InstructionsPrinter.printInstructions(this);
     }
 
     @Override

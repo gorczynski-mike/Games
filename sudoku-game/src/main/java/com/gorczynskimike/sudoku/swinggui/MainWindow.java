@@ -7,6 +7,9 @@ import com.gorczynskimike.sudoku.userinterface.UserInputService;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Main GUI for the application.
+ */
 public class MainWindow extends JFrame implements MessageService, UserInputService {
 
     private HelpWindow helpWindow = null;
@@ -28,6 +31,9 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
 
     private boolean userInputReady = false;
 
+    /**
+     * It creates the main window and makes it visible.
+     */
     public MainWindow() {
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -89,10 +95,17 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         this.setVisible(true);
     }
 
+    /**
+     * Closes the window.
+     */
     public void closeMainWindow() {
         this.dispose();
     }
 
+    /**
+     * It redraws the sudoku board.
+     * @param sudokuTextRepresentation String representation of the sudoku board.
+     */
     public void updateSudoku(String sudokuTextRepresentation) {
         this.sudokuTextArea.setText(sudokuTextRepresentation);
     }
@@ -115,6 +128,9 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         return this.userInput;
     }
 
+    /**
+     * It prints valid commands.
+     */
     public void printCommands() {
         InstructionsPrinter.printInstructions(this);
     }
@@ -134,6 +150,10 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         return this.userInput;
     }
 
+    /**
+     * Checks if user input is ready and if yes then it notifies all classes waiting for it.
+     * @param text
+     */
     public void sendUserInput(String text) {
         synchronized (MainWindow.class) {
             userInputReady = true;
@@ -142,6 +162,9 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         }
     }
 
+    /**
+     * It checks if help window is not already available and if not it creates it.
+     */
     public void showHelpWindow() {
         if(this.helpWindow == null) {
             this.helpWindow = new HelpWindow(screenWidth, screenHeight);
@@ -154,6 +177,9 @@ public class MainWindow extends JFrame implements MessageService, UserInputServi
         }
     }
 
+    /**
+     * It checks if about window is not already available and if not it creates it.
+     */
     public void showAboutWindow() {
         if(this.aboutWindow == null) {
             this.aboutWindow = new AboutWindow(screenWidth, screenHeight);

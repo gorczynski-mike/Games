@@ -1,4 +1,4 @@
-package com.gorczynskimike.sudoku.simple;
+package com.gorczynskimike.sudoku.board;
 
 /**
  * Simple immutable class to hold a pair of x,y coordinates

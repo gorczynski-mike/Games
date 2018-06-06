@@ -1,4 +1,4 @@
-package com.gorczynskimike.sudoku.simple;
+package com.gorczynskimike.sudoku.board;
 
 import java.util.ArrayList;
 import java.util.List;

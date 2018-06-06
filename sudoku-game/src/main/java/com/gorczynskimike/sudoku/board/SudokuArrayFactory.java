@@ -1,4 +1,4 @@
-package com.gorczynskimike.sudoku.simple;
+package com.gorczynskimike.sudoku.board;
 
 /**
  * Utility class that can create or copy arrays of SudokuElements

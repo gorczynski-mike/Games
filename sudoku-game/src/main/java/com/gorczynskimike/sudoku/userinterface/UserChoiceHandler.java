@@ -1,7 +1,7 @@
 package com.gorczynskimike.sudoku.userinterface;
 
-import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
-import com.gorczynskimike.sudoku.simple.SudokuGenerator;
+import com.gorczynskimike.sudoku.board.SimpleSudokuBoard;
+import com.gorczynskimike.sudoku.board.SudokuGenerator;
 
 public class UserChoiceHandler {
 

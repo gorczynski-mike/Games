@@ -1,6 +1,6 @@
 package com.gorczynskimike.sudoku;
 
-import com.gorczynskimike.sudoku.simple.SimpleSudokuBoard;
+import com.gorczynskimike.sudoku.board.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.swinggui.MainWindow;
 import com.gorczynskimike.sudoku.userinterface.UserInputService;
 import com.gorczynskimike.sudoku.userinterface.UserInputValidator;

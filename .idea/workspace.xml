@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/InstructionsPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/InstructionsPrinter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -44,10 +43,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserInputValidator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserInputValidator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputValidator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
+            <state relative-caret-position="316">
               <caret line="42" column="86" selection-start-line="42" selection-start-column="86" selection-end-line="42" selection-end-column="86" />
               <folding>
                 <element signature="e#644#645#0" expanded="true" />
@@ -60,7 +59,7 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
+            <state relative-caret-position="-1693">
               <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,24 +68,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/build.gradle">
+      <file leaf-file-name="AboutWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleSudokuBoard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5565">
-              <caret line="271" column="92" selection-start-line="271" selection-start-column="92" selection-end-line="271" selection-end-column="92" />
+            <state relative-caret-position="84">
+              <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="3" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#1784#1785#0" expanded="true" />
+                <element signature="e#1838#1839#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,11 +84,20 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="387">
+              <caret line="47" column="102" selection-start-line="47" selection-start-column="102" selection-end-line="47" selection-end-column="102" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelpWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -113,11 +111,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InstructionsPrinter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/InstructionsPrinter.java">
+      <file leaf-file-name="AppBorderFactory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="111" selection-start-line="3" selection-start-column="111" selection-end-line="3" selection-end-column="111" />
+            <state relative-caret-position="239">
+              <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,23 +137,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ControlPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4368">
+              <caret line="208" column="93" selection-start-line="208" selection-start-column="93" selection-end-line="208" selection-end-column="93" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UserInputService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
               <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControlPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4515">
-              <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1131,12 +1132,7 @@
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInterface.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/ConsoleUserInterface.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuElement.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/simple/SudokuGenerator.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java" />
-        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/test/java/com/gorczynskimike/sudoku/ComplexSudokuBoardTestSuite.java" />
         <option value="$PROJECT_DIR$/sudoku-game/build.gradle" />
@@ -1146,6 +1142,11 @@
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserChoiceHandler.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputService.java" />
         <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputValidator.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java" />
+        <option value="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java" />
       </list>
     </option>
   </component>
@@ -1220,7 +1221,7 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sudoku" type="462c0819:PsiDirectoryNode" />
-              <item name="userinterface" type="462c0819:PsiDirectoryNode" />
+              <item name="swinggui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="games" type="b2602c69:ProjectViewProjectNode" />
@@ -1473,7 +1474,7 @@
       <workItem from="1528098774694" duration="2388000" />
       <workItem from="1528111088127" duration="20635000" />
       <workItem from="1528185139042" duration="61000" />
-      <workItem from="1528266854715" duration="1095000" />
+      <workItem from="1528266854715" duration="1820000" />
     </task>
     <servers />
   </component>
@@ -1510,7 +1511,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219349000" />
+    <option name="totallyTimeSpent" value="220074000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="-9" width="1857" height="1098" extended-state="6" />
@@ -1526,13 +1527,13 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24816754" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.21570681" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.22722512" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8024032" visible="true" weight="0.23219141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.802168" visible="true" weight="0.23219141" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" sideWeight="0.19759679" side_tool="true" visible="true" weight="0.23219141" />
+      <window_info id="Structure" order="1" sideWeight="0.19783197" side_tool="true" visible="true" weight="0.23219141" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -1782,20 +1783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="31" column="69" lean-forward="true" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuStack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1843,36 +1830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4515">
-          <caret line="220" column="5" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/test/java/com/gorczynskimike/sudoku/ComplexSudokuBoardTestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3318">
@@ -1895,16 +1852,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#777#778#0" expanded="true" />
             <element signature="e#829#830#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1944,11 +1891,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/userinterface/UserInputValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
+        <state relative-caret-position="316">
           <caret line="42" column="86" selection-start-line="42" selection-start-column="86" selection-end-line="42" selection-end-column="86" />
           <folding>
             <element signature="e#644#645#0" expanded="true" />
             <element signature="e#696#697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="47" column="102" selection-start-line="47" selection-start-column="102" selection-end-line="47" selection-end-column="102" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1693">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AboutWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="e#1784#1785#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/HelpWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/ControlPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4368">
+          <caret line="208" column="93" selection-start-line="208" selection-start-column="93" selection-end-line="208" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/swinggui/AppBorderFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

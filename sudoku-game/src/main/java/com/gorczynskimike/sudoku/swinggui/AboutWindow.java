@@ -4,10 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowListener;
 
+/**
+ * Class used to create new window with 'About' information
+ */
 public class AboutWindow extends JFrame{
 
     private JTextArea textArea = new JTextArea();
 
+    /**
+     * Creates window and makes it visible
+     * @param screenWidth current screen resolution width
+     * @param screenHeight current screen resolution height
+     */
     public AboutWindow(int screenWidth, int screenHeight) {
         this.setLocation(screenWidth/3, screenHeight/3);
         this.setTitle("About");
@@ -33,6 +41,10 @@ public class AboutWindow extends JFrame{
         this.setVisible(true);
     }
 
+    /**
+     * It facilitates adding listeners to this window.
+     * @param windowListener New listener for this window.
+     */
     public void setWindowListener(WindowListener windowListener) {
         this.addWindowListener(windowListener);
     }

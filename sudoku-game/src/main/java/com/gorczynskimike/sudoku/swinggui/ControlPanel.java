@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
 
+/**
+ * Panel that holds buttons, sliders and comboboxes the user can use to send game commands.
+ */
 public class ControlPanel extends JPanel {
 
     private final MainWindow mainWindow;
@@ -196,10 +199,15 @@ public class ControlPanel extends JPanel {
         showAboutWindowButton.addActionListener(e -> {mainWindow.showAboutWindow();});
         this.add(showAboutWindowButton, gc);
 
-        wideButtons.addAll(Arrays.asList(new JButton[]{solveButton, clearButton, easyButton, mediumButton, hardButton,
-                            startNewGameButton, exitButton, showHelpWindowButton, showAboutWindowButton, printCommandsButton}));
+        wideButtons.addAll(Arrays.asList(solveButton, clearButton, easyButton, mediumButton, hardButton,
+                            startNewGameButton, exitButton, showHelpWindowButton, showAboutWindowButton, printCommandsButton));
     }
 
+    /**
+     * Depending if the app is in "new game decision" state some controls should be active or not. This method
+     * enables and disables them.
+     * @param isNewGameDecision True if "new game decision" state is active, False otherwise.
+     */
     public void setNewGameDecisionActive(boolean isNewGameDecision) {
         System.out.println("new game decision active");
 

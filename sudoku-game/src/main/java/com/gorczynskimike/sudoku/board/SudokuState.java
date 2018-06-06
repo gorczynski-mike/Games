@@ -1,5 +1,9 @@
 package com.gorczynskimike.sudoku.board;
 
+/**
+ * Class representing state of the sudoku board when guessing one number - that includes the arrayf of the sudoku elements,
+ * the coordinates of the element being guessed and the value guessed.
+ */
 public class SudokuState {
 
     private final SudokuElement[][] sudokuElementsArray;

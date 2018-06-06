@@ -168,6 +168,12 @@ public final class SudokuGenerator {
         }
     }
 
+    /**
+     * It removes given number of values from the board.
+     * @param howManyNumbersToRemove How many numbers to remove.
+     * @param simpleSudokuBoard The board that the values will be removed from
+     * @throws IllegalStateException If there are not enough elements to remove from the board, the exception is thrown.
+     */
     public static void removeRandomNumbers(int howManyNumbersToRemove, SimpleSudokuBoard simpleSudokuBoard) {
         List<CoordinatePair> notEmptyFields = getListOfNotEmptyFieldsCoordinates(simpleSudokuBoard.getSudokuElementsArrayCopy());
         if(howManyNumbersToRemove > notEmptyFields.size()) {
@@ -181,18 +187,43 @@ public final class SudokuGenerator {
         }
     }
 
+    /**
+     * It generates an easy (possible to solve without guessing) sudoku board. Given board will be cleared first
+     * and then new numbers will be generated.
+     * @param simpleSudokuBoard The board passed will be cleared and new easy configuration will be generated on it.
+     * @return Board representing easy sudoku.
+     */
     public static SimpleSudokuBoard generateEasySudoku(SimpleSudokuBoard simpleSudokuBoard) {
         return generateSudokuNGuesses(0, simpleSudokuBoard);
     }
 
+    /**
+     * It generates an medium (around 2 guesses to solve) sudoku board. Given board will be cleared first
+     * and then new numbers will be generated.
+     * @param simpleSudokuBoard The board passed will be cleared and new easy configuration will be generated on it.
+     * @return Board representing medium sudoku.
+     */
     public static SimpleSudokuBoard generateMediumSudoku(SimpleSudokuBoard simpleSudokuBoard) {
         return generateSudokuNGuesses(2, simpleSudokuBoard);
     }
 
+    /**
+     * It generates an hard (around 5 guesses to solve) sudoku board. Given board will be cleared first
+     * and then new numbers will be generated.
+     * @param simpleSudokuBoard The board passed will be cleared and new easy configuration will be generated on it.
+     * @return Board representing hard sudoku.
+     */
     public static SimpleSudokuBoard generateHardSudoku(SimpleSudokuBoard simpleSudokuBoard) {
         return generateSudokuNGuesses(5, simpleSudokuBoard);
     }
 
+    /**
+     * It generates a new sudoku board that is possible to solve in given number of guesses. (Final number of guesses
+     * cannot be guaranteed but should be close to given value)
+     * @param goalGuesses How many guesses should be needed to solve generated sudoku.
+     * @param simpleSudokuBoard The board that will be cleared and on which new sudoku will be generated.
+     * @return Generated board.
+     */
     private static SimpleSudokuBoard generateSudokuNGuesses(int goalGuesses, SimpleSudokuBoard simpleSudokuBoard) {
         simpleSudokuBoard.clearTheBoard();
         int howManyGuessesToSolve = simpleSudokuBoard.howManyGuessesNeededToSolve();
@@ -229,6 +260,11 @@ public final class SudokuGenerator {
         return simpleSudokuBoard;
     }
 
+    /**
+     * It removes one random number from the board.
+     * @param simpleSudokuBoard The board from which the number will be removed.
+     * @throws IllegalStateException If there are no set elements on the board the exception is thrown.
+     */
     private static void removeOneRandomNumberFromTheBoard(SimpleSudokuBoard simpleSudokuBoard) {
         List<CoordinatePair> listOfNotEmptyFields = getListOfNotEmptyFieldsCoordinates(simpleSudokuBoard.getSudokuElementsArrayCopy());
         if(listOfNotEmptyFields.size() == 0) {
@@ -263,6 +299,11 @@ public final class SudokuGenerator {
         return listOfEmptyFields;
     }
 
+    /**
+     * Returns list of sudoku elements coordinates that are not empty (that had been set)
+     * @param sudokuElementsArray An array of sudoku elements.
+     * @return List of coordinates of not empty elements.
+     */
     private static List<CoordinatePair> getListOfNotEmptyFieldsCoordinates(SudokuElement[][] sudokuElementsArray) {
         List<CoordinatePair> listOfNotEmptyFields = new ArrayList<>();
         for (int i = 0; i < 9; i++) {

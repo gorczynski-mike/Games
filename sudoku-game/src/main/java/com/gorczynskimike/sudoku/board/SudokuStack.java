@@ -3,6 +3,9 @@ package com.gorczynskimike.sudoku.board;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * Stack of sudoku states.
+ */
 public class SudokuStack {
 
     private Deque<SudokuState> sudokuStack = new LinkedList<>();

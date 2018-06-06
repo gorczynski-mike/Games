@@ -313,6 +313,10 @@ public class SimpleSudokuBoard {
         return isSolvable;
     }
 
+    /**
+     * Check how many guesses it takes to solve the board in current state. It
+     * @return How many guesses the algorithm needed to solve the board
+     */
     public int howManyGuessesNeededToSolve() {
         SudokuElement[][] arrayCopy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
         int result = -1;
@@ -323,6 +327,9 @@ public class SimpleSudokuBoard {
         return result;
     }
 
+    /**
+     * It resets the possible values for every element on the board and then removes all impossible values
+     */
     public void recalculateBoard() {
         for(int i=0; i<9; i++) {
             for(int j=0; j<9; j++) {
@@ -341,6 +348,11 @@ public class SimpleSudokuBoard {
         messageService.sendMessage("Program had to guess " + howManyGuesses + " times.");
     }
 
+    /**
+     * Get the best value for given element to make a guess.
+     * @param coordinatePair Element being guessed.
+     * @return best guess value for this element.
+     */
     private int getGuessedValueForElement(CoordinatePair coordinatePair) {
         if(coordinatePair == null) {
             throw new IllegalArgumentException("Argument to this method must not be null.");
@@ -369,6 +381,10 @@ public class SimpleSudokuBoard {
         sudokuElementsArray[lastState.getXIndex()][lastState.getYIndex()].removePossibleValue(lastState.getGuessedNumber());
     }
 
+    /**
+     * Find the best element to make a guess.
+     * @return Coordinates of best element to guess
+     */
     private CoordinatePair findBestElementToGuess() {
         int bestXIndex = 0;
         int bestYIndex = 0;
@@ -391,6 +407,10 @@ public class SimpleSudokuBoard {
         }
     }
 
+    /**
+     * It checks if there is on the board at least one sudoku element with empty possible values list.
+     * @return true if on theboard there is an element with no possible values
+     */
     private boolean checkIfAnyFieldWithNoPossibilities() {
         int minPossibilities = 10;
         for (int i = 0; i < 9; i++) {
@@ -407,6 +427,9 @@ public class SimpleSudokuBoard {
         return minPossibilities == 0;
     }
 
+    /**
+     * For every set element on the board it's value is removed from possibilities in it's row, column and 3x3 section.
+     */
     private void removeAllSetValuesFromPossibleOnes() {
         for(int xIndex=0; xIndex<9; xIndex++) {
             for(int yIndex=0; yIndex<9; yIndex++) {

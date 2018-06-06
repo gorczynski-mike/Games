@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -107,8 +106,8 @@
       <file leaf-file-name="SimpleSudokuBoard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="310" column="84" selection-start-line="310" selection-start-column="84" selection-end-line="310" selection-end-column="84" />
+            <state relative-caret-position="1983">
+              <caret line="353" column="49" selection-start-line="353" selection-start-column="49" selection-end-line="353" selection-end-column="49" />
               <folding>
                 <element signature="docComment;class#SimpleSudokuBoard#0" />
                 <element signature="e#554#605#0" />
@@ -140,7 +139,9 @@
                 <element signature="method#saveSudokuStateToStack#0;class#SimpleSudokuBoard#0" />
                 <element signature="method#restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities#0;class#SimpleSudokuBoard#0" />
                 <element signature="method#findBestElementToGuess#0;class#SimpleSudokuBoard#0" />
+                <element signature="docComment;method#checkIfAnyFieldWithNoPossibilities#0;class#SimpleSudokuBoard#0" />
                 <element signature="method#checkIfAnyFieldWithNoPossibilities#0;class#SimpleSudokuBoard#0" />
+                <element signature="docComment;method#removeAllSetValuesFromPossibleOnes#0;class#SimpleSudokuBoard#0" />
                 <element signature="method#removeAllSetValuesFromPossibleOnes#0;class#SimpleSudokuBoard#0" />
               </folding>
             </state>
@@ -1552,7 +1553,7 @@
       <workItem from="1528098774694" duration="2388000" />
       <workItem from="1528111088127" duration="20635000" />
       <workItem from="1528185139042" duration="61000" />
-      <workItem from="1528266854715" duration="5296000" />
+      <workItem from="1528266854715" duration="6499000" />
     </task>
     <servers />
   </component>
@@ -1589,7 +1590,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223550000" />
+    <option name="totallyTimeSpent" value="224753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="-9" width="1857" height="1098" extended-state="6" />
@@ -1604,15 +1605,15 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24816754" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24816754" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.22722512" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.22722512" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.802168" visible="true" weight="0.23219141" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8022284" visible="true" weight="0.23219141" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Gradle" order="6" />
-      <window_info id="Structure" order="1" sideWeight="0.19783197" side_tool="true" visible="true" weight="0.23219141" />
+      <window_info id="Structure" order="1" sideWeight="0.1977716" side_tool="true" visible="true" weight="0.23219141" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -2062,8 +2063,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="310" column="84" selection-start-line="310" selection-start-column="84" selection-end-line="310" selection-end-column="84" />
+        <state relative-caret-position="1983">
+          <caret line="353" column="49" selection-start-line="353" selection-start-column="49" selection-end-line="353" selection-end-column="49" />
           <folding>
             <element signature="docComment;class#SimpleSudokuBoard#0" />
             <element signature="e#554#605#0" />
@@ -2095,7 +2096,9 @@
             <element signature="method#saveSudokuStateToStack#0;class#SimpleSudokuBoard#0" />
             <element signature="method#restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities#0;class#SimpleSudokuBoard#0" />
             <element signature="method#findBestElementToGuess#0;class#SimpleSudokuBoard#0" />
+            <element signature="docComment;method#checkIfAnyFieldWithNoPossibilities#0;class#SimpleSudokuBoard#0" />
             <element signature="method#checkIfAnyFieldWithNoPossibilities#0;class#SimpleSudokuBoard#0" />
+            <element signature="docComment;method#removeAllSetValuesFromPossibleOnes#0;class#SimpleSudokuBoard#0" />
             <element signature="method#removeAllSetValuesFromPossibleOnes#0;class#SimpleSudokuBoard#0" />
           </folding>
         </state>

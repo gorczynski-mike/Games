@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f8fd3560-fe71-47a1-96b7-a0a9d182d5af" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/rock-paper-scissors/.gradle/" />
@@ -106,18 +107,41 @@
       <file leaf-file-name="SimpleSudokuBoard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="68" column="78" lean-forward="true" selection-start-line="68" selection-start-column="78" selection-end-line="68" selection-end-column="78" />
+            <state relative-caret-position="394">
+              <caret line="310" column="84" selection-start-line="310" selection-start-column="84" selection-end-line="310" selection-end-column="84" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#881#882#0" expanded="true" />
-                <element signature="e#1735#1736#0" expanded="true" />
-                <element signature="e#1814#1815#0" expanded="true" />
-                <element signature="e#9079#9080#0" expanded="true" />
-                <element signature="e#9162#9163#0" expanded="true" />
-                <element signature="e#9346#9347#0" expanded="true" />
-                <element signature="e#9412#9413#0" expanded="true" />
+                <element signature="docComment;class#SimpleSudokuBoard#0" />
+                <element signature="e#554#605#0" />
+                <element signature="e#657#708#0" />
+                <element signature="docComment;method#setMessageService#0;class#SimpleSudokuBoard#0" />
+                <element signature="docComment;method#setSudokuMessageService#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#setSudokuMessageService#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#SimpleSudokuBoard#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#SimpleSudokuBoard#1;class#SimpleSudokuBoard#0" />
+                <element signature="docComment;method#solveSudoku#0;class#SimpleSudokuBoard#0" />
+                <element signature="docComment;method#solveSudoku#1;class#SimpleSudokuBoard#0" />
+                <element signature="method#solveSudoku#1;class#SimpleSudokuBoard#0" />
+                <element signature="docComment;method#solveSudoku#2;class#SimpleSudokuBoard#0" />
+                <element signature="method#solveSudoku#2;class#SimpleSudokuBoard#0" />
+                <element signature="e#3526#3630#0" />
+                <element signature="docComment;method#printBoard#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#printBoard#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#setElement#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#unsetElement#0;class#SimpleSudokuBoard#0" />
+                <element signature="e#11107#11108#0" expanded="true" />
+                <element signature="e#11190#11191#0" expanded="true" />
+                <element signature="method#getSudokuElementsArrayCopy#0;class#SimpleSudokuBoard#0" />
+                <element signature="e#11563#11564#0" expanded="true" />
+                <element signature="e#11629#11630#0" expanded="true" />
+                <element signature="method#howManyGuessesNeededToSolve#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#recalculateBoard#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#printSolvingSummaryInfo#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#getGuessedValueForElement#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#saveSudokuStateToStack#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#findBestElementToGuess#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#checkIfAnyFieldWithNoPossibilities#0;class#SimpleSudokuBoard#0" />
+                <element signature="method#removeAllSetValuesFromPossibleOnes#0;class#SimpleSudokuBoard#0" />
               </folding>
             </state>
           </provider>
@@ -178,8 +202,8 @@
       <file leaf-file-name="SudokuGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2184">
-              <caret line="304" column="57" selection-start-line="304" selection-start-column="57" selection-end-line="304" selection-end-column="57" />
+            <state relative-caret-position="226">
+              <caret line="235" column="78" lean-forward="true" selection-start-line="235" selection-start-column="78" selection-end-line="235" selection-end-column="78" />
               <folding>
                 <element signature="docComment;class#SudokuGenerator#0" />
                 <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
@@ -187,15 +211,11 @@
                 <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
                 <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
                 <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
-                <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
                 <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
-                <element signature="method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
                 <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
-                <element signature="method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
                 <element signature="method#generateEasySudoku#0;class#SudokuGenerator#0" />
                 <element signature="method#generateMediumSudoku#0;class#SudokuGenerator#0" />
                 <element signature="method#generateHardSudoku#0;class#SudokuGenerator#0" />
-                <element signature="method#generateSudokuNGuesses#0;class#SudokuGenerator#0" />
                 <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
                 <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
                 <element signature="method#getListOfNotEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
@@ -1532,7 +1552,7 @@
       <workItem from="1528098774694" duration="2388000" />
       <workItem from="1528111088127" duration="20635000" />
       <workItem from="1528185139042" duration="61000" />
-      <workItem from="1528266854715" duration="4428000" />
+      <workItem from="1528266854715" duration="5296000" />
     </task>
     <servers />
   </component>
@@ -1569,7 +1589,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222682000" />
+    <option name="totallyTimeSpent" value="223550000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="-9" width="1857" height="1098" extended-state="6" />
@@ -2007,33 +2027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2184">
-          <caret line="304" column="57" selection-start-line="304" selection-start-column="57" selection-end-line="304" selection-end-column="57" />
-          <folding>
-            <element signature="docComment;class#SudokuGenerator#0" />
-            <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
-            <element signature="method#SudokuGenerator#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
-            <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
-            <element signature="method#generateRandomNumbers#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
-            <element signature="method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
-            <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
-            <element signature="method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
-            <element signature="method#generateEasySudoku#0;class#SudokuGenerator#0" />
-            <element signature="method#generateMediumSudoku#0;class#SudokuGenerator#0" />
-            <element signature="method#generateHardSudoku#0;class#SudokuGenerator#0" />
-            <element signature="method#generateSudokuNGuesses#0;class#SudokuGenerator#0" />
-            <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
-            <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
-            <element signature="method#getListOfNotEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -2044,20 +2037,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SudokuGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="235" column="78" lean-forward="true" selection-start-line="235" selection-start-column="78" selection-end-line="235" selection-end-column="78" />
+          <folding>
+            <element signature="docComment;class#SudokuGenerator#0" />
+            <element signature="docComment;method#SudokuGenerator#0;class#SudokuGenerator#0" />
+            <element signature="method#SudokuGenerator#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+            <element signature="method#generateOneRandomNumber#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateRandomNumbers#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateOneRandomNumberSolvable#0;class#SudokuGenerator#0" />
+            <element signature="docComment;method#generateRandomNumbersSolvable#0;class#SudokuGenerator#0" />
+            <element signature="method#generateEasySudoku#0;class#SudokuGenerator#0" />
+            <element signature="method#generateMediumSudoku#0;class#SudokuGenerator#0" />
+            <element signature="method#generateHardSudoku#0;class#SudokuGenerator#0" />
+            <element signature="method#getNumberOfEmptyElements#0;class#SudokuGenerator#0" />
+            <element signature="method#getListOfEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
+            <element signature="method#getListOfNotEmptyFieldsCoordinates#0;class#SudokuGenerator#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sudoku-game/src/main/java/com/gorczynskimike/sudoku/board/SimpleSudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="68" column="78" lean-forward="true" selection-start-line="68" selection-start-column="78" selection-end-line="68" selection-end-column="78" />
+        <state relative-caret-position="394">
+          <caret line="310" column="84" selection-start-line="310" selection-start-column="84" selection-end-line="310" selection-end-column="84" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#1735#1736#0" expanded="true" />
-            <element signature="e#1814#1815#0" expanded="true" />
-            <element signature="e#9079#9080#0" expanded="true" />
-            <element signature="e#9162#9163#0" expanded="true" />
-            <element signature="e#9346#9347#0" expanded="true" />
-            <element signature="e#9412#9413#0" expanded="true" />
+            <element signature="docComment;class#SimpleSudokuBoard#0" />
+            <element signature="e#554#605#0" />
+            <element signature="e#657#708#0" />
+            <element signature="docComment;method#setMessageService#0;class#SimpleSudokuBoard#0" />
+            <element signature="docComment;method#setSudokuMessageService#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#setSudokuMessageService#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#SimpleSudokuBoard#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#SimpleSudokuBoard#1;class#SimpleSudokuBoard#0" />
+            <element signature="docComment;method#solveSudoku#0;class#SimpleSudokuBoard#0" />
+            <element signature="docComment;method#solveSudoku#1;class#SimpleSudokuBoard#0" />
+            <element signature="method#solveSudoku#1;class#SimpleSudokuBoard#0" />
+            <element signature="docComment;method#solveSudoku#2;class#SimpleSudokuBoard#0" />
+            <element signature="method#solveSudoku#2;class#SimpleSudokuBoard#0" />
+            <element signature="e#3526#3630#0" />
+            <element signature="docComment;method#printBoard#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#printBoard#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#setElement#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#unsetElement#0;class#SimpleSudokuBoard#0" />
+            <element signature="e#11107#11108#0" expanded="true" />
+            <element signature="e#11190#11191#0" expanded="true" />
+            <element signature="method#getSudokuElementsArrayCopy#0;class#SimpleSudokuBoard#0" />
+            <element signature="e#11563#11564#0" expanded="true" />
+            <element signature="e#11629#11630#0" expanded="true" />
+            <element signature="method#howManyGuessesNeededToSolve#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#recalculateBoard#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#printSolvingSummaryInfo#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#getGuessedValueForElement#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#saveSudokuStateToStack#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#restoreLastSudokuStateAndRemoveGuessedValueFromPossibilities#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#findBestElementToGuess#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#checkIfAnyFieldWithNoPossibilities#0;class#SimpleSudokuBoard#0" />
+            <element signature="method#removeAllSetValuesFromPossibleOnes#0;class#SimpleSudokuBoard#0" />
           </folding>
         </state>
       </provider>

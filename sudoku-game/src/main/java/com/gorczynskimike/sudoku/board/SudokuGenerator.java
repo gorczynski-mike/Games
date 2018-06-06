@@ -233,7 +233,7 @@ public final class SudokuGenerator {
 //            SimpleSudokuBoard copy = new SimpleSudokuBoard(simpleSudokuBoard);
 
             int triesCounter = 0;
-            while(!generateOneRandomNumberSolvable(simpleSudokuBoard, 2000)) {
+            while(!generateOneRandomNumberSolvable(simpleSudokuBoard, 3000)) {
                 triesCounter++;
                 if(triesCounter > 5) {
                     System.out.println("Tries counter limit reached.");

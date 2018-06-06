@@ -308,7 +308,7 @@ public class SimpleSudokuBoard {
      */
     public boolean checkIfSolvableWithLimit(int mainLoopLimit) {
         SudokuElement[][] copy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
-        boolean isSolvable = this.solveSudoku(true, Integer.MAX_VALUE, 3000);
+        boolean isSolvable = this.solveSudoku(true, Integer.MAX_VALUE, mainLoopLimit);
         this.sudokuElementsArray = copy;
         return isSolvable;
     }

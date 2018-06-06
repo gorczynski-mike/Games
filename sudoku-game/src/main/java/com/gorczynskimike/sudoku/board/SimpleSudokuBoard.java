@@ -23,10 +23,18 @@ public class SimpleSudokuBoard {
         System.out.println(text);
     };
 
+    /**
+     * It sets message service for the board. Standard sysout is the default MessageService.
+     * @param messageService New MessageService.
+     */
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
     }
 
+    /**
+     * Sudoku message service is used to print the String representation of the board.
+     * @param sudokuMessageService New MessageService to print the board state.
+     */
     public void setSudokuMessageService(MessageService sudokuMessageService) {
         this.sudokuMessageService = sudokuMessageService;
     }
@@ -41,14 +49,41 @@ public class SimpleSudokuBoard {
         this.sudokuStack = new SudokuStack();
     }
 
+    /**
+     * It solves this board with following defaults:
+     * silent mode = false
+     * guesses limit = Integer.MAX_VALUE
+     * main loop limit = Integer.MAX_VALUE
+     * That means the method will send messages to message service and (effectively) there are no guesses or main loop
+     * limits.
+     * @return true if board was solved, false otherwise.
+     */
     public boolean solveSudoku() {
         return solveSudoku(false, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
+    /**
+     * It solves this board with following defaults:
+     * guesses limit = Integer.MAX_VALUE
+     * main loop limit = Integer.MAX_VALUE
+     * That means that (effectively) there are no guesses or main loop limits.
+     * @param silentModeOn if true, the board will not print messages to message services
+     * @return true if board was solved, false otherwise.
+     */
     public boolean solveSudoku(boolean silentModeOn) {
         return solveSudoku(silentModeOn, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
+    /**
+     * It solves this board. The limits are useful when generating new boards to avoid generations that need a lot of
+     * time to solve.
+     * @param silentModeOn if true, the board will not print messages to message services
+     * @param guessesLimit how many times the board can guess one number. If the limit is reached then method returns
+     *                    false and exits.
+     * @param mainLoopLimit how many times the board can start main loop of the algorithm. If the limit is reached
+     *                     then method returns false and exits.
+     * @return true if board was solved, false otherwise.
+     */
     public boolean solveSudoku(boolean silentModeOn, int guessesLimit, int mainLoopLimit) {
 
         //setup
@@ -130,6 +165,10 @@ public class SimpleSudokuBoard {
         }
     }
 
+    /**
+     * It sends String representation of the board to sudoku message service
+     * @return String representation of the board.
+     */
     public String printBoard() {
         StringBuilder resultBuilder = new StringBuilder();
         for(int i=0; i<9; i++) {
@@ -152,6 +191,12 @@ public class SimpleSudokuBoard {
         return resultBuilder.toString();
     }
 
+    /**
+     * Set given element. It also removes this value from possible values in the row, column and 3x3 section of this element.
+     * @param xIndex x index of the element
+     * @param yIndex y index of the element
+     * @param value new value for the element
+     */
     public void setElement(int xIndex, int yIndex, int value) {
 
         //range checks on arguments
@@ -191,6 +236,11 @@ public class SimpleSudokuBoard {
         }
     }
 
+    /**
+     * Clear given element. It also adds value removed to possible values in row, column and 3x3 section (where applicable).
+     * @param xIndex x index of the element
+     * @param yIndex y index of the element
+     */
     public void unsetElement(int xIndex, int yIndex) {
 
         //initial checks on range
@@ -228,18 +278,34 @@ public class SimpleSudokuBoard {
         removeAllSetValuesFromPossibleOnes();
     }
 
+    /**
+     * Clears the board.
+     */
     public void clearTheBoard() {
         this.sudokuElementsArray = SudokuArrayFactory.getEmptySudokuArray();
     }
 
+    /**
+     * Creates a copy of the array of sudoku elements of this board.
+     * @return Copy of array of suoku elements.
+     */
     public SudokuElement[][] getSudokuElementsArrayCopy() {
         return SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
     }
 
+    /**
+     * It checks if the board is solvable with no main loop limits.
+     * @return true if the board is solvable.
+     */
     public boolean checkIfSolvable() {
         return checkIfSolvableWithLimit(Integer.MAX_VALUE);
     }
 
+    /**
+     * It checks if the board is solvable with given main loop limit.
+     * @param mainLoopLimit limit of the main loops of the algorithm
+     * @return false if the board is not solvable or the limit is reached
+     */
     public boolean checkIfSolvableWithLimit(int mainLoopLimit) {
         SudokuElement[][] copy = SudokuArrayFactory.copySudokuArray(this.sudokuElementsArray);
         boolean isSolvable = this.solveSudoku(true, Integer.MAX_VALUE, 3000);

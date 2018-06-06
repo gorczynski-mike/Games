@@ -1,5 +1,8 @@
 package com.gorczynskimike.sudoku.userinterface;
 
+/**
+ * A simple utility class that prints the instructions (valid commands) to MessageService passed as an argument
+ */
 public final class InstructionsPrinter {
 
     private InstructionsPrinter() {

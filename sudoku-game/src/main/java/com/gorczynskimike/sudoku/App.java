@@ -44,6 +44,9 @@ public class App {
         mainWindow.closeMainWindow();
     }
 
+    /**
+     * It creates a couple of empty boards and then solves them. It makes solving boards in the future quicker.
+     */
     private static void initialize() {
         for(int i=0; i<5; i++) {
             new SimpleSudokuBoard().solveSudoku(true);

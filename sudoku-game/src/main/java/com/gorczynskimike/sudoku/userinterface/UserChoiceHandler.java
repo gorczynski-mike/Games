@@ -3,6 +3,9 @@ package com.gorczynskimike.sudoku.userinterface;
 import com.gorczynskimike.sudoku.board.SimpleSudokuBoard;
 import com.gorczynskimike.sudoku.board.SudokuGenerator;
 
+/**
+ * Depending on the user input passed it invokes related methods on given sudoku board or other utility classes.
+ */
 public class UserChoiceHandler {
 
     private static final String ERROR_PATTERN = "error";
@@ -22,10 +25,20 @@ public class UserChoiceHandler {
         System.out.println(text);
     };
 
+    /**
+     * It changes message service used by this class to send messages. Default message service is a standard sysout.
+     * @param messageService Message service that will be used to send messages.
+     */
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
     }
 
+    /**
+     * Main method used to handle user input. Depending on the input it invokes corresponding methods.
+     * @param userInput Command sent by the user.
+     * @param simpleSudokuBoard The board that will be modified by the commands.
+     * @return True if game has ended, False otherwise.
+     */
     public boolean handleUserInput(String userInput, SimpleSudokuBoard simpleSudokuBoard) {
 
         userInput = userInput.toLowerCase();
